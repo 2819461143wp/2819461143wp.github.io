@@ -15,7 +15,7 @@ timezone: 'Asia/Shanghai' # 网站时区
 # URL
 ## 在此设置您的站点 URL。例如，如果您使用 GitHub Page，请将 URL 设置为 'https://username.github.io/project'
 url: http://2819461143wp.github.io # 网站 URL
-permalink: :title/ # 文章永久链接格式
+permalink: /:title/ # 文章永久链接格式
 permalink_defaults: # 永久链接默认值
 pretty_urls: # 美化 URL 设置
   trailing_index: true # 设置为 false 以从永久链接中移除尾随的 'index.html'
