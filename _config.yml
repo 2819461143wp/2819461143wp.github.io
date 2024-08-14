@@ -7,15 +7,15 @@ title: cwdp.sky # 网站标题
 subtitle: wp # 网站副标题
 description: note # 网站描述
 keywords: # 网站关键词
-author: John Doe # 作者名称
+author: cwdp.sky # 作者名称
 language: zh-CN # 网站语言
-timezone: 'UTC' # 网站时区
+timezone: 'Asia/Shanghai' # 网站时区
 
 
 # URL
 ## 在此设置您的站点 URL。例如，如果您使用 GitHub Page，请将 URL 设置为 'https://username.github.io/project'
-url: http://cwdpsky.com # 网站 URL
-permalink: :year/:month/:day/:title/ # 文章永久链接格式
+url: http://2819461143wp.github.io # 网站 URL
+permalink: :title/ # 文章永久链接格式
 permalink_defaults: # 永久链接默认值
 pretty_urls: # 美化 URL 设置
   trailing_index: true # 设置为 false 以从永久链接中移除尾随的 'index.html'
@@ -104,4 +104,7 @@ theme: fluid # 使用的主题名称
 # 部署
 ## 文档: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: '' # 部署类型，具体配置请参考 Hexo 部署文档
+  type: git
+  repo: https://github.com/2819461143wp/2819461143wp.github.io
+  # example, https://github.com/hexojs/hexojs.github.io
+  branch: gh-pages

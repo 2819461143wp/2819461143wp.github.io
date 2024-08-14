@@ -6,18 +6,18 @@
 title: cwdp.sky # 网站标题
 subtitle: '' # 网站副标题
 description: 'myblog' # 网站描述
-keywords: # 网站关键词
-author: John Doe # 作者名称
+keywords: 数据结构与算法 # 网站关键词
+author: cwdp.sky # 作者名称
 language: zh-CN # 网站语言
-timezone: 'UTC' # 网站时区
+timezone: 'Asia/Shanghai' # 网站时区
 
 navbar:
   blog_title: cwdp.sky # 博客标题
 
 # URL
 ## 在此设置您的站点 URL。例如，如果您使用 GitHub Page，请将 URL 设置为 'https://username.github.io/project'
-url: http://cwdpsky.com # 网站 URL
-permalink: :year/:month/:day/:title/ # 文章永久链接格式
+url: http://2819461143wp.github.io # 网站 URL
+permalink: :title/ # 文章永久链接格式
 permalink_defaults: # 永久链接默认值
 pretty_urls: # 美化 URL 设置
   trailing_index: true # 设置为 false 以从永久链接中移除尾随的 'index.html'
