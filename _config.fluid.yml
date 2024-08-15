@@ -11,10 +11,16 @@ author: cwdp.sky # 作者名称
 language: zh-CN # 网站语言
 timezone: 'Asia/Shanghai' # 网站时区
 
+favicon: /images/图标.jpg # 网站图标
+#banner_img_height: 300px
+#banner_mask_alpha: 0
+
 navbar:
   blog_title: cwdp.sky # 博客标题
 
 index:
+  banner_img: /images/壁纸.jpg
+  banner_img_height: 80px
   slogan:
     enable: true
     text: 每日任务：活着(1/1)😋
