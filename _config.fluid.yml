@@ -6,13 +6,25 @@
 title: cwdp.sky # 网站标题
 subtitle: '' # 网站副标题
 description: 'myblog' # 网站描述
-keywords: 数据结构与算法 # 网站关键词
+keywords: "数据结构与算法" # 网站关键词
 author: cwdp.sky # 作者名称
 language: zh-CN # 网站语言
 timezone: 'Asia/Shanghai' # 网站时区
 
 navbar:
   blog_title: cwdp.sky # 博客标题
+
+index:
+  slogan:
+    enable: true
+    text: 每日任务：活着(1/1)😋
+
+footer:
+  statistics:
+    enable: true
+    source: "busuanzi"  # 可选 leancloud | busuanzi  根据自己需求选择
+    pv_format: "总访问量 {} 次"  # 显示的文本，{}是数字的占位符（必须包含)，下同
+    uv_format: "总访客数 {} 人"
 
 # URL
 ## 在此设置您的站点 URL。例如，如果您使用 GitHub Page，请将 URL 设置为 'https://username.github.io/project'
@@ -47,6 +59,16 @@ post_asset_folder: true # 是否为每篇文章创建单独的资源文件夹，
 relative_link: ture # 是否使用相对链接，false 表示使用绝对链接
 future: true # 是否显示未来的文章，true 表示显示
 syntax_highlighter: highlight.js # 语法高亮工具，默认使用 highlight.js
+
+post:
+  views:  # 阅读次数
+    enable: true
+    source: "leancloud"  # 统计数据来源，可选：leancloud | busuanzi   注意不蒜子会间歇抽风
+    format: "{} 次"  # 显示格式，例如：{} 次 | 阅读 {} 次
+  math:
+    enable: true
+    specific: false
+    engine: mathjax
 
 highlight: # highlight.js 配置
   line_number: true # 是否显示行号，true 表示显示

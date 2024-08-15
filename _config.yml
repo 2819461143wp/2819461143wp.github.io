@@ -5,8 +5,8 @@
 # 站点
 title: cwdp.sky # 网站标题
 subtitle: wp # 网站副标题
-description: note # 网站描述
-keywords: # 网站关键词
+description: 'note' # 网站描述
+keywords:  # 网站关键词
 author: cwdp.sky # 作者名称
 language: zh-CN # 网站语言
 timezone: 'Asia/Shanghai' # 网站时区
