@@ -1,0 +1,717 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="../images/%E5%9B%BE%E6%A0%87.jpg">
+  <link rel="icon" href="../images/%E5%9B%BE%E6%A0%87.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="cwdp.sky">
+  <meta name="keywords" content="数据结构与算法">
+  
+    <meta name="description" content="基础内容文本插值123456789101112131415161718192021222324252627&lt;script&gt;&#x2F;&#x2F; 这是 JavaScript 部分的注释export default &#123;  data() &#123;    return &#123;      msg: &#x27;Hello Vue!&#x27;,      hello: &#x27;Hello">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue">
+<meta property="og:url" content="http://2819461143wp.github.io/vue/index.html">
+<meta property="og:site_name" content="cwdp.sky">
+<meta property="og:description" content="基础内容文本插值123456789101112131415161718192021222324252627&lt;script&gt;&#x2F;&#x2F; 这是 JavaScript 部分的注释export default &#123;  data() &#123;    return &#123;      msg: &#x27;Hello Vue!&#x27;,      hello: &#x27;Hello">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-08-17T10:40:01.515Z">
+<meta property="article:modified_time" content="2024-08-18T07:30:14.220Z">
+<meta property="article:author" content="cwdp.sky">
+<meta property="article:tag" content="language">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>vue - cwdp.sky</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="../css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="../css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="../css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"2819461143wp.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="../js/utils.js" ></script>
+  <script  src="../js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="../index.html">
+      <strong>cwdp.sky</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('../images/%E5%A3%81%E7%BA%B8.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="vue"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-08-17 18:40" pubdate>
+          2024年8月17日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">vue</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="基础内容"><a href="#基础内容" class="headerlink" title="基础内容"></a>基础内容</h2><h3 id="文本插值"><a href="#文本插值" class="headerlink" title="文本插值"></a>文本插值</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script&gt;<br>// 这是 JavaScript 部分的注释<br>export default &#123;<br>  data() &#123;<br>    return &#123;<br>      msg: &#x27;Hello Vue!&#x27;,<br>      hello: &#x27;Hello World!&#x27;,<br>      number: 100,<br>      flag: 1,<br>      rawhtml: &#x27;&lt;span style=&quot;color:red&quot;&gt;我是红色的&lt;/span&gt;&#x27;<br>    &#125;<br>  &#125;<br>&#125;<br>&lt;/script&gt;<br><br>&lt;template&gt;<br>  &lt;h3&gt;文本插值&lt;/h3&gt;<br>  &lt;p&gt;&#123;&#123; msg &#125;&#125;&lt;/p&gt;<br>  &lt;p&gt;&#123;&#123; hello.split(&#x27;&#x27;).reverse().join(&#x27;&#x27;) &#125;&#125;&lt;/p&gt;<br>  &lt;p&gt;&#123;&#123; number+1 &#125;&#125;&lt;/p&gt;<br>  &lt;p&gt;&#123;&#123; flag ?&#x27;YES&#x27;:&#x27;NO&#x27; &#125;&#125;&lt;/p&gt;<br>  &lt;p&gt;&#123;&#123; rawhtml &#125;&#125;&lt;/p&gt;<br>  &lt;p v-html=&quot;rawhtml&quot;&gt;&lt;/p&gt;<br>  &lt;!--无效语句 --&gt;<br>  &lt;!-- &lt;p&gt;&#123;&#123; var a = 1 &#125;&#125;&lt;/p&gt; --&gt;<br>  &lt;!-- &#123;&#123; if(ok)&#123;return 1&#125; &#125;&#125; --&gt;<br>&lt;/template&gt;<br></code></pre></td></tr></table></figure>
+
+<h3 id="属性绑定"><a href="#属性绑定" class="headerlink" title="属性绑定"></a>属性绑定</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script&gt;<br>// 这是 JavaScript 部分的注释<br>export default &#123;<br>  data() &#123;<br>    return &#123;<br>      msg: &quot;active&quot;,<br>      vid: &quot;appID&quot;,<br>      isbuttondisabled: true,<br>      objectofattros: &#123;<br>        dynamicclass: &quot;appclass&quot;,<br>        dynamicid: &quot;appID&quot;<br>      &#125;<br>    &#125;<br>  &#125;<br>&#125;<br>&lt;/script&gt;<br><br>&lt;template&gt;<br>  &lt;h3&gt;属性绑定&lt;/h3&gt;<br>  &lt;p v-bind:id=&quot;vid&quot; v-bind:class=&quot;msg&quot;&gt;绑定属性&lt;/p&gt;<br>  &lt;p :id=&quot;vid&quot; :class=&quot;msg&quot;&gt;绑定属性&lt;/p&gt;<br>  &lt;button :disabled=&quot;isbuttondisabled&quot;&gt;button&lt;/button&gt;<br>  &lt;p v-bind=&quot;objectofattros&quot;&gt;绑定对象&lt;/p&gt;<br>  &lt;!--无效语句 --&gt;<br>  &lt;!-- &lt;p&gt;&#123;&#123; var a = 1 &#125;&#125;&lt;/p&gt; --&gt;<br>  &lt;!-- &#123;&#123; if(ok)&#123;return 1&#125; &#125;&#125; --&gt;<br>&lt;/template&gt;<br><br>&lt;style&gt;<br>.active &#123;<br>  color: red;<br>&#125;<br>&lt;/style&gt;<br></code></pre></td></tr></table></figure>
+
+<h3 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script&gt;<br>export default &#123;<br>    data() &#123;<br>        return &#123;<br>            flag: true,<br>            type: &#x27;B&#x27;<br>        &#125;<br>    &#125;<br>&#125;<br>&lt;/script&gt;<br><br>&lt;template&gt;<br>&lt;h3&gt;条件渲染&lt;/h3&gt;<br>&lt;div v-if=&quot;flag&quot;&gt;你抓不住我&lt;/div&gt;<br>&lt;div v-else&gt;我是山里灵活的狗&lt;/div&gt;<br>&lt;div v-show=&quot;flag&quot;&gt;我是山里灵活的狗&lt;/div&gt;<br>&lt;!-- 频繁切换用show，少量切换有多种情况用if --&gt;<br>&lt;div v-if=&quot;type === &#x27;A&#x27;&quot;&gt;我是A&lt;/div&gt;<br>&lt;div v-else-if=&quot;type === &#x27;B&#x27;&quot;&gt;我是B&lt;/div&gt;<br>&lt;div v-else-if=&quot;type === &#x27;C&#x27;&quot;&gt;我是C&lt;/div&gt;<br>&lt;div v-else&gt;我是D&lt;/div&gt;<br>&lt;/template&gt;<br></code></pre></td></tr></table></figure>
+
+<h3 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script&gt;<br>export default &#123;<br>    data() &#123;<br>        return &#123;<br>            names: [&#x27;张三&#x27;, &#x27;李四&#x27;, &#x27;王五&#x27;],<br>            user: &#123;<br>                name: &#x27;张三&#x27;,<br>                age: 18<br>            &#125;,<br>            person: [&#123;<br>                id:1,<br>                name: &#x27;张三&#x27;,<br>                age: 70<br>            &#125;,<br>                &#123;<br>                id:2,<br>                name: &#x27;李四&#x27;,<br>                age: 80<br>            &#125;,<br>                &#123;<br>                id:3,<br>                name: &#x27;王五&#x27;,<br>                age: 9<br>            &#125;]<br>        &#125;<br>    &#125;<br>&#125;<br>&lt;/script&gt;<br><br>&lt;template&gt;<br>&lt;h3&gt;列表渲染+通过key管理状态&lt;/h3&gt;<br>&lt;!-- 其中in可以用of代替 --&gt;<br>&lt;!-- &lt;p v-for=&quot;a in names&quot;&gt;&#123;&#123; a &#125;&#125;&lt;/p&gt; --&gt;<br>&lt;p v-for=&quot;(x,i) in names&quot;&gt;&#123;&#123; x &#125;&#125;:&#123;&#123; i &#125;&#125;&lt;/p&gt;<br>&lt;p v-for=&quot;(x,i) in names&quot; :key=&quot;i&quot;&gt;&#123;&#123; x &#125;&#125;&lt;/p&gt;<br>&lt;!-- 此处key使用了v-bind来绑定 --&gt;<br>&lt;p v-for=&quot;(value,k,index) in user&quot;&gt;&#123;&#123; value &#125;&#125;-&#123;&#123; k &#125;&#125;-&#123;&#123; index &#125;&#125;&lt;/p&gt;<br>&lt;div v-for=&quot;item of person&quot; :key=&quot;item.id&quot;&gt;<br>    &lt;p&gt;&#123;&#123; item.name &#125;&#125;-&#123;&#123; item.age &#125;&#125;&lt;/p&gt;<br>&lt;/div&gt;<br>&lt;/template&gt;<br></code></pre></td></tr></table></figure>
+
+<h3 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>    &lt;h3&gt;内联事件处理器&lt;/h3&gt;<br>    &lt;button v-on:click=&quot;count1++&quot;&gt;add&lt;/button&gt;<br>    &lt;!-- v-on:click=&quot;count++&quot; 等价于 @click=&quot;count++&quot; --&gt;<br>    &lt;p&gt;&#123;&#123; count1 &#125;&#125;&lt;/p&gt;<br><br>    &lt;h3&gt;方法事件处理器&lt;/h3&gt;<br>    &lt;button @click=&quot;add&quot;&gt;add&lt;/button&gt;<br>    &lt;p&gt;&#123;&#123; count2 &#125;&#125;&lt;/p&gt;<br>&lt;/template&gt;<br><br>&lt;script&gt;<br><br><br>export default &#123;<br>    data() &#123;<br>        return &#123;<br>            count1: 0,<br>            count2: 0<br>        &#125;<br>    &#125;,<br>    methods: &#123;<br>        add() &#123;<br>            console.log(&#x27;add&#x27;)<br>            // 这个是控制台输出的<br>            this.count2++<br>        &#125;<br>    &#125;<br>&#125;<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<h3 id="事件传参"><a href="#事件传参" class="headerlink" title="事件传参"></a>事件传参</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>    &lt;h3&gt;事件传参&lt;/h3&gt;<br>    &lt;button @click=&quot;addcount&quot;&gt;add&lt;/button&gt;<br>    &lt;p&gt;count1 is :&#123;&#123; count1 &#125;&#125;&lt;/p&gt;<br>    &lt;button @click=&quot;add(&#x27;hello&#x27;)&quot;&gt;add&lt;/button&gt;<br>    &lt;p&gt;count2 is :&#123;&#123; count2 &#125;&#125;&lt;/p&gt;<br>    &lt;p @click=&quot;getname(name,$event)&quot; v-for=&quot;(name,i) of names&quot; :key=&quot;index&quot;&gt;&#123;&#123; name &#125;&#125;&lt;/p&gt;<br>&lt;/template&gt;<br><br>&lt;script&gt;<br><br><br>export default &#123;<br>    data() &#123;<br>        return &#123;<br>            count1: 0,<br>            count2: 0,<br>            names:[&#x27;张三&#x27;,&#x27;李四&#x27;,&#x27;王五&#x27;]<br>        &#125;<br>    &#125;,<br>    methods: &#123;<br>        addcount(e) &#123;<br>            //js中的事件对象event<br>            this.count1++;<br>            e.target.innerHTML = &#x27;add&#x27; + this.count1;<br>            console.log(e.target);<br>        &#125;,<br>        add(msg) &#123;<br>            console.log(msg);<br>            this.count2++;<br>        &#125;,<br>        getname(name,e)&#123;<br>            console.log(name);<br>            console.log(e);<br>        &#125;<br>    &#125;<br>&#125;<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<h3 id="事件修饰"><a href="#事件修饰" class="headerlink" title="事件修饰"></a>事件修饰</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>    &lt;h3&gt;事件修饰符&lt;/h3&gt;<br>    &lt;a @click=&quot;clickblog&quot; href=&quot;https://2819461143wp.github.io/&quot;&gt;blog&lt;/a&gt;<br>    &lt;div @click=&quot;clickdiv&quot;&gt;<br>        &lt;p @click.stop=&quot;clickp&quot;&gt;测试冒泡&lt;/p&gt;<br>        &lt;!-- 只会执行p的事件 --&gt;<br>    &lt;/div&gt;<br>&lt;/template&gt;<br>&lt;script&gt;<br>export default &#123;<br>    data() &#123;<br>        return &#123;<br>        &#125;<br>    &#125;,<br>    methods: &#123;<br>        clickblog(e) &#123;<br>            e.preventDefault();<br>            //阻止默认事件<br>            console.log(&#x27;click blog&#x27;);<br>        &#125;,<br>        clickdiv() &#123;<br>            console.log(&#x27;click div&#x27;);<br>        &#125;,<br>        clickp(e) &#123;<br>            //e.stopPropagation();<br>            console.log(&#x27;click p&#x27;);<br>        &#125;<br>    &#125;<br>&#125;<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="../categories/note/" class="category-chain-item">note</a>
+  
+  
+    <span>></span>
+    
+  <a href="../categories/note/language/" class="category-chain-item">language</a>
+  
+  
+    <span>></span>
+    
+  <a href="../categories/note/language/vue/" class="category-chain-item">vue</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="../tags/language/" class="print-no-link">#language</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>vue</div>
+      <div>http://2819461143wp.github.io/vue/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>cwdp.sky</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年8月17日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="../%E9%87%8D%E8%A6%81%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" title="重要排序算法">
+                        <span class="hidden-mobile">重要排序算法</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="../js/events.js" ></script>
+<script  src="../js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="../js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="../js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="../js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
