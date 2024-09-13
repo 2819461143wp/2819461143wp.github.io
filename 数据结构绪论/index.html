@@ -19,27 +19,28 @@
   <meta name="author" content="cwdp.sky">
   <meta name="keywords" content="数据结构与算法">
   
-    <meta name="description" content="二叉树分析 二叉树的递归遍历基础遍历： 12345678910public static void f(TreeNode head) &#123;    if (head &#x3D;&#x3D; null) &#123;        return;    &#125;    &#x2F;&#x2F;1    f(head.left);    &#x2F;&#x2F;2    f(head.right);    &#x2F;&#x2F;3&#125;   三种排序1.前&amp;#">
+    <meta name="description" content="总结 数据结构基本概念基本概念与术语 数据：数据是信息的载体，是描述客观事物属性的数、字符及所有能输入到计算机中并被计算机程序识别和处理的符号的集合。数据是计算机程序加工的原料。 数据元素：数据元素是数据的基本单位，通常作为一个整体进行考虑和处理。一个数据元素可由若干数据项组成，数据项是构成数据元素的不可分割的最小单位。例如，学生记录就是一个数据元素，它由学号、姓名、性别等数据项组成。 数据对象：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="二叉树及其实现">
-<meta property="og:url" content="http://2819461143wp.github.io/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%8F%8A%E5%85%B6%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:title" content="数据结构绪论">
+<meta property="og:url" content="http://2819461143wp.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/index.html">
 <meta property="og:site_name" content="cwdp.sky">
-<meta property="og:description" content="二叉树分析 二叉树的递归遍历基础遍历： 12345678910public static void f(TreeNode head) &#123;    if (head &#x3D;&#x3D; null) &#123;        return;    &#125;    &#x2F;&#x2F;1    f(head.left);    &#x2F;&#x2F;2    f(head.right);    &#x2F;&#x2F;3&#125;   三种排序1.前&amp;#">
+<meta property="og:description" content="总结 数据结构基本概念基本概念与术语 数据：数据是信息的载体，是描述客观事物属性的数、字符及所有能输入到计算机中并被计算机程序识别和处理的符号的集合。数据是计算机程序加工的原料。 数据元素：数据元素是数据的基本单位，通常作为一个整体进行考虑和处理。一个数据元素可由若干数据项组成，数据项是构成数据元素的不可分割的最小单位。例如，学生记录就是一个数据元素，它由学号、姓名、性别等数据项组成。 数据对象：">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://2819461143wp.github.io/images/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%88%86%E6%9E%90.png">
-<meta property="article:published_time" content="2024-08-14T13:10:26.461Z">
-<meta property="article:modified_time" content="2024-08-16T14:03:56.970Z">
+<meta property="og:image" content="http://2819461143wp.github.io/images/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/%E7%BB%AA%E8%AE%BA%E6%80%BB.png">
+<meta property="og:image" content="http://2819461143wp.github.io/images/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/1.1%20%E6%95%B0%E6%8D%AE%E7%9A%84%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84%E5%88%86%E7%B1%BB%E5%9B%BE.png">
+<meta property="og:image" content="http://2819461143wp.github.io/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/1.2%E5%9B%9B%E7%B1%BB%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E5%85%B3%E7%B3%BB%E7%A4%BA%E4%BE%8B%E5%9B%BE.png">
+<meta property="article:published_time" content="2024-09-11T01:42:19.823Z">
+<meta property="article:modified_time" content="2024-09-11T02:58:44.205Z">
 <meta property="article:author" content="cwdp.sky">
 <meta property="article:tag" content="数据结构">
-<meta property="article:tag" content="树">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://2819461143wp.github.io/images/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%88%86%E6%9E%90.png">
+<meta name="twitter:image" content="http://2819461143wp.github.io/images/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/%E7%BB%AA%E8%AE%BA%E6%80%BB.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>二叉树及其实现 - cwdp.sky</title>
+  <title>数据结构绪论 - cwdp.sky</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -205,7 +206,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="二叉树及其实现"></span>
+            <span id="subtitle" data-typed-text="数据结构绪论"></span>
           
         </div>
 
@@ -216,8 +217,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-08-14 21:10" pubdate>
-          2024年8月14日 晚上
+        <time datetime="2024-09-11 09:42" pubdate>
+          2024年9月11日 上午
         </time>
       </span>
     
@@ -228,7 +229,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          636 字
+          1.5k 字
         
       </span>
     
@@ -239,7 +240,7 @@
         
         
         
-          8 分钟
+          19 分钟
         
       </span>
     
@@ -276,12 +277,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">二叉树及其实现</h1>
+            <h1 id="seo-header">数据结构绪论</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2024年8月16日 晚上
+                    本文最后更新于 2024年9月11日 上午
                   
                 
               </p>
@@ -289,31 +290,38 @@
             
               <div class="markdown-body">
                 
-                <h2 id="二叉树分析"><a href="#二叉树分析" class="headerlink" title="二叉树分析"></a>二叉树分析</h2><p><img src="../images/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%88%86%E6%9E%90.png" srcset="/img/loading.gif" lazyload alt="二叉树分析"></p>
-<h2 id="二叉树的递归遍历"><a href="#二叉树的递归遍历" class="headerlink" title="二叉树的递归遍历"></a>二叉树的递归遍历</h2><p>基础遍历：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">f</span><span class="hljs-params">(TreeNode head)</span> &#123;<br>    <span class="hljs-keyword">if</span> (head == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-comment">//1</span><br>    f(head.left);<br>    <span class="hljs-comment">//2</span><br>    f(head.right);<br>    <span class="hljs-comment">//3</span><br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><img src="../images/%E4%BA%8C%E5%8F%89%E6%A0%91/%E9%80%92%E5%BD%92%E5%BA%8F.png" srcset="/img/loading.gif" lazyload alt="递归序"></p>
-<h3 id="三种排序"><a href="#三种排序" class="headerlink" title="三种排序"></a>三种排序</h3><p>1.前&#x2F;先序排列 <em><strong>二叉树内元素第一次时出现记录</strong></em><br>中-&gt;左-&gt;右</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span>  <span class="hljs-keyword">void</span> <span class="hljs-title function_">preOrder</span><span class="hljs-params">(TreeNode head)</span> &#123;<br>    <span class="hljs-keyword">if</span> (head == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    System.out.print(head.data + <span class="hljs-string">&quot; &quot;</span>);<br>    preOrder(head.left);<br>    preOrder(head.right);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>2.中序排列 <em><strong>二叉树内元素第二次时出现记录</strong></em><br>左-&gt;中-&gt;右</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">inOrder</span><span class="hljs-params">(TreeNode head)</span> &#123;<br>    <span class="hljs-keyword">if</span> (head == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    inOrder(head.left);<br>    System.out.print(head.data + <span class="hljs-string">&quot; &quot;</span>);<br>    inOrder(head.right);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>3.后序排列 <em><strong>二叉树内元素第三次时出现记录</strong></em><br>左-&gt;右-&gt;中</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">postOrder</span><span class="hljs-params">(TreeNode head)</span> &#123;<br>    <span class="hljs-keyword">if</span> (head == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    postOrder(head.left);<br>    postOrder(head.right);<br>    System.out.print(head.data + <span class="hljs-string">&quot; &quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="二叉树的非递归遍历-迭代-用栈实现"><a href="#二叉树的非递归遍历-迭代-用栈实现" class="headerlink" title="二叉树的非递归遍历_迭代_用栈实现"></a>二叉树的非递归遍历_迭代_用栈实现</h2><p>1.先序遍历：  <em><strong>先压头，弹出的变头，先压右再压左，弹出时就是先弹左节点先处理左子树，先左再右</strong></em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">preOder</span><span class="hljs-params">(TreeNode head)</span>&#123;<br>    <span class="hljs-keyword">if</span>(head !=<span class="hljs-literal">null</span>)&#123;<br>        Stack&lt;TreeNode&gt; stack = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>        stack.push(head);<br>        <span class="hljs-keyword">while</span>(!stack.isEmpty())&#123;<br>            head = stack.pop();<br>            System.out.println(head.val);<br>            <span class="hljs-keyword">if</span>(head.right != <span class="hljs-literal">null</span>)&#123;<br>                stack.push(head.right);<br>            &#125;<br>            <span class="hljs-keyword">if</span>(head.left != <span class="hljs-literal">null</span>)&#123;<br>                stack.push(head.left);<br>            &#125;<br>        &#125;<br>        System.out.println();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>2.中序遍历： <em><strong>头不为空，先压头，再以左节点为头，压入整棵树的左节点；头为空，弹出父节点并打印，以父节点的右节点为头，再处理右子树的全部左节点</strong></em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">inOrder</span><span class="hljs-params">(TreeNode head)</span>&#123;<br>    <span class="hljs-keyword">if</span>(head !=<span class="hljs-literal">null</span>)&#123;<br>        Stack&lt;TreeNode&gt; stack = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>        <span class="hljs-keyword">while</span>(!stack.isEmpty() || head != <span class="hljs-literal">null</span>)&#123;<br>            <span class="hljs-keyword">if</span>(head != <span class="hljs-literal">null</span>)&#123;<br>                stack.push(head);<br>                head = head.left;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                head = stack.pop();<br>                System.out.println(head.val);<br>                head = head.right;<br>            &#125;<br>        &#125;<br>        System.out.println();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>3.后序排列：<br>①两个栈实现：<em><strong>先通过类前序变为中-&gt;右—&gt;左，在通过压栈出栈变为左-&gt;右-&gt;中</strong></em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">posOrderTwoStacks</span><span class="hljs-params">(TreeNode head)</span> &#123;<br>    <span class="hljs-keyword">if</span> (head != <span class="hljs-literal">null</span>) &#123;<br>        Stack&lt;TreeNode&gt; stack = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>        Stack&lt;TreeNode&gt; collect = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>        stack.push(head);<br>        <span class="hljs-keyword">while</span> (!stack.isEmpty()) &#123;<br>            head = stack.pop();<br>            collect.push(head);<br>            <span class="hljs-keyword">if</span> (head.left != <span class="hljs-literal">null</span>) &#123;<br>                stack.push(head.left);<br>            &#125;<br>            <span class="hljs-keyword">if</span> (head.right != <span class="hljs-literal">null</span>) &#123;<br>                stack.push(head.right);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">while</span> (!collect.isEmpty()) &#123;<br>            System.out.print(collect.pop().val + <span class="hljs-string">&quot; &quot;</span>);<br>        &#125;<br>        System.out.println();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>②一个栈实现：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">posOrderOneStack</span><span class="hljs-params">(TreeNode head)</span> &#123;<br>    <span class="hljs-keyword">if</span> (head!=<span class="hljs-literal">null</span>)&#123;<br>        Stack&lt;TreeNode&gt; stack = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>        stack.push(head);<br>        <span class="hljs-keyword">while</span> (!stack.isEmpty())&#123;<br>            <span class="hljs-type">TreeNode</span> <span class="hljs-variable">cur</span> <span class="hljs-operator">=</span> stack.peek();<br>            <span class="hljs-comment">//有左子树且左子树未处理</span><br>            <span class="hljs-keyword">if</span> (cur.left!=<span class="hljs-literal">null</span>&amp;&amp;head!=cur.left&amp;&amp;head!=cur.right)&#123;<br>                stack.push(cur.left);<br>            &#125;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (cur.right!=<span class="hljs-literal">null</span>&amp;&amp;head!=cur.right)&#123;<br>            <span class="hljs-comment">//有右子树且右子树未处理</span><br>                stack.push(cur.right);<br>            &#125;<br>            <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-comment">//为叶子节点或者左右子树都处理过了</span><br>                System.out.print(cur.val);<br>                head = stack.pop();<br>            &#125;<br>            System.out.println();<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="../images/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/%E7%BB%AA%E8%AE%BA%E6%80%BB.png" srcset="/img/loading.gif" lazyload alt="绪论总结"></p>
+<h2 id="数据结构基本概念"><a href="#数据结构基本概念" class="headerlink" title="数据结构基本概念"></a>数据结构基本概念</h2><h3 id="基本概念与术语"><a href="#基本概念与术语" class="headerlink" title="基本概念与术语"></a>基本概念与术语</h3><ol>
+<li>数据：<br>数据是信息的载体，是描述客观事物属性的数、字符及所有能输入到计算机中并被计算机程序识别和处理的符号的集合。数据是计算机程序加工的原料。</li>
+<li>数据元素：<br>数据元素是数据的基本单位，通常作为一个整体进行考虑和处理。一个数据元素可由若干数据项组成，数据项是构成数据元素的不可分割的最小单位。例如，学生记录就是一个数据元素，它由学号、姓名、性别等数据项组成。</li>
+<li>数据对象：<br>数据对象是具有相同性质的数据元素的集合，是数据的一个子集。</li>
+<li>数据类型：<br>数据类型是一个值的集合和定义在此集合上的一组操作的总称，可分为其值不可再分的原子类型，其值可以再分的结构类型以及和抽象数据类型（一个数学模型及定义在该数学模型上的一组操作。它通常是对数据的某种抽象，定义了数据的取值范围及其结构形式，以及对数据操作的集合。）</li>
+<li>数据结构：<br>数据结构是相互之间存在一种或多种特定关系的数据元素的集合，这种数据元素相互之间的关系称为结构。数据结构包括三方面的内容:逻辑结构、存储结构和数据的运算。<br>数据的逻辑结构和存储结构是密不可分的两个方面，一个算法的设计取决于所选定的逻辑结构，而算法的实现依赖于所采用的存储结构。</li>
+</ol>
+<h3 id="数据结构三要素"><a href="#数据结构三要素" class="headerlink" title="数据结构三要素"></a>数据结构三要素</h3><ol>
+<li>数据逻辑结构<br>逻辑结构是指数据元素之间的逻辑关系，即从逻辑关系上描述数据。<br>数据的逻辑结构分为线性结构和非线性结构，线性表是典型的线性结构:集合、树和图是典型的非线性结构。<br><img src="../images/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA/1.1%20%E6%95%B0%E6%8D%AE%E7%9A%84%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84%E5%88%86%E7%B1%BB%E5%9B%BE.png" srcset="/img/loading.gif" lazyload alt="数据的逻辑结构分类图"><br>集合,结构中的数据元素之间除“同属一个集合”外，别无其他关系。<br>线性结构,结构中的数据元素之间只存在一对一的关系。<br>树形结构,结构中的数据元素之间存在一对多的关系。<br>图状结构或网状结构，结构中的数据元素之间存在多对多的关系。<br><img src="../images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/1.2%E5%9B%9B%E7%B1%BB%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E5%85%B3%E7%B3%BB%E7%A4%BA%E4%BE%8B%E5%9B%BE.png" srcset="/img/loading.gif" lazyload alt="四类基本关系实例图"></li>
+<li>数据的存储结构<ul>
+<li>顺序存储：把逻辑上相邻的元素存储在物理位置上也相邻的存储单元中，元素之间的关系由存储单元的邻接关系来体现。其优点是可以实现随机存取，每个元素占用最少的存储空间;缺点是只能使用相邻的一整块存储单元，因此可能产生较多的外部碎片。</li>
+<li>链式存储：不要求逻辑上相邻的元素在物理位置上也相邻，借助指示元素存储地址的指针来表示元素之间的逻辑关系。其优点是不会出现碎片现象，能充分利用所有存储单元;缺点是每个元素因存储指针而占用额外的存储空间，且只能实现顺序存取。</li>
+<li>索引存储：在存储元素信息的同时，还建立附加的索引表。索引表中的每项称为索引项,索引项的一般形式是(关键字，地址)。其优点是检索速度快:缺点是附加的索引表额外占用存储空间。另外，增加和删除数据时也要修改索引表，因而会花费较多的时间。</li>
+<li>散列存储：根据元素的关键字直接计算出该元素的存储地址，又称哈希(Hash)存储。其优点是检索、增加和删除结点的操作都很快:缺点是若散列函数不好，则可能出现元素存储单元的冲突，而解决冲突会增加时间和空间开销。</li>
+</ul>
+</li>
+<li>数据的运算<br>施加在数据上的运算包括运算的定义和实现。运算的定义是针对逻辑结构的，指出运算的功能;运算的实现是针对存储结构的，指出运算的具体操作步骤。</li>
+</ol>
+<h2 id="算法和算法评价"><a href="#算法和算法评价" class="headerlink" title="算法和算法评价"></a>算法和算法评价</h2><h3 id="算法的基本概念"><a href="#算法的基本概念" class="headerlink" title="算法的基本概念"></a>算法的基本概念</h3><ol>
+<li>有穷性：一个算法必须总在执行有穷步之后结束，且每一步都可在有穷时间内完成。</li>
+<li>确定性：算法中每条指令必须有确切的含义，对于相同的输入只能得出相同的输出。</li>
+<li>可行性：算法中描述的操作都可以通过已经实现的基本运算执行有限次来实现。</li>
+<li>输入：一个算法有零个或多个输入，这些输入取自于某个特定的对象的集合。</li>
+<li>输出：一个算法有一个或多个输出，这些输出是与输入有着某种特定关系的量。</li>
+</ol>
+<h3 id="算法效率的度量"><a href="#算法效率的度量" class="headerlink" title="算法效率的度量"></a>算法效率的度量</h3><ol>
+<li><p>时间复杂度<br>  分析某一算法的时间复杂度时，会出现浮动的时间复杂度，例如随机快排，最好情况为O(logn<em>n),最坏情况为$O(n^2)$,我们在分析其时间复杂度时需要分析的是该算法的期望，即收敛于O(logn</em>n)</p>
+</li>
+<li><p>空间复杂度<br>指除输入和程序之外的额外空间<br>例：空间复杂度O(1)表示执行该算法所需的辅助空间大小相比输入数据的规模来说是一个常量，而不表示该算法的执行时不需要任何的空间或辅助空间</p>
+</li>
+</ol>
 
                 
               </div>
@@ -363,8 +371,6 @@
       
         <a href="../tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="print-no-link">#数据结构</a>
       
-        <a href="../tags/%E6%A0%91/" class="print-no-link">#树</a>
-      
     </div>
   
 </div>
@@ -375,8 +381,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>二叉树及其实现</div>
-      <div>http://2819461143wp.github.io/二叉树及其实现/</div>
+      <div>数据结构绪论</div>
+      <div>http://2819461143wp.github.io/数据结构绪论/</div>
     </div>
     <div class="license-meta">
       
@@ -388,7 +394,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年8月14日</div>
+          <div>2024年9月11日</div>
         </div>
       
       
@@ -420,15 +426,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="../%E9%87%8D%E8%A6%81%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" title="重要排序算法">
+                      <a href="../%E7%BA%BF%E6%80%A7%E8%A1%A8/" title="线性表">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">重要排序算法</span>
+                        <span class="hidden-mobile">线性表</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/" title="计算机系统概述">
+                        <span class="hidden-mobile">计算机系统概述</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

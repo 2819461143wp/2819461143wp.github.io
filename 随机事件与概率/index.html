@@ -19,27 +19,27 @@
   <meta name="author" content="cwdp.sky">
   <meta name="keywords" content="数据结构与算法">
   
-    <meta name="description" content="二叉树分析 二叉树的递归遍历基础遍历： 12345678910public static void f(TreeNode head) &#123;    if (head &#x3D;&#x3D; null) &#123;        return;    &#125;    &#x2F;&#x2F;1    f(head.left);    &#x2F;&#x2F;2    f(head.right);    &#x2F;&#x2F;3&#125;   三种排序1.前&amp;#">
+    <meta name="description" content="知识框架  基本概念随机试验随机试验条件：  试验可以在相同的条件下重复进行; 试验所有可能结果明确可知，且不止一个; 每一次试验会出现哪一个结果，事先并不能确定  随机试验简称试验，用字母 $E_i$ 表示 随机事件在一次试验中可能出现，也可能不出现的结果称为 随机事件，简称 事件，并用大写字母 A, B, C 等表示。将每次试验中一定发生的事件称为 必然事件，记为 $\Omega$。每次试验中">
 <meta property="og:type" content="article">
-<meta property="og:title" content="二叉树及其实现">
-<meta property="og:url" content="http://2819461143wp.github.io/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%8F%8A%E5%85%B6%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:title" content="随机事件与概率">
+<meta property="og:url" content="http://2819461143wp.github.io/%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87/index.html">
 <meta property="og:site_name" content="cwdp.sky">
-<meta property="og:description" content="二叉树分析 二叉树的递归遍历基础遍历： 12345678910public static void f(TreeNode head) &#123;    if (head &#x3D;&#x3D; null) &#123;        return;    &#125;    &#x2F;&#x2F;1    f(head.left);    &#x2F;&#x2F;2    f(head.right);    &#x2F;&#x2F;3&#125;   三种排序1.前&amp;#">
+<meta property="og:description" content="知识框架  基本概念随机试验随机试验条件：  试验可以在相同的条件下重复进行; 试验所有可能结果明确可知，且不止一个; 每一次试验会出现哪一个结果，事先并不能确定  随机试验简称试验，用字母 $E_i$ 表示 随机事件在一次试验中可能出现，也可能不出现的结果称为 随机事件，简称 事件，并用大写字母 A, B, C 等表示。将每次试验中一定发生的事件称为 必然事件，记为 $\Omega$。每次试验中">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://2819461143wp.github.io/images/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%88%86%E6%9E%90.png">
-<meta property="article:published_time" content="2024-08-14T13:10:26.461Z">
-<meta property="article:modified_time" content="2024-08-16T14:03:56.970Z">
+<meta property="og:image" content="http://2819461143wp.github.io/images/%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87/%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%841.png">
+<meta property="og:image" content="http://2819461143wp.github.io/images/%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87/%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%842.png">
+<meta property="article:published_time" content="2024-09-12T05:33:49.768Z">
+<meta property="article:modified_time" content="2024-09-12T07:32:38.117Z">
 <meta property="article:author" content="cwdp.sky">
-<meta property="article:tag" content="数据结构">
-<meta property="article:tag" content="树">
+<meta property="article:tag" content="概率论">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://2819461143wp.github.io/images/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%88%86%E6%9E%90.png">
+<meta name="twitter:image" content="http://2819461143wp.github.io/images/%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87/%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%841.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>二叉树及其实现 - cwdp.sky</title>
+  <title>随机事件与概率 - cwdp.sky</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -205,7 +205,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="二叉树及其实现"></span>
+            <span id="subtitle" data-typed-text="随机事件与概率"></span>
           
         </div>
 
@@ -216,8 +216,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-08-14 21:10" pubdate>
-          2024年8月14日 晚上
+        <time datetime="2024-09-12 13:33" pubdate>
+          2024年9月12日 下午
         </time>
       </span>
     
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          636 字
+          1.4k 字
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          8 分钟
+          18 分钟
         
       </span>
     
@@ -276,12 +276,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">二叉树及其实现</h1>
+            <h1 id="seo-header">随机事件与概率</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2024年8月16日 晚上
+                    本文最后更新于 2024年9月12日 下午
                   
                 
               </p>
@@ -289,31 +289,95 @@
             
               <div class="markdown-body">
                 
-                <h2 id="二叉树分析"><a href="#二叉树分析" class="headerlink" title="二叉树分析"></a>二叉树分析</h2><p><img src="../images/%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%88%86%E6%9E%90.png" srcset="/img/loading.gif" lazyload alt="二叉树分析"></p>
-<h2 id="二叉树的递归遍历"><a href="#二叉树的递归遍历" class="headerlink" title="二叉树的递归遍历"></a>二叉树的递归遍历</h2><p>基础遍历：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">f</span><span class="hljs-params">(TreeNode head)</span> &#123;<br>    <span class="hljs-keyword">if</span> (head == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-comment">//1</span><br>    f(head.left);<br>    <span class="hljs-comment">//2</span><br>    f(head.right);<br>    <span class="hljs-comment">//3</span><br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><img src="../images/%E4%BA%8C%E5%8F%89%E6%A0%91/%E9%80%92%E5%BD%92%E5%BA%8F.png" srcset="/img/loading.gif" lazyload alt="递归序"></p>
-<h3 id="三种排序"><a href="#三种排序" class="headerlink" title="三种排序"></a>三种排序</h3><p>1.前&#x2F;先序排列 <em><strong>二叉树内元素第一次时出现记录</strong></em><br>中-&gt;左-&gt;右</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span>  <span class="hljs-keyword">void</span> <span class="hljs-title function_">preOrder</span><span class="hljs-params">(TreeNode head)</span> &#123;<br>    <span class="hljs-keyword">if</span> (head == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    System.out.print(head.data + <span class="hljs-string">&quot; &quot;</span>);<br>    preOrder(head.left);<br>    preOrder(head.right);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>2.中序排列 <em><strong>二叉树内元素第二次时出现记录</strong></em><br>左-&gt;中-&gt;右</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">inOrder</span><span class="hljs-params">(TreeNode head)</span> &#123;<br>    <span class="hljs-keyword">if</span> (head == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    inOrder(head.left);<br>    System.out.print(head.data + <span class="hljs-string">&quot; &quot;</span>);<br>    inOrder(head.right);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>3.后序排列 <em><strong>二叉树内元素第三次时出现记录</strong></em><br>左-&gt;右-&gt;中</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">postOrder</span><span class="hljs-params">(TreeNode head)</span> &#123;<br>    <span class="hljs-keyword">if</span> (head == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    postOrder(head.left);<br>    postOrder(head.right);<br>    System.out.print(head.data + <span class="hljs-string">&quot; &quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="二叉树的非递归遍历-迭代-用栈实现"><a href="#二叉树的非递归遍历-迭代-用栈实现" class="headerlink" title="二叉树的非递归遍历_迭代_用栈实现"></a>二叉树的非递归遍历_迭代_用栈实现</h2><p>1.先序遍历：  <em><strong>先压头，弹出的变头，先压右再压左，弹出时就是先弹左节点先处理左子树，先左再右</strong></em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">preOder</span><span class="hljs-params">(TreeNode head)</span>&#123;<br>    <span class="hljs-keyword">if</span>(head !=<span class="hljs-literal">null</span>)&#123;<br>        Stack&lt;TreeNode&gt; stack = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>        stack.push(head);<br>        <span class="hljs-keyword">while</span>(!stack.isEmpty())&#123;<br>            head = stack.pop();<br>            System.out.println(head.val);<br>            <span class="hljs-keyword">if</span>(head.right != <span class="hljs-literal">null</span>)&#123;<br>                stack.push(head.right);<br>            &#125;<br>            <span class="hljs-keyword">if</span>(head.left != <span class="hljs-literal">null</span>)&#123;<br>                stack.push(head.left);<br>            &#125;<br>        &#125;<br>        System.out.println();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>2.中序遍历： <em><strong>头不为空，先压头，再以左节点为头，压入整棵树的左节点；头为空，弹出父节点并打印，以父节点的右节点为头，再处理右子树的全部左节点</strong></em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">inOrder</span><span class="hljs-params">(TreeNode head)</span>&#123;<br>    <span class="hljs-keyword">if</span>(head !=<span class="hljs-literal">null</span>)&#123;<br>        Stack&lt;TreeNode&gt; stack = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>        <span class="hljs-keyword">while</span>(!stack.isEmpty() || head != <span class="hljs-literal">null</span>)&#123;<br>            <span class="hljs-keyword">if</span>(head != <span class="hljs-literal">null</span>)&#123;<br>                stack.push(head);<br>                head = head.left;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                head = stack.pop();<br>                System.out.println(head.val);<br>                head = head.right;<br>            &#125;<br>        &#125;<br>        System.out.println();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>3.后序排列：<br>①两个栈实现：<em><strong>先通过类前序变为中-&gt;右—&gt;左，在通过压栈出栈变为左-&gt;右-&gt;中</strong></em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">posOrderTwoStacks</span><span class="hljs-params">(TreeNode head)</span> &#123;<br>    <span class="hljs-keyword">if</span> (head != <span class="hljs-literal">null</span>) &#123;<br>        Stack&lt;TreeNode&gt; stack = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>        Stack&lt;TreeNode&gt; collect = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>        stack.push(head);<br>        <span class="hljs-keyword">while</span> (!stack.isEmpty()) &#123;<br>            head = stack.pop();<br>            collect.push(head);<br>            <span class="hljs-keyword">if</span> (head.left != <span class="hljs-literal">null</span>) &#123;<br>                stack.push(head.left);<br>            &#125;<br>            <span class="hljs-keyword">if</span> (head.right != <span class="hljs-literal">null</span>) &#123;<br>                stack.push(head.right);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">while</span> (!collect.isEmpty()) &#123;<br>            System.out.print(collect.pop().val + <span class="hljs-string">&quot; &quot;</span>);<br>        &#125;<br>        System.out.println();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>②一个栈实现：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">posOrderOneStack</span><span class="hljs-params">(TreeNode head)</span> &#123;<br>    <span class="hljs-keyword">if</span> (head!=<span class="hljs-literal">null</span>)&#123;<br>        Stack&lt;TreeNode&gt; stack = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>        stack.push(head);<br>        <span class="hljs-keyword">while</span> (!stack.isEmpty())&#123;<br>            <span class="hljs-type">TreeNode</span> <span class="hljs-variable">cur</span> <span class="hljs-operator">=</span> stack.peek();<br>            <span class="hljs-comment">//有左子树且左子树未处理</span><br>            <span class="hljs-keyword">if</span> (cur.left!=<span class="hljs-literal">null</span>&amp;&amp;head!=cur.left&amp;&amp;head!=cur.right)&#123;<br>                stack.push(cur.left);<br>            &#125;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (cur.right!=<span class="hljs-literal">null</span>&amp;&amp;head!=cur.right)&#123;<br>            <span class="hljs-comment">//有右子树且右子树未处理</span><br>                stack.push(cur.right);<br>            &#125;<br>            <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-comment">//为叶子节点或者左右子树都处理过了</span><br>                System.out.print(cur.val);<br>                head = stack.pop();<br>            &#125;<br>            System.out.println();<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h2 id="知识框架"><a href="#知识框架" class="headerlink" title="知识框架"></a>知识框架</h2><p><img src="../images/%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87/%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%841.png" srcset="/img/loading.gif" lazyload alt="知识框架1"></p>
+<p><img src="../images/%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87/%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%842.png" srcset="/img/loading.gif" lazyload alt="知识框架2"></p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="随机试验"><a href="#随机试验" class="headerlink" title="随机试验"></a>随机试验</h3><p>随机试验条件：</p>
+<ol>
+<li>试验可以在相同的条件下重复进行;</li>
+<li>试验所有可能结果明确可知，且不止一个;</li>
+<li>每一次试验会出现哪一个结果，事先并不能确定</li>
+</ol>
+<p>随机试验简称试验，用字母 $E_i$ 表示</p>
+<h3 id="随机事件"><a href="#随机事件" class="headerlink" title="随机事件"></a>随机事件</h3><p>在一次试验中可能出现，也可能不出现的结果称为 <strong>随机事件</strong>，简称 <strong>事件</strong>，并用大写字母 A, B, C 等表示。将每次试验中一定发生的事件称为 <strong>必然事件</strong>，记为 $\Omega$。每次试验中一定不发生的事件称为 <strong>不可能事件</strong>，记为 ∅。</p>
+<h3 id="样本空间"><a href="#样本空间" class="headerlink" title="样本空间"></a>样本空间</h3><p>随机试验的每一个可能结果称为<strong>样本点</strong>，记为 $\omega$。样本点的全体组成的集合称为<strong>样本空间</strong>（或<strong>基本事件空间</strong>），记为$\Omega $,即$\Omega &#x3D; {\omega}$,由一个样本点构成的事件称为<strong>基本事件</strong>.随机事件A总是由若千个基本事件组成，即A是$\Omega$的子集。</p>
+<h3 id="事件关系与运算"><a href="#事件关系与运算" class="headerlink" title="事件关系与运算"></a>事件关系与运算</h3><p>关系：</p>
+<ol>
+<li>包含</li>
+<li>相等</li>
+<li>和（并）：至少有一个发生</li>
+<li>积（相交）：两个同时发生</li>
+<li>相容：$AB≠ ∅$</li>
+<li>互斥：$AB&#x3D; ∅$</li>
+<li>差：$A-B$ A发生而B不发生</li>
+<li>逆：$B&#x3D;\bar{A}$</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;完备事件组: 如果$\bigcup_{i&#x3D;1}^{n} A_i &#x3D; \Omega$(或$\bigcup_{i&#x3D;1}^{\infty} A_i &#x3D; \Omega$)且$A_i \cap A_j &#x3D; ∅set(\text{对一切 } i \neq j;i, j &#x3D; 1, 2, \dots, n(\dots)),$称有限(或可列)事件 ( A_1, A_2, \dots, A_n (\dots) ) 构成一个完备事件组。</p>
+<p>运算：</p>
+<ol>
+<li><p>吸收律:<br>若 A ⊆ B, 则 A ∪ B &#x3D; B, A ∩ B &#x3D; A。</p>
+</li>
+<li><p>交换律:<br>A ∪ B &#x3D; B ∪ A, A ∩ B &#x3D; B ∩ A。</p>
+</li>
+<li><p>结合律:<br>(A ∪ B) ∪ C &#x3D; A ∪ (B ∪ C), (A ∩ B) ∩ C &#x3D; A ∩ (B ∩ C)。</p>
+</li>
+<li><p>分配律:<br>A ∩ (B ∪ C) &#x3D; (A ∩ B) ∪ (A ∩ C),<br>A ∪ (B ∩ C) &#x3D; (A ∪ B) ∩ (A ∪ C),<br>A ∩ (B - C) &#x3D; (A ∩ B) - (A ∩ C)。</p>
+</li>
+<li><p>对偶律 (德·摩根律):<br>A ∪ B &#x3D; A̅ ∩ B̅,<br>A ∩ B &#x3D; A̅ ∪ B̅。</p>
+</li>
+</ol>
+<p>注：</p>
+<ol>
+<li>事件运算顺序约定为先进行逆运算，然后进行交运算，最后进行并或差运算。</li>
+<li>事件的关系、运算与集合的关系、运算相当，且具有相同的运算法则，所以我们可以对比着理解记忆，并要学会用集合关系去考虑事件关系。</li>
+</ol>
+<h3 id="概率的定义"><a href="#概率的定义" class="headerlink" title="概率的定义"></a>概率的定义</h3><p>描述性定义：<br>&nbsp;&nbsp;&nbsp;&nbsp;通常将随机事件A发生的可能性大小的度量(非负值)称为事件A发生的概率，记为P(A)</p>
+<p>统计性定义：<br>&nbsp;&nbsp;&nbsp;&nbsp;在相同条件下做重复试验，事件A出现的次数k和总的试验次数n之比$\frac{k}{n}$称为事件A在这n次试验中出现的频率.当试验次数n充分大时，频率将“稳定”于某常数p.”越大，频率偏离这个常数p的可能性越小.这个常数p就称为事件A的概率。</p>
+<p>公理化定义：<br>&nbsp;&nbsp;&nbsp;&nbsp;设随机试验的样本空间为 $\Omega$，如果对每一个事件 $A$ 都有一个确定的实数 (P(A))，且事件函数 $P(\cdot)$ 满足：</p>
+<ol>
+<li><p>非负性：$P(A) \geq 0$；</p>
+</li>
+<li><p>规范性：$P(\Omega) &#x3D; 1$；</p>
+</li>
+<li><p>可列可加性：对于任意可列的两两互不相容事件 $A_1, A_2, \dots, A_n, \dots$（即 $A_i \cap A_j &#x3D; ∅$, $i \neq j$, $i, j &#x3D; 1, 2, \dots$），有：</p>
+<p>$$<br>P\left( \bigcup_{i&#x3D;1}^{\infty} A_i \right) &#x3D; \sum_{i&#x3D;1}^{\infty} P(A_i),<br>$$</p>
+</li>
+</ol>
+<p>则称 $P(\cdot)$ 为概率，$P(A)$ 为事件 $A$ 的概率。</p>
+<h2 id="古典概型和几何概型"><a href="#古典概型和几何概型" class="headerlink" title="古典概型和几何概型"></a>古典概型和几何概型</h2><h3 id="古典概型"><a href="#古典概型" class="headerlink" title="古典概型"></a>古典概型</h3><p>条件：</p>
+<ol>
+<li>只有有限个样本点(基本事件);</li>
+<li>每个样本点(基本事件)发生的可能性都一样。</li>
+</ol>
+<p>如果古典概型的基本事件总数为n，事件A包含k个基本事件，也叫作有利于A的基本事件为k个则A的概率为<br>$$<br>P(A)&#x3D;\frac{k}{n}&#x3D;\frac{\text{事件A所含基本事件的个数}}{\text{基本事件总数}}<br>$$</p>
+<p>题目：</p>
+<ol>
+<li>随机分配</li>
+<li>简单随机抽样（先后有放回，先后无放回，任取）</li>
+</ol>
+<h3 id="几何概型"><a href="#几何概型" class="headerlink" title="几何概型"></a>几何概型</h3><p>条件：</p>
+<ol>
+<li>样本空间(基本事件空间)$\Omega$是一个可度量的有界区域;</li>
+<li>每个样本点(基本事件)发生的可能性都一样，即样本点落入$\Omega$的某一可度量的子区域S的可能性大小与S的几何度量成正比，而与S的位置及形状无关。</li>
+</ol>
+<p>在几何概型随机试验中，如果$S_A$是样本空间$\Omega$的一个可度量的子区域，则事件A&#x3D;{样本点落入区域$S_A$}的概率为<br>$$<br>P(A)&#x3D;\frac{S_A\text{的几何度量}}{\Omega的几何度量}<br>$$</p>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>古典概型与几何概型的区别:基本事件有限、等可能发生的随机试验为古典概型;基本事件无限且具有几何度量、等可能发生的随机试验为几何概型。</p>
+<h2 id="概率的性质与公式"><a href="#概率的性质与公式" class="headerlink" title="概率的性质与公式"></a>概率的性质与公式</h2><h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><p>有界性：对于任一事件A，有0≤P(A)≤1,且P(∅)&#x3D;0,P(2)&#x3D;1</p>
+<blockquote>
+<p>P(A)&#x3D;0，不能断言A&#x3D;∅;P(A)&#x3D;1，不能断言A&#x3D;$\Omega$.</p>
+</blockquote>
+<p>单调性：$P(B-A)&#x3D;P(B)-P(A),P(B)\geq P(A)$</p>
+<h3 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h3><ol>
+<li>$P(A)+P(\bar{A})&#x3D;1$</li>
+<li>$P(A\cup B)&#x3D;P(A)+P(B)-P(A\cap B)$<blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;$P(A\cup B\cup C)&#x3D;P(A)+P(B)+P(C)-P(A\cap B)-P(A\cap C)$<br>$-P(B\cap C)+P(A\cap B\cap C)$</p>
+</blockquote>
+</li>
+<li>$P(A-B)&#x3D;P(A)-P(AB)&#x3D;P(A\bar{B})$</li>
+<li>条件概率公式：$P(B|A)&#x3D;\frac{P(AB)}{P(A)}$</li>
+<li>乘法公式：如果$P(A)&gt;0$,则$P(AB)&#x3D;P(A)P(B|A)$</li>
+<li>全概率公式</li>
+<li>贝叶斯公式</li>
+</ol>
 
                 
               </div>
@@ -337,12 +401,12 @@
   
     <span>></span>
     
-  <a href="../categories/note/408/" class="category-chain-item">408</a>
+  <a href="../categories/note/%E6%95%B0%E4%B8%80/" class="category-chain-item">数一</a>
   
   
     <span>></span>
     
-  <a href="../categories/note/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="category-chain-item">数据结构与算法</a>
+  <a href="../categories/note/%E6%95%B0%E4%B8%80/%E6%A6%82%E7%8E%87%E8%AE%BA/" class="category-chain-item">概率论</a>
   
   
 
@@ -361,9 +425,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="../tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="print-no-link">#数据结构</a>
-      
-        <a href="../tags/%E6%A0%91/" class="print-no-link">#树</a>
+        <a href="../tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" class="print-no-link">#概率论</a>
       
     </div>
   
@@ -375,8 +437,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>二叉树及其实现</div>
-      <div>http://2819461143wp.github.io/二叉树及其实现/</div>
+      <div>随机事件与概率</div>
+      <div>http://2819461143wp.github.io/随机事件与概率/</div>
     </div>
     <div class="license-meta">
       
@@ -388,7 +450,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年8月14日</div>
+          <div>2024年9月12日</div>
         </div>
       
       
@@ -420,15 +482,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="../%E9%87%8D%E8%A6%81%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" title="重要排序算法">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">重要排序算法</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="../%E7%BA%BF%E6%80%A7%E8%A1%A8/" title="线性表">
+                        <span class="hidden-mobile">线性表</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

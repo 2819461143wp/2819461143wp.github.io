@@ -1,0 +1,845 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="../images/%E5%9B%BE%E6%A0%87.jpg">
+  <link rel="icon" href="../images/%E5%9B%BE%E6%A0%87.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="cwdp.sky">
+  <meta name="keywords" content="数据结构与算法">
+  
+    <meta name="description" content="基础知识回顾：     原码 补&#x2F;反码    正数 本身 本身   负数 正数原码修改符号位 负数原码除符号位取反 + 1   8 00000000 00000000 00000000 00001000 00000000 00000000 00000000 00001000   -8 10000000 00000000 00000000 00001000 11111111 1111111">
+<meta property="og:type" content="article">
+<meta property="og:title" content="位运算">
+<meta property="og:url" content="http://2819461143wp.github.io/%E4%BD%8D%E8%BF%90%E7%AE%97/index.html">
+<meta property="og:site_name" content="cwdp.sky">
+<meta property="og:description" content="基础知识回顾：     原码 补&#x2F;反码    正数 本身 本身   负数 正数原码修改符号位 负数原码除符号位取反 + 1   8 00000000 00000000 00000000 00001000 00000000 00000000 00000000 00001000   -8 10000000 00000000 00000000 00001000 11111111 1111111">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-09-09T11:20:26.681Z">
+<meta property="article:modified_time" content="2024-09-12T05:30:53.624Z">
+<meta property="article:author" content="cwdp.sky">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>位运算 - cwdp.sky</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="../css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="../css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="../css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"2819461143wp.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="../js/utils.js" ></script>
+  <script  src="../js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="../index.html">
+      <strong>cwdp.sky</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('../images/%E5%A3%81%E7%BA%B8.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="位运算"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-09-09 19:20" pubdate>
+          2024年9月9日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          20 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">位运算</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2024年9月12日 下午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>基础知识回顾：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>原码</th>
+<th>补&#x2F;反码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>正数</td>
+<td>本身</td>
+<td>本身</td>
+</tr>
+<tr>
+<td>负数</td>
+<td>正数原码修改符号位</td>
+<td>负数原码除符号位取反 + 1</td>
+</tr>
+<tr>
+<td>8</td>
+<td>00000000 00000000 00000000 00001000</td>
+<td>00000000 00000000 00000000 00001000</td>
+</tr>
+<tr>
+<td>-8</td>
+<td>10000000 00000000 00000000 00001000</td>
+<td>11111111 11111111 11111111 11111000</td>
+</tr>
+</tbody></table>
+<p>得到一个相反数，全部取反再+1</p>
+<h2 id="异或运算"><a href="#异或运算" class="headerlink" title="异或运算"></a>异或运算</h2><h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ul>
+<li>异或运算是无进位相加（1+1&#x3D;10，忽略进位，即为无进位相加）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>11010</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>10110</td>
+</tr>
+<tr>
+<td>&#x3D;</td>
+<td>01100</td>
+</tr>
+</tbody></table>
+<ul>
+<li>异或运算满足交换律、结合律，也就是同一批数字，可以改变异或的顺序，最终的结果都是一样的，因为异或是一种无进位的加法，同理于正常的加法</li>
+<li>$0 \oplus n &#x3D; n, n \oplus n &#x3D; 0, 0 \oplus 0 &#x3D; 0$</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>n</th>
+<th>11010</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>00000</td>
+</tr>
+<tr>
+<td>&#x3D;</td>
+<td>11010</td>
+</tr>
+</tbody></table>
+<ul>
+<li>整体异或和如果是 $x$, 整体中某个部分的异或和如果是 $y$, 那么剩下部分的异或和是 $x \oplus y$<br>$a \oplus b &#x3D; c, a&#x3D;b \oplus c, b&#x3D;a \oplus c$</li>
+</ul>
+<h3 id="取球问题"><a href="#取球问题" class="headerlink" title="取球问题"></a>取球问题</h3><p>规则：<br>袋子里一共有a个白球，b个黑球<br>取两球，若为黑+白，放回一个黑球，若为2白或2黑，则重新放入一个白球</p>
+<p>白：0  黑：1<br>取两球为异或运算，可以理解为将两个数拿出来异或后再放回去<br>所以偶数个1无进位相加为0，奇数个1无进位相加为1</p>
+<h3 id="交换两数"><a href="#交换两数" class="headerlink" title="交换两数"></a>交换两数</h3><p>交换值，前提是a,b的数值不同，了解即可因为在数组循环等中可能会存在l&#x3D;&#x3D;r还是执行交换语句。使用这种方法会改变值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> a=<span class="hljs-number">0</span>;<br><span class="hljs-type">int</span> b=<span class="hljs-number">10</span>;<br>a=a^b;<span class="hljs-comment">//a1=a^b</span><br>b=a^b;<span class="hljs-comment">//b1=a^b^b=a</span><br>a=a^b;<span class="hljs-comment">//a2=a^a^b=b</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="比较大值"><a href="#比较大值" class="headerlink" title="比较大值"></a>比较大值</h3><p>不会溢出分析：溢出后c的正负可能会发生改变，因此我们判断大小时的条件只用c不会溢出的情况下判断，无法确定是否溢出时不用c进行判断<br>即ab符号不同，c不会溢出，ab符号相同，c可能溢出，索引在判断returnA时只有sameAB时才会用c进行判断</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//必须保证n一定是0或者1</span><br><span class="hljs-comment">//0变1，1变0</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">flip</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span>&#123;<br>  <span class="hljs-keyword">return</span> n ^ <span class="hljs-number">1</span>;<br>&#125;<br><span class="hljs-comment">//非负数返回1负数返回0</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">sign</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span>&#123;<br>  <span class="hljs-keyword">return</span> flip(n&gt;&gt;&gt;<span class="hljs-number">31</span>);<span class="hljs-comment">//n&gt;&gt;&gt;31,右移31位，使符号位移动到0位置</span><br>&#125;<br><span class="hljs-comment">//有溢出风险的实现，c可能超出整数范围</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getMax1</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span>&#123;<br>  <span class="hljs-type">int</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> a - b;<br>  <span class="hljs-type">int</span> <span class="hljs-variable">returnA</span> <span class="hljs-operator">=</span> sign(c);<span class="hljs-comment">//非负数返回1负数返回0</span><br>  <span class="hljs-type">int</span> <span class="hljs-variable">returnB</span> <span class="hljs-operator">=</span> flip(returnA);<span class="hljs-comment">//非负数返回0负数返回1,与returnA相反</span><br>  <span class="hljs-keyword">return</span> a * returnA + b * returnB;<br>&#125;<br><span class="hljs-comment">//没有任何问题的实现</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getMax2</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span>&#123;<br>  <span class="hljs-type">int</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> a - b;<br>  <span class="hljs-type">int</span> <span class="hljs-variable">sa</span> <span class="hljs-operator">=</span> sign(a);<br>  <span class="hljs-type">int</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> sign(b);<br>  <span class="hljs-type">int</span> <span class="hljs-variable">sc</span> <span class="hljs-operator">=</span> sign(c);<br>  <span class="hljs-type">int</span> <span class="hljs-variable">diffAB</span> <span class="hljs-operator">=</span> sa ^ sb;<span class="hljs-comment">//判断ab符号是否相同。不同为1，相同为0</span><br>  <span class="hljs-type">int</span> <span class="hljs-variable">sameAB</span> <span class="hljs-operator">=</span> flip(diffAB);<span class="hljs-comment">//不同为0，相同为1</span><br>  <span class="hljs-type">int</span> <span class="hljs-variable">returnA</span> <span class="hljs-operator">=</span> diffAB * sa + sameAB * sc;<span class="hljs-comment">//a&gt;b的条件为 ab相同c为非负，ab不同a为非负</span><br>  <span class="hljs-type">int</span> <span class="hljs-variable">returnB</span> <span class="hljs-operator">=</span> flip(returnA);<br>  <span class="hljs-keyword">return</span> a * returnA + B * returnB;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>cpp代码实现<br>c中右移操作符&gt;&gt;，对于有符号数，右移时，符号位不变，左边补符号位，对于无符号数，右移时，左边补0<br>例如8&gt;&gt;31,则是11111111111111111111，实际值为-1，并不会只剩下符号位1</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//c中右移操作符&gt;&gt;，对于有符号数，右移时，符号位不变，左边补符号位，对于无符号数，右移时，左边补0</span><br><span class="hljs-comment">//例如8&gt;&gt;31,则是11111111111111111111，实际值为-1，并不会只剩下符号位1</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">flip</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> n ^ <span class="hljs-number">1</span>; <span class="hljs-comment">// 必须保证n一定是0或者1，0变1，1变0</span><br>&#125;<br><span class="hljs-comment">// 非负数返回1负数返回0</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">sign</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> !((n &gt;&gt; <span class="hljs-number">31</span>)&amp;<span class="hljs-number">1</span>); <span class="hljs-comment">// n &gt;&gt; 31, 右移31位，使符号位移动到0位置</span><br>&#125;<br><span class="hljs-comment">// 有溢出风险的实现，c可能超出整数范围</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">getMax1</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> c1 = a - b;<br>    <span class="hljs-type">int</span> returnA = <span class="hljs-built_in">sign</span>(c1);       <span class="hljs-comment">// 非负数返回1负数返回0</span><br>    <span class="hljs-type">int</span> returnB = <span class="hljs-built_in">flip</span>(returnA); <span class="hljs-comment">// 非负数返回0负数返回1, 与returnA相反</span><br>    <span class="hljs-keyword">return</span> a * returnA + b * returnB;<br>&#125;<br><span class="hljs-comment">// 没有任何问题的实现</span><br><span class="hljs-comment">// 不会溢出分析：溢出后c的正负可能会发生改变，因此我们判断大小时的条件只用c不会溢出的情况下判断，无法确定是否溢出时不用c进行判断</span><br><span class="hljs-comment">// 即ab符号不同，c不会溢出，ab符号相同，c可能溢出，索引在判断returnA时只有sameAB时才会用c进行判断</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">getMax2</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> c = a - b;<br>    <span class="hljs-type">int</span> sa = <span class="hljs-built_in">sign</span>(a);<br>    <span class="hljs-type">int</span> sb = <span class="hljs-built_in">sign</span>(b);<br>    <span class="hljs-type">int</span> sc = <span class="hljs-built_in">sign</span>(c);<br>    <span class="hljs-type">int</span> diffAB = sa ^ sb;                    <span class="hljs-comment">// 判断ab符号是否相同。不同为1，相同为0</span><br>    <span class="hljs-type">int</span> sameAB = <span class="hljs-built_in">flip</span>(diffAB);               <span class="hljs-comment">// 不同为0，相同为1</span><br>    <span class="hljs-type">int</span> returnA = diffAB * sa + sameAB * sc; <span class="hljs-comment">// a&gt;b的条件为 ab相同c为非负，ab不同a为非负。</span><br>    <span class="hljs-type">int</span> returnB = <span class="hljs-built_in">flip</span>(returnA);<br>    <span class="hljs-keyword">return</span> a * returnA + b * returnB;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="找出缺失的数值"><a href="#找出缺失的数值" class="headerlink" title="找出缺失的数值"></a>找出缺失的数值</h3><p>长度为n的数组，里面有0~n-1的数，现在有一个缺失的值</p>
+<p>总异或和&#x3D;出现的异或和$\oplus$缺失值<br>缺失值&#x3D;总异或和$\oplus$出现的异或和</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">missingNumber</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span>&#123;<br>  <span class="hljs-type">int</span> <span class="hljs-variable">eorall</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>,eorhas = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++)&#123;<br>    eorall ^= i;<br>    eorhas ^=nums[i];<br>  &#125;<br>  eorall ^=nums.length;<br>  <span class="hljs-keyword">return</span> eorall ^ eorhas;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="找出出现奇数次的值"><a href="#找出出现奇数次的值" class="headerlink" title="找出出现奇数次的值"></a>找出出现奇数次的值</h3><p>数组中1种数出现了奇数次，其他的数都出现了偶数次，返回出现了奇数次的数<br>依次异或过去，出现两次的数异或为0，只剩下那一个数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">singleNumber</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span>&#123;<br>  <span class="hljs-type">int</span> <span class="hljs-variable">eor</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> num : nums)&#123;<br>    eor ^= num;<br>  &#125;<br>  <span class="hljs-keyword">return</span> eor;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="返回两个奇数次数"><a href="#返回两个奇数次数" class="headerlink" title="返回两个奇数次数"></a>返回两个奇数次数</h3><p>数组中有2种数出现了奇数次，其他的数都出现了偶数次，返回这两种出现了奇数次的数</p>
+<p>Brian Kernighan算法 - 提前出二进制状态中最右侧的1</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[] singNumber(<span class="hljs-type">int</span>[] nums)&#123;<br>  <span class="hljs-type">int</span> <span class="hljs-variable">eor1</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> num : nums)&#123;<br>    eor1 ^= num;<br>  &#125;<br>  <span class="hljs-comment">//eor1=a^b,a!=b，则eor至少有一位是1</span><br>  <span class="hljs-type">int</span> <span class="hljs-variable">rightOne</span> <span class="hljs-operator">=</span> eor1 &amp; (-eor1);<span class="hljs-comment">//最右侧的1位1为1，其他为0</span><br>  <span class="hljs-type">int</span> <span class="hljs-variable">eor2</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> num : nums)&#123;<br>    <span class="hljs-keyword">if</span>((num &amp; rightOne) == <span class="hljs-number">0</span>)&#123;<span class="hljs-comment">//找出eor最右侧1位置为0的数，全部异或和必为其中一个数</span><br>      eor2 ^= num;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[] &#123; eor2, eor1 ^ eor2&#125;;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="返回多个数"><a href="#返回多个数" class="headerlink" title="返回多个数"></a>返回多个数</h3><p>数组中只有1种数出现次数少于m次，其他数都出现了m次，返回出现次数小于m次的那种数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">find</span><span class="hljs-params">(<span class="hljs-type">int</span>[] arr, <span class="hljs-type">int</span> m)</span>&#123;<br>  <span class="hljs-type">int</span>[] cnts = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">32</span>];<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> num : arr)&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">32</span>; i++)&#123;<br>      cnts[i] +=(num &gt;&gt; i) &amp; <span class="hljs-number">1</span>;<br>    &#125;<br>  &#125;<br>  <span class="hljs-type">int</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">32</span>; i++)&#123;<br>    <span class="hljs-keyword">if</span> (cnts[i] % m != <span class="hljs-number">0</span>)&#123;<br>      ans ^= <span class="hljs-number">1</span> &lt;&lt; i;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> ans;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="../categories/note/" class="category-chain-item">note</a>
+  
+  
+    <span>></span>
+    
+  <a href="../categories/note/408/" class="category-chain-item">408</a>
+  
+  
+    <span>></span>
+    
+  <a href="../categories/note/408/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="category-chain-item">数据结构与算法</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="../tags/%E7%AE%97%E6%B3%95/" class="print-no-link">#算法</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>位运算</div>
+      <div>http://2819461143wp.github.io/位运算/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>cwdp.sky</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年9月9日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/" title="计算机系统概述">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">计算机系统概述</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="../vue/" title="vue">
+                        <span class="hidden-mobile">vue</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="../js/events.js" ></script>
+<script  src="../js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="../js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="../js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="../js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
