@@ -26,11 +26,13 @@
 <meta property="og:site_name" content="cwdp.sky">
 <meta property="og:description" content="基础知识回顾：     原码 补&#x2F;反码    正数 本身 本身   负数 正数原码修改符号位 负数原码除符号位取反 + 1   8 00000000 00000000 00000000 00001000 00000000 00000000 00000000 00001000   -8 10000000 00000000 00000000 00001000 11111111 1111111">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://2819461143wp.github.io/images/%E4%BD%8D%E8%BF%90%E7%AE%97/%E6%B1%82%E8%A7%A3%E5%A4%A7%E4%BA%8E%E7%AD%89%E4%BA%8En%E7%9A%84%E6%9C%80%E5%B0%8F%E7%9A%842%E6%AC%A1%E5%B9%82.png">
 <meta property="article:published_time" content="2024-09-09T11:20:26.681Z">
-<meta property="article:modified_time" content="2024-09-12T05:30:53.624Z">
+<meta property="article:modified_time" content="2024-09-14T02:45:49.652Z">
 <meta property="article:author" content="cwdp.sky">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://2819461143wp.github.io/images/%E4%BD%8D%E8%BF%90%E7%AE%97/%E6%B1%82%E8%A7%A3%E5%A4%A7%E4%BA%8E%E7%AD%89%E4%BA%8En%E7%9A%84%E6%9C%80%E5%B0%8F%E7%9A%842%E6%AC%A1%E5%B9%82.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -225,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          1.8k 字
         
       </span>
     
@@ -236,7 +238,7 @@
         
         
         
-          20 分钟
+          23 分钟
         
       </span>
     
@@ -278,7 +280,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2024年9月12日 下午
+                    本文最后更新于 2024年9月14日 上午
                   
                 
               </p>
@@ -378,12 +380,21 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">singleNumber</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span>&#123;<br>  <span class="hljs-type">int</span> <span class="hljs-variable">eor</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> num : nums)&#123;<br>    eor ^= num;<br>  &#125;<br>  <span class="hljs-keyword">return</span> eor;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h3 id="返回两个奇数次数"><a href="#返回两个奇数次数" class="headerlink" title="返回两个奇数次数"></a>返回两个奇数次数</h3><p>数组中有2种数出现了奇数次，其他的数都出现了偶数次，返回这两种出现了奇数次的数</p>
-<p>Brian Kernighan算法 - 提前出二进制状态中最右侧的1</p>
+<p><strong>Brian Kernighan算法</strong> - 一个数&amp;它的相反数可以得到二进制状态中最右侧的1为1，其他为0的情况</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[] singNumber(<span class="hljs-type">int</span>[] nums)&#123;<br>  <span class="hljs-type">int</span> <span class="hljs-variable">eor1</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> num : nums)&#123;<br>    eor1 ^= num;<br>  &#125;<br>  <span class="hljs-comment">//eor1=a^b,a!=b，则eor至少有一位是1</span><br>  <span class="hljs-type">int</span> <span class="hljs-variable">rightOne</span> <span class="hljs-operator">=</span> eor1 &amp; (-eor1);<span class="hljs-comment">//最右侧的1位1为1，其他为0</span><br>  <span class="hljs-type">int</span> <span class="hljs-variable">eor2</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> num : nums)&#123;<br>    <span class="hljs-keyword">if</span>((num &amp; rightOne) == <span class="hljs-number">0</span>)&#123;<span class="hljs-comment">//找出eor最右侧1位置为0的数，全部异或和必为其中一个数</span><br>      eor2 ^= num;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[] &#123; eor2, eor1 ^ eor2&#125;;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h3 id="返回多个数"><a href="#返回多个数" class="headerlink" title="返回多个数"></a>返回多个数</h3><p>数组中只有1种数出现次数少于m次，其他数都出现了m次，返回出现次数小于m次的那种数</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">find</span><span class="hljs-params">(<span class="hljs-type">int</span>[] arr, <span class="hljs-type">int</span> m)</span>&#123;<br>  <span class="hljs-type">int</span>[] cnts = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">32</span>];<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> num : arr)&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">32</span>; i++)&#123;<br>      cnts[i] +=(num &gt;&gt; i) &amp; <span class="hljs-number">1</span>;<br>    &#125;<br>  &#125;<br>  <span class="hljs-type">int</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">32</span>; i++)&#123;<br>    <span class="hljs-keyword">if</span> (cnts[i] % m != <span class="hljs-number">0</span>)&#123;<br>      ans ^= <span class="hljs-number">1</span> &lt;&lt; i;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> ans;<br>&#125;<br></code></pre></td></tr></table></figure>
 
+<h2 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h2><h3 id="判断整数是否为2的幂"><a href="#判断整数是否为2的幂" class="headerlink" title="判断整数是否为2的幂"></a>判断整数是否为2的幂</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;2的幂次在二进制中只有一个1，所以我们可以通过Brian Kernighan算法得到最右侧为1的数与原数比较是否相同</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isPowerOfTwo</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>    <span class="hljs-keyword">return</span> n &gt; <span class="hljs-number">0</span> &amp;&amp; (n &amp; (n - <span class="hljs-number">1</span>)) == <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="判断整数是否为3的幂"><a href="#判断整数是否为3的幂" class="headerlink" title="判断整数是否为3的幂"></a>判断整数是否为3的幂</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isPowerOfThree</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>    <span class="hljs-keyword">return</span> n &gt; <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-number">1162261467</span>%n == <span class="hljs-number">0</span>;<span class="hljs-comment">//1162261467是int范围内最大的3的幂</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="求解大于等于n的最小的2次幂"><a href="#求解大于等于n的最小的2次幂" class="headerlink" title="求解大于等于n的最小的2次幂"></a>求解大于等于n的最小的2次幂</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span>  <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-title function_">near2power</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span>&#123;<br>    <span class="hljs-keyword">if</span> (n == <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>    &#125;<br>    n--;<br>    n |= n &gt;&gt;&gt; <span class="hljs-number">1</span>;<br>    n |= n &gt;&gt;&gt; <span class="hljs-number">2</span>;<br>    n |= n &gt;&gt;&gt; <span class="hljs-number">4</span>;<br>    n |= n &gt;&gt;&gt; <span class="hljs-number">8</span>;<br>    n |= n &gt;&gt;&gt; <span class="hljs-number">16</span>;<span class="hljs-comment">//这里是32位系统，如果是64位系统，就是直到n |= n &gt;&gt;&gt; 32;该实现的是将最左边的1后面的所有位都置为1</span><br>    <span class="hljs-keyword">return</span> n + <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="../images/%E4%BD%8D%E8%BF%90%E7%AE%97/%E6%B1%82%E8%A7%A3%E5%A4%A7%E4%BA%8E%E7%AD%89%E4%BA%8En%E7%9A%84%E6%9C%80%E5%B0%8F%E7%9A%842%E6%AC%A1%E5%B9%82.png" srcset="/img/loading.gif" lazyload alt="代码详细例子理解"></p>
+<h3 id="区间-left，right-内所有数字-的结果"><a href="#区间-left，right-内所有数字-的结果" class="headerlink" title="区间[left，right]内所有数字&amp;的结果"></a>区间[left，right]内所有数字&amp;的结果</h3><h3 id="逆序二进制状态"><a href="#逆序二进制状态" class="headerlink" title="逆序二进制状态"></a>逆序二进制状态</h3><h3 id="二进制中有几个1"><a href="#二进制中有几个1" class="headerlink" title="二进制中有几个1"></a>二进制中有几个1</h3>
                 
               </div>
             
