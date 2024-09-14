@@ -1,5 +1,6 @@
 ---
 title: vue
+date: 2024-08-17
 categories:
   - note
   - language
