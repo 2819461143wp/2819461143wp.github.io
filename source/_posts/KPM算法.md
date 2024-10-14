@@ -90,3 +90,53 @@ x<n,x-y<n,复杂度<O(2n),O(nS)
 ### 判断子树
 
 有两棵二叉树root和subRoot，检验root中是否包含和subRoot具有相同结构和结点的子树，如果存在返回ture，否则返回false
+
+方法一：暴力递归O(n*m)
+
+```java
+public static boolean isSubtree(TreeNode t1, TreeNode t2){
+    if(t1 != null && t2 != null){
+        return same(t1, t2)||isSubtree(t1.left, t2)||isSubtree(t1.right, t2);
+    }
+    //t1!=null t2==null true
+    //t1==null t2!=null false
+    //t1==null t2==null true
+    return t2 == null;
+}
+//判断a和b是否完全一样
+public static boolean same(TreeNode a, TreeNode b){
+    if(a == null && b == null){
+        return true;
+    }
+    if(a != null && b != null){
+        return a.val == b.val && same(a.left, b.left) && same(a.right, b.right);
+    }
+}
+```
+
+方法二：二叉树先序序列化+KMP算法匹配O(n+m)
+&nbsp;&nbsp;&nbsp;&nbsp;判断t2序列化后是否为t1序列化后的子串
+
+```java
+public static boolean isSubtree2(TreeNode t1, TreeNode t2){
+    if(t1 != bull && t2 != null){
+        ArrayList<String> s1 = new ArrayList<>();
+        ArrayList<String> s2 = new ArrayList<>();
+        serial(t1, s1);
+        serial(t2, s2);
+        return kmp(s1, s2) != -1;
+    }
+    return t2 == null;
+}
+
+public static void serial(TreeNode head, ArrayList<String> path){
+    if(head == null){
+        path.add(null);
+    }
+    else{
+        path.add(String.valueOf(head.val));
+        serial(head.left, path);
+        serial(head.right, path);
+    }
+}
+```
