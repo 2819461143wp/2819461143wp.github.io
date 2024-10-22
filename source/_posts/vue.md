@@ -266,3 +266,65 @@ export default {
 }
 </script>
 ```
+
+## setup
+
+`<script setup></script>`等效于`setup(){}`,且在setup中不能使用this，在渲染过程中，setup先于vue2的`data(){}`、`method(){}`等，因此在这个内部可以调用setup的内容，反之不行。
+
+### ref创建
+
+- 基本类型的响应式数据
+
+  ```vue
+  <template>
+      <div class="person">
+          <h1>姓名：{{ name }}</h1>  <!-- 自动帮你.value了 -->
+          <h1>年龄：{{ age }}</h1>
+          <button @click="changename">修改名字</button>
+          <button @click="changeage">修改年龄</button>
+          <button @click="showTel">查看联系方式</button>
+      </div>
+  </template>
+  
+  <script>//配置组件名字,大多情况下组件名字于文件名相等
+  export default {
+      name: 'person1',
+  }
+  </script>
+  
+  <script setup>//等效于setup(){}
+      import {ref} from 'vue'
+      let a = 666
+      let name = ref('John Doe')
+  let age = ref(30)
+  let templete = '123456'
+  function changeage() {
+      age.value++
+  }
+  function changename() {
+      name.value = 'zhangsan'
+  }
+  function showTel() {
+      alert(templete)
+  }
+  </script>
+  
+  <style>
+  .person{
+      background-color: skyblue;
+      box-shadow: 0 0 10px;
+      border-radius: 10px;
+      padding:20px;
+  }
+  button{
+      margin: 0 10px;
+  }
+  </style>
+  ```
+
+  
+
+###  reactive创建
+
+- 对象类型的响应式数据
+

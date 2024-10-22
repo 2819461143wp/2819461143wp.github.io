@@ -1077,7 +1077,7 @@ int y = lcm(8, 12); // 24
 
 当然，`gcd` / `lcm` 函数也挺好写，直接写也行（欧几里得算法）：
 
-```cpp
+$$
 int gcd(int a, int b)
 {
     if (!b)
@@ -1089,4 +1089,4 @@ int lcm(int a, int b)
 {
     return a / gcd(a, b) * b;
 }
-```
+$$
