@@ -269,7 +269,13 @@ export default {
 
 ## setup
 
-`<script setup></script>`等效于`setup(){}`,且在setup中不能使用this，在渲染过程中，setup先于vue2的`data(){}`、`method(){}`等，因此在这个内部可以调用setup的内容，反之不行。
+&nbsp;&nbsp;&nbsp;&nbsp;`<script setup></script>`等效于`setup(){}`,且在setup中不能使用this，在渲染过程中，setup先于vue2的`data(){}`、`method(){}`等，因此在这个内部可以调用setup的内容，反之不行。
+
+使用原则：
+
+- 需要一个基本类型的响应式数据，必须用ref、
+- 需要一个响应式对象，层级不深，使用ref，reactive都可
+- 需要一个响应式对象，层级较深（如表单），推荐使用reactive
 
 ### ref创建
 
@@ -293,13 +299,13 @@ export default {
   </script>
   
   <script setup>//等效于setup(){}
-      import {ref} from 'vue'
-      let a = 666
-      let name = ref('John Doe')
+  import {ref} from 'vue'
+  let a = 666
+  let name = ref('John Doe')
   let age = ref(30)
   let templete = '123456'
   function changeage() {
-      age.value++
+      age.value++//ref中需要.vaula来使用属性
   }
   function changename() {
       name.value = 'zhangsan'
@@ -322,9 +328,178 @@ export default {
   </style>
   ```
 
+- 基本类型的响应式数据
+
+  ```vue
+  <template>
+      <div>
+          <h2>一辆{{ car.band }}车，价值{{ car.price }}</h2>
+          <button @click="changeprice">修改汽车价格</button>
+          <br>
+          <h2>游戏列表：</h2>
+          <ul>
+              <li v-for="g in games" :key="g.id">{{ g.name }}</li>
+          </ul>
+          <button @click="changegame">修改游戏名字</button>
+          <hr>
+          <h2>测试：{{ obj.a.b.c }}</h2>
+          <button @click="chagec">修改值</button>
+      </div>
+  </template>
+  
+  <script setup name="person3">
+  import { ref } from 'vue';
+  //使用ref，对象在value属性中，先点value再访问属性
+  let car =ref({
+      band: '奔驰',
+      price: 1000
+  })
+  let games = ref([
+      { id: '1', name: '王者荣耀' },
+      { id: '2', name: '英雄联盟' },
+      { id: '3', name: '绝地求生' }
+  ])
+  
+  let obj = ref({
+      a: {
+          b: {
+              c: 1
+          }
+      }
+  })
+  
+  function changeprice(){
+      car.value.price += 100
+  }
+  function changegame(){
+      games.value[0].name = '王者荣耀2'
+  }
+  function chagec(){
+      obj.value.a.b.c += 1
+  }
+  </script>
+  
+  <style>
+  </style>
+  ```
+  
   
 
 ###  reactive创建
 
-- 对象类型的响应式数据
+&nbsp;&nbsp;&nbsp;&nbsp;只能定义对象类型的响应式数据
 
+> 当修改整个对象时可以理解为重新分配一个新对象，会使其响应式失效
+>
+> 也不可在修改整个对象外包一个reactive，因为setup是第一个执行的，运行期vue实例以及拿到了car的引用，再修改car，改的是setup中定义car引用而不是vue组件实例中的car引用。
+
+```vue
+<template>
+    <div>
+        <h2>一辆{{ car.band }}车，价值{{ car.price }}</h2>
+        <button @click="changeprice">修改汽车价格</button>
+        <br>
+        <h2>游戏列表：</h2>
+        <ul>
+            <li v-for="g in games" :key="g.id">{{ g.name }}</li>
+        </ul>
+        <button @click="changegame">修改游戏名字</button>
+        <hr>
+        <h2>测试：{{ obj.a.b.c }}</h2>
+        <button @click="chagec">修改值</button>
+    </div>
+</template>
+
+<script setup name="person2">
+import { reactive } from 'vue';
+
+let car =reactive({
+    band: '奔驰',
+    price: 1000
+})
+let games = reactive([
+    { id: '1', name: '王者荣耀' },
+    { id: '2', name: '英雄联盟' },
+    { id: '3', name: '绝地求生' }
+])
+
+let obj = reactive({
+    a: {
+        b: {
+            c: 1
+        }
+    }
+})
+//×
+// function changecar(){
+//     car= reactive({
+//         band: '宝马',
+//         price: 2000
+//     })
+// }
+//可以使用深拷贝
+//Object.assign(car,{brand:'宝马',price:1})
+
+function changeprice(){
+    car.price += 100
+}
+function changegame(){
+    games[0].name = '王者荣耀2'
+}
+function chagec(){
+    obj.a.b.c += 1
+}
+</script>
+
+<style>
+</style>
+```
+
+###  toRefs
+
+```vue
+<template>
+    <div>
+        <h2>姓名：{{ name }}</h2>
+        <h2>年龄：{{ age }}</h2>
+        <button @click="changename">修改名字</button>
+        <button @click="changeage">修改年龄</button>
+        <h2>车的品牌：{{ brand }}</h2>
+        <h2>车的价格：{{ price }}</h2>
+        <button @click="changebrand">修改品牌</button>
+        <button @click="changeprice">修改价格</button>
+    </div>
+</template>
+
+<script setup name="person4">
+import { reactive, ref ,toRefs} from 'vue';
+
+let person =reactive({
+    name:'zhangsan',
+    age:18
+})
+let car = ref(
+    {
+        brand:'BMW',
+        price:1000000
+    }
+)
+let {name,age}=toRefs(person)//没有新建变量，将属性解构出来形成一个新的对象{name,age}，值还是来自于原来的位置,改分离的原来也会变
+let {brand,price}=toRefs(car.value)
+function changename(){
+    name.value='lisi'
+}
+function changeage(){
+    age.value+=10
+}
+function changebrand(){
+    brand.value='Benz'
+}
+function changeprice(){
+    price.value+=100000
+}
+</script>
+
+<style>
+</style>
+```
