@@ -457,6 +457,8 @@ function chagec(){
 
 ###  toRefs
 
+不新建变量，解构原有的响应式对象，并将之绑定
+
 ```vue
 <template>
     <div>
@@ -503,3 +505,58 @@ function changeprice(){
 <style>
 </style>
 ```
+
+### computed计算属性
+
+```vue
+<template>
+    <!-- template中不用.value -->
+    <div>
+        <!-- v-model双向绑定,既会从页面流向数据，也会从数据流向页面 -->
+        姓：<input type="text" v-model="firstName"><br>
+        名：<input type="text" v-model="lastName"><br>
+        全名：<span>{{ fullName}}</span><br>
+        全名：<span>{{ fullName1()}}</span><br>
+        全名：<span>{{ fullName2}}</span><br>
+        <button @click="changefullname2"></button>
+    </div>
+</template>
+
+<script setup>
+import { ref ,computed} from 'vue';
+let firstName = ref('zhang');
+let lastName = ref('san');
+//计算属性，只有内部的变量变化时，才会重新运行计算，否则会直接返回上次的计算结果
+//这里无法直接修改fullName，它是被确定的
+let fullName = computed(() => {
+    return firstName.value.slice(0,1).toUpperCase()+firstName.value.slice(1) +'-'+ lastName.value;
+});
+//方法,每次都会重新计算
+function fullName1() {
+    console.log('fullName1');
+    return firstName.value.slice(0,1).toUpperCase()+firstName.value.slice(1) +'-'+ lastName.value;
+}
+//可以直接修改fullName2
+let fullName2 = computed({
+    get(){
+        return firstName.value.slice(0,1).toUpperCase()+firstName.value.slice(1) +'-'+ lastName.value;
+    },
+    set(val){
+        const [str1, str2] = val.split('-');
+        firstName.value = str1;
+        lastName.value = str2;
+    }
+})
+
+function changefullname2(){
+    fullName2.value = 'li-si';
+}
+</script>
+
+<style>
+</style>
+```
+
+### watch监视
+
+监视四种数据：ref定义的数据，reactive定义的数据，函数返回一个值（`getter`函数），一个包含上述内容的数组
