@@ -560,3 +560,368 @@ function changefullname2(){
 ### watch监视
 
 监视四种数据：ref定义的数据，reactive定义的数据，函数返回一个值（`getter`函数），一个包含上述内容的数组
+
+- 监视ref定义的基本类型
+    ```vue
+    <template>
+        <div>
+            <h2>当前求和为{{ sum }}</h2>
+            <button @click="changesum">点我sum+1</button>
+        </div>
+    </template>
+    
+    <script setup>
+    import { ref, watch } from 'vue';
+    let sum = ref(0);
+    function changesum() {
+        sum.value++;
+    }
+    const stopwatch=watch(sum, (newSum,oldSum) => {
+        console.log('sum发生了变化', newSum, oldSum);
+        if(newSum>10){
+            console.log('sum>10了');
+            stopwatch();
+        }
+    });
+    </script>
+    
+    <style>
+    </style>
+    ```
+- 监视ref定义的对象类型数据
+	
+	```vue
+	<template>
+	    <div>
+	        <h1>监视ref对象类型数据</h1>
+	        <h2>{{ person.name }}</h2>
+	        <h2>{{ person.age }}</h2>
+	        <button @click="changename">修改年龄</button>
+	        <button @click="changeage">修改名字</button>
+	        <button @click="changeperson">修改全部</button>
+	    </div>
+	</template>
+	
+	<script setup>
+	import { ref, watch } from 'vue';
+	let person = ref({ name: 'tom', age: 18 });
+	function changename() {
+	    person.value.name += '~';
+	}
+	function changeage() {
+	    person.value.age += 1;
+	}
+	function changeperson() {
+	    person.value = { name: 'jerry', age: 20 };//创建一个新的对象，地址值改变
+	}
+	//监视的是对象的地址值，开启深度监视才能监视对象内部的数据变化
+	//在实际开发中，基本上不管旧的值，因此只需要一个value参数即可
+	watch(person,(newvalue,oldvalue)=>{
+	    console.log('person changed');
+	    console.log(newvalue);
+	    console.log(oldvalue);
+	}, { deep: true, immediate: true });//deep:true表示开启深度监视,immediate:true表示立即执行一次，旧的值为undefined
+	//当改变对象内部的数据时，但因为对象（的地址值）没有改变，改变的是对象内部的数据，因此oldvalue和newvalue是一样的
+	
+	</script>
+	
+	<style>
+	</style>
+	```
+
+- 监视reactive定义的对象类型数据，且默认开启了深度监视。
+
+    ```vue
+    <template>
+        <div>
+            <h1>监视reactive对象类型数据</h1>
+            <h2>{{ person.name }}</h2>
+            <h2>{{ person.age }}</h2>
+            <button @click="changename">修改年龄</button>
+            <button @click="changeage">修改名字</button>
+            <button @click="changeperson">修改全部</button>
+        </div>
+    </template>
+    
+    <script setup>
+    import { reactive, watch } from 'vue';
+    let person = reactive({ name: 'tom', age: 18 });
+    function changename() {
+        person.name += '~';
+    }
+    function changeage() {
+        person.age += 1;
+    }
+    function changeperson() {
+        Object.assign(person, { name: 'jerry', age: 20 });//修改对象内部的数据，地址值不变
+    }
+    
+    watch(person,(newvalue,oldvalue)=>{
+        console.log('person changed');
+        console.log(newvalue);
+        console.log(oldvalue);
+    }, {immediate: true });//reactive对象默认开启深度监视,且不能关闭
+    </script>
+    
+    <style>
+    </style>
+    ```
+
+- 监视ref或reactive定义的对象裂隙的数据中的某个属性(监视函数，函数返回改属性)
+
+    ```vue
+    <template>
+        <h2>姓名:{{ person.name }}</h2>
+        <h2>年龄:{{ person.age }}</h2>
+        <h2>汽车:{{ person.car.c1 }}\{{ person.car.c2 }}</h2>
+        <button @click="changename">修改名字</button>
+        <button @click="changeage">修改年龄</button>
+        <button @click="changec1">修改第一台车</button>
+        <button @click="changec2">修改第二台车</button>
+        <button @click="changecar">修改全部车</button>
+        <button @click="changeperson">修改全部人</button>
+    </template>
+    
+    <script setup>
+    import { reactive, watch } from 'vue';
+    let person = reactive({
+        name: 'xiaoming',
+        age: 18,
+        car: {
+            c1:'benz',
+            c2:'bmw'
+        }
+    })
+    
+    function changename(){
+        person.name = 'xiaohong'
+    }
+    function changeage(){
+        person.age = 20
+    }
+    function changec1(){
+        person.car.c1 = 'audi'
+    }
+    function changec2(){
+        person.car.c2 = 'landrover'
+    }
+    //可以直接修改reactive对象内部的的对象
+    function changecar(){
+        person.car = {
+            c1:'audi',
+            c2:'landrover'
+        }
+    }
+    function changeperson(){
+        Object.assign(person,{name:'xiaohong',age:20,car:{c1:'audi',c2:'landrover'}})
+    }
+    //必须监视的是对象，不能只监视对象内部的属性，想要只监视内部属性，需要写成函数
+    //由于是监视函数，所以输出的是属性变化前后的值
+    //若属性是对象，则要区分是要监视整个对象，还是对象内的值，两个都要监视可以加个深度监视
+    watch(()=>{return person.name},(newvalue,oldvalue)=>{
+        console.log('person changed');
+        console.log(newvalue);
+        console.log(oldvalue);
+    }, {immediate: true });
+    </script>
+    
+    <style>
+    </style>
+    ```
+
+    
+
+- 监视上述多个数据
+
+    ```vue
+    <template>
+        <h2>姓名:{{ person.name }}</h2>
+        <h2>年龄:{{ person.age }}</h2>
+        <h2>汽车:{{ person.car.c1 }}\{{ person.car.c2 }}</h2>
+        <button @click="changename">修改名字</button>
+        <button @click="changeage">修改年龄</button>
+        <button @click="changec1">修改第一台车</button>
+        <button @click="changec2">修改第二台车</button>
+        <button @click="changecar">修改全部车</button>
+        <button @click="changeperson">修改全部人</button>
+    </template>
+    
+    <script setup>
+    import { reactive, watch } from 'vue';
+    let person = reactive({
+        name: 'xiaoming',
+        age: 18,
+        car: {
+            c1:'benz',
+            c2:'bmw'
+        }
+    })
+    
+    function changename(){
+        person.name = 'xiaohong'
+    }
+    function changeage(){
+        person.age = 20
+    }
+    function changec1(){
+        person.car.c1 = 'audi'
+    }
+    function changec2(){
+        person.car.c2 = 'landrover'
+    }
+    function changecar(){
+        person.car = {
+            c1:'audi',
+            c2:'landrover'
+        }
+    }
+    function changeperson(){
+        Object.assign(person,{name:'xiaohong',age:20,car:{c1:'audi',c2:'landrover'}})
+    }
+    //也可以直接()=>{return [person.name,person.car.c1]}
+    watch([()=>{return person.name},()=>{return person.car.c1}],(newvalue,oldvalue)=>{
+        console.log('person changed');
+        console.log(newvalue);
+        console.log(oldvalue);
+    }, {immediate: true });
+    </script>
+    
+    <style>
+    </style>
+    ```
+
+    
+
+### watcheffect
+
+```vue
+<template>
+  <div>
+    <h2>当前水温为：{{ temp }}</h2>
+    <h2>当前水位为：{{ height }}</h2>
+    <button @click="changetemp">增加水温</button>
+    <button @click="changeheight">增加水位</button>
+  </div>
+</template>
+
+<script setup>
+import { ref, watch ,watchEffect} from "vue";
+
+let height = ref(0);
+let temp = ref(10);
+
+function changeheight() {
+  height.value += 1;
+}
+
+function changetemp() {
+  temp.value += 1;
+}
+
+// watch([temp, height], (value) => {
+//   let [tempValue, heightValue] = value;
+//   if (tempValue > 15 ) {
+//     console.log("水温过高");
+//     }
+//   if(heightValue > 10){
+//     console.log("水位过高");
+//   }
+// });
+
+watchEffect(() => {
+    if (temp.value > 15) {
+        console.log("水温过高");
+    }
+    if (height.value > 10) {
+        console.log("水位过高");
+    }
+});
+</script>
+
+<style scoped></style>
+
+```
+
+
+
+### ref标记（等价于id）
+
+```vue
+<template>
+    <div>
+        <h1>中国</h1>
+        <h2 ref="title2">北京</h2>
+        <!-- 局部标记，在一个组件里的标记不会影响到其他组件，类似于id的作用 -->
+        <h3>小明</h3>
+        <button @click="showlog">点我输出h2这个元素</button>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+let title2 =ref()
+function showlog() {
+    console.log(title2.value)
+}
+
+defineExpose({
+    title2
+})
+// 通过defineExpose暴露出去该组件实例中的某部分数据
+</script>
+
+<style scoped>
+</style>
+```
+
+## TS接口调用
+
+PersonInter
+
+```typescript
+//定义接口，限制person对象的具体属性
+export interface PersonInter{
+    id: number,
+    name: string,
+    age: number,
+}
+```
+
+```vue
+<template>
+    <div>
+
+    </div>
+</template>
+
+<script lang="ts" setup>
+import {type PersonInter} from '@/types'
+let person: PersonInter = {
+    id: 1,
+    name: 'John',
+    age: 30,
+}
+let personlist: PersonInter[] = [
+    {
+        id: 1,
+        name: 'John',
+        age: 30,
+    },
+    {
+        id: 2,
+        name: 'Doe',
+        age: 25,
+    },
+    {
+        id: 3,
+        name: 'Smith',
+        age: 28,
+    }
+]
+</script>
+
+<style scoped>
+
+</style>
+```
+
