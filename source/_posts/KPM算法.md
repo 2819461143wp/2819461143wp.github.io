@@ -4,7 +4,7 @@ date: 2024-10-10 08:46:46
 categories:
   - note
   - 408
-  - 数据结构与算法
+  - 算法
 tags: [算法]
 index_img:
 banner_img: /images/壁纸.jpg

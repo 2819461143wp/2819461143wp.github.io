@@ -24,7 +24,7 @@ banner_img: /images/壁纸.jpg
 | -------- | ------------------------------------------------ | ------------- |
 | 非空约束 | 限制字段值不能为null                             | `not null`    |
 | 唯一约束 | 保证字段的数据唯一                               | `unique`      |
-| 主键约束 | 主键是一行数据的唯一标识，非空且唯一             | `primart key` |
+| 主键约束 | 主键是一行数据的唯一标识，非空且唯一             | `primary key` |
 | 默认约束 | 若未规定该字段值，采用默认值                     | `default`     |
 | 外键约束 | 让两张表的数据建立连接，保证数据的一致性和完整性 | `foreign key` |
 
@@ -44,10 +44,10 @@ database等效于schema
 
 ### 库操作
 
-- 查询所有数据库`show databases;` 
-- 查询当前数据库`select database();` 
-- 使用/切换数据库`use 数据库名;`  
-- 创建数据库`create database [if not exists] 数据库名 [default charset utf8mb4];` 
+- 查询所有数据库`show databases;`
+- 查询当前数据库`select database();`
+- 使用/切换数据库`use 数据库名;`
+- 创建数据库`create database [if not exists] 数据库名 [default charset utf8mb4];`
 - 删除数据库`drop database [if exists] 数据库名;`
 
 ### 表操作
@@ -55,7 +55,7 @@ database等效于schema
 创建表：
 
 ```sql
-create  table tablename()
+create  table tablename(
  字段1 字段类型 [约束] [conmment 字段1注释],
  字段2 字段类型 [约束] [conmment 字段2注释]
 )[comment 表注释];
@@ -144,7 +144,7 @@ SQL 条件运算符：
 | avg   | 平均值   |
 | sum   | 求和     |
 
-- 统计该表数据总数`select count(*) from emp; `如果统计具体的字段数，值为`null`不参与统计
+- 统计该表数据总数`select count(*) from emp;`如果统计具体的字段数，值为`null`不参与统计
 - 求一个字段的平均值 `select avg(sorce) from emp;`
 - 求一个字段的最小值`select min(sorce) from emp;`
 - 求一个字段中的最大值`select max(sorce) from emp;`
@@ -175,6 +175,4 @@ SQL 条件运算符：
 `select * from emp limit 0,5;`查询数据，每页展示五条数据
 
 `select * from emp limit 5,10;`查询第二页数据，每页展示五条数据
-$
-起始索引=（页码-1）*每页展示记录数
-$
+$起始索引=（页码-1）*每页展示记录数$
