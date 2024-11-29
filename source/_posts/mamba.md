@@ -39,7 +39,7 @@ banner_img: /images/壁纸.jpg
 &nbsp;&nbsp;&nbsp;&nbsp;连续系统不方便计算机处理，中间图是对它的离散化展开，沿时间拉长，模型和RNN长相上几乎一样。公式与上面类似，只是导数改为不同时刻角标，形成递归过程。
 
 ![时序离散化](../images/mamba/时序离散化.png)
-&nbsp;&nbsp;&nbsp;&nbsp;原文给出了一种从连续系统转换为离散系统的ABC参数对应关系，为一中种法的举例（零阶保持)，只需知道运用一个$\Delta$函数,将微分变成差分，经过计算按得到新的A和B。
+&nbsp;&nbsp;&nbsp;&nbsp;原文给出了一种从连续系统转换为离散系统的ABC参数对应关系，为一种方法的举例（零阶保持)，只需知道运用一个$\Delta$函数,将微分变成差分，经过计算按得到新的A和B。
 
 $$
 \bar{A}=exp(\Delta A) \ \ \  \bar{B}=( \Delta A )^{-1}(exp(\Delta A)-I)\cdot \Delta B

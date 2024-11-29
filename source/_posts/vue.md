@@ -925,3 +925,6 @@ let personlist: PersonInter[] = [
 </style>
 ```
 
+### Axio发送异步请求
+
+对Ajax进行封装
