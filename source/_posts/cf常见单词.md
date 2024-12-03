@@ -12,9 +12,9 @@ banner_img: /images/壁纸.jpg
 | Latin letters | 拉丁字母 |
 | ------------- | -------- |
 | template      | 模板     |
-|               |          |
-|               |          |
-|               |          |
+| remainder     | 余数     |
+| divide        | 除       |
+| binary        | 二进制   |
 |               |          |
 |               |          |
 |               |          |
