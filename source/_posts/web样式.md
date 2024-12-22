@@ -35,19 +35,19 @@ banner_img: /images/壁纸.jpg
 - `<p align="center">cwdpsky</p>`
 - `<hr>`分割线
 
-| 属性名 | 属性                    |
-| ------ | ----------------------- |
-| aliign | left right center(默认) |
-| size   | 默认2px                 |
-| color  | 可以直接颜色也可以RGB   |
-| width  | 长度，默认100%          |
+| 属性                    | 属性名 |
+| ----------------------- | ------ |
+| left right center(默认) | align  |
+| 默认2px                 | size   |
+| 可以直接颜色也可以RGB   | color  |
+| 长度，默认100%          | width  |
 
 - `<br>`换行符
 - `<b></b>`或`<strong></strong>`文本加粗
-- `<u></u>`或``<ins></ins>`文本下划线
-- `<i></i>`或``<em></em>`斜体 
-- `<s></s>`或``<del></del>`文本增加删除线
-- `<img src="" alt="">`
+- `<u></u>`或`<ins></ins>`文本下划线
+- `<i></i>`或`<em></em>`斜体 
+- `<s></s>`或`<del></del>`文本增加删除线
+- `<img src="" alt="" title="">`
 - `<video src=""></video>`
 - `<audio src=""></audio>`音频
 - `<a href="" targer=" "></a>`  `_self`原窗口打开，`_blank`新窗口打开
@@ -368,3 +368,329 @@ p{
     ```
 
 `m1`到`m16`是矩阵的值，可以组合平移、旋转、缩放和倾斜的效果。
+
+### tips
+
+实现上下左右居中
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .color {
+            color: purple;
+            text-decoration: underline;
+        }
+
+        .color:hover {
+            color: red;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="https://2819461143wp.github.io" class="color">点击变色</a>
+        <!-- <video src="">你是啥</video> -->
+    </div>
+</body>
+
+</html>
+```
+
+或
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: #f0f0f0;
+        }
+
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /*定位到一半是头和左边定位到一半，需要往回偏移自身的一半，才是整个居中 */
+            width: 100px;
+            height: 100px;
+            background-color: #00f;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="centered"></div>
+    </div>
+</body>
+
+</html>
+```
+
+
+
+## 实验
+
+### 风车
+
+```html
+<!doctype html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <title>风车</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        div {
+            width: 1024px;
+            height: 606px;
+            position: relative;
+            background: url('bg02.jpeg') no-repeat;
+        }
+
+        .fc {
+            display: inline-block;
+            width: 427px;
+            height: 430px;
+            background: url('fc.png') no-repeat;
+            position: absolute;
+            left: 37%;
+            top: 28%;
+            animation: rotate1 10s linear 0s infinite;
+        }
+
+        @keyframes rotate1 {
+            from {
+                transform: rotate(-360deg);
+            }
+
+            to {
+                transform: rotate(0);
+            }
+        }
+    </style>
+</head>
+```
+
+### 新闻页面
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻页面</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .center {
+            text-align: center;
+        }
+
+        .font-microsoft-yahei {
+            font-family: "微软雅黑";
+        }
+
+        .color-gray {
+            color: #979797;
+        }
+
+        .size-2 {
+            font-size: 2em;
+        }
+
+        .color-blue {
+            color: blue;
+        }
+
+        .custom-hr {
+            border: 0;
+            height: 2px;
+            background-color: #cccccc;
+        }
+
+        .content {
+            margin: 20px;
+        }
+
+        .image-text {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .image {
+            width: 150px;
+            height: 150px;
+            margin-right: 20px;
+        }
+
+        .text {
+            flex: 1;
+        }
+
+        .margin-left {
+            margin-left: 2em;
+        }
+        .color {
+            color: purple;
+        }
+        .color:hover {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 class="center">
+        <span class="font-microsoft-yahei">新媒体的大势所趋</span>
+    </h2>
+    <p class="center">
+        <span class="color-gray size-2">更新时间:2019年12月16日</span>
+        <span class="color-blue">开源社区</span>
+    </p>
+    <hr class="custom-hr">
+    <div class="content">
+        <p class="center">
+            近年来，随着<span
+                class="color-blue">移动互联网</span>graeheraeraeraeraeraeraeraheraherahheraheraheraherahraafdfeagasergas
+            <span class="color-blue">fesafeS</span>vxzhsdabsjhdgejwhwfbsj
+        </p>
+        <div class="image-text">
+            <img src="C:\Users\什么dodo\Desktop\1.jpg" alt="新媒体" class="image">
+            <div class="text">
+                <span>Web前端开发工程师</span>
+                <br>
+                <br>
+                技术要求：<br>
+                <span class="margin-left">dfsjhdfbsjcb</span>
+                <br>
+                更新时间：2015年5月19日faskfdhsdjvb（已有<strong>323</strong>点赞）
+                <hr>
+                相关技术文章<strong>8</strong>篇
+            </div>
+            
+        </div>
+        <a href="https://2819461143wp.github.io" class="color">悬停变色</a>
+    </div>
+    <p><a href="https://2819461143wp.github.io" title="my blog" target="_blank" rel="noopener">我的😋</a></p>
+</body>
+
+</html>
+```
+
+### 登录注册
+
+```html
+template>
+  <div class="img">
+    <div class="center-container">
+      <h2>注册</h2>
+      <label for="username">用户名:</label>
+      <input type="text" id="username" name="username" placeholder="请输入用户名"><br>
+      <label for="password">密码:</label>
+      <input type="password" id="password" name="password" placeholder="请输入密码"><br>
+      <label for="password_again">确认密码：</label>
+      <input type="password" id="password_again" name="password_again" placeholder="请再次输入密码"><br>
+      <label for="email">邮箱：</label>
+      <input type="email" id="email" name="email" placeholder="请输入邮箱"><br>
+      <label for="captcha">验证码：</label>
+      <div class="captcha-container">
+        <span class="captcha">{{ captcha }}</span>
+        <button type="button" @click="generateCaptcha">刷新验证码</button>
+      </div>
+      <input type="text" id="captcha" name="captcha" v-model="inputCaptcha" placeholder="请输入验证码"><br>
+      <button @click="register">注册</button>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const captcha = ref('');
+const inputCaptcha = ref('');
+
+const generateCaptcha = () => {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+  for (let i = 0; i < 4; i++) {
+    result += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  captcha.value = result;
+};
+
+const register = () => {
+  if (inputCaptcha.value !== captcha.value) {
+    alert('验证码错误，请重新输入');
+    return;
+  }
+  alert('注册成功');
+};
+
+generateCaptcha();
+</script>
+
+<style scoped>
+.center-container {
+  background-color: rgb(143, 171, 188);
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.img {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('src/pages/底图.jpg');
+}
+
+.captcha-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.center-container label{
+  display: block;
+  text-align: left;
+}
+
+.captcha {
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+</style>
+```
+
