@@ -1,4 +1,3 @@
-
 ## 环境设置
 
 - 新建一个anaconda的虚拟环境，安装3.10.11版本的py`conda create --name new_env python=3.10.11`

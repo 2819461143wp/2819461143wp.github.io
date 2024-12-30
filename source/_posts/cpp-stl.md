@@ -76,7 +76,6 @@ STL 作为一个封装良好，性能合格的 C++ 标准库，在算法竞赛�
 
 
 
-
 ## 2.2 向量 [vector](https://zh.cppreference.com/w/cpp/container/vector)
 
 **`#include <vector>`**
