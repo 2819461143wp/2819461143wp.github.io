@@ -706,6 +706,41 @@ if (p1 == p2) { ... } // false
 
 无
 
+## 2.10 哈希表unordered_map
+
+```cpp
+int main() {
+    // 创建一个 unordered_map，键为 string，值为 int
+    unordered_map<string, int> umap;
+    // 插入键值对
+    umap["apple"] = 1;
+    umap["banana"] = 2;
+    umap["cherry"] = 3;
+    // 使用 insert 方法插入键值对
+    umap.insert({"date", 4});
+    // 查找键值对
+    string key = "banana";
+    if (umap.find(key) != umap.end()) {
+        cout << key << " 的值是 " << umap[key] << endl;
+    } else {
+        cout << key << " 不存在" << endl;
+    }
+    // 遍历 unordered_map
+    for (const auto& pair : umap) {
+        cout << pair.first << " : " << pair.second << endl;
+    }
+    // 删除键值对
+    umap.erase("apple");
+    // 检查键是否存在
+    if (umap.count("apple") > 0) {
+        cout << "apple 存在" << endl;
+    } else {
+        cout << "apple 不存在" << endl;
+    }
+    return 0;
+}
+```
+
 
 
 # 3 迭代器简介
