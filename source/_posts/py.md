@@ -126,19 +126,91 @@ set1.pop() # 随机删除一个元素
 
 ```python
 class Employee:
-   '所有员工的基类'
-   empCount = 0#成员变量
-    
+    '所有员工的基类'
+    empCount = 0  # 成员变量
+    name = ""
+    salary = 0
+
+    def __init__(self, name, salary):  # 构造函数
+        self.name = name#改变的是对象的值
+        self.salary = salary
+        Employee.empCount += 1#改变的是类的值
+
+    def displayCount(self):  # self表示类的实例，当前实例的地址
+        print("Total Employee %d" % Employee.empCount)
+
+    def displayEmployee(self):
+        print("Name : ", self.name, ", Salary: ", self.salary)
+
+    def updateEmployee(self, name, salary):
+        self.name = name
+        self.salary = salary
+
+    def __del__(self): # 在调用时、对象停止引用（程序停止）时调用
+        class_name = self.__class__.__name__
+        print(class_name, "销毁")
+        self.displayEmployee()
+
+
+john = Employee("John", 1000)
+mike = Employee("Mike", 1500)
+john.displayEmployee()
+john.displayCount()
+john.updateEmployee("Alex", 2000)
+john.displayEmployee()
+```
+
+#### 继承
+
+```py
+class people:
+    #定义基本属性
+    name = ''
+    age = 0
+    #定义私有属性,私有属性在类外部无法直接进行访问
+    __weight = 0
+    #定义构造方法
+    def __init__(self,n,a,w):
+        self.name = n
+        self.age = a
+        self.__weight = w
+    def speak(self):
+        print("%s 说: 我 %d 岁。" %(self.name,self.age))
  
-   def __init__(self, name, salary):#构造函数
-      self.name = name
-      self.salary = salary
-      Employee.empCount += 1
-   
-   def displayCount(self):#self表示实例，当前实例的地址，可替换
-     print "Total Employee %d" % Employee.empCount
+#单继承示例
+class student(people):
+    grade = ''
+    def __init__(self,n,a,w,g):
+        #调用父类的构函
+        people.__init__(self,n,a,w)
+        self.grade = g
+    #覆写父类的方法
+    def speak(self):
+        print("%s 说: 我 %d 岁了，我在读 %d 年级"%(self.name,self.age,self.grade))
  
-   def displayEmployee(self):
-      print "Name : ", self.name,  ", Salary: ", self.salary
+#另一个类，多继承之前的准备
+class speaker():
+    topic = ''
+    name = ''
+    def __init__(self,n,t):
+        self.name = n
+        self.topic = t
+    def speak(self):
+        print("我叫 %s，我是一个演说家，我演讲的主题是 %s"%(self.name,self.topic))
+ 
+#多继承
+class sample(speaker,student):
+    a =''
+    def __init__(self,n,a,w,g,t):
+        student.__init__(self,n,a,w,g)
+        speaker.__init__(self,n,t)
+
+    def speak(self):
+        print("%s 说: 我 %d 岁了，我在读 %d 年级，我演讲的主题是 %s"%(self.name,self.age,self.grade,self.topic))
+test = sample("Tim",25,80,4,"Python")
+test.speak()   #方法名同，默认调用的是在括号中参数位置排前父类的方法
+super(sample,test).speak()  #用子类对象调用父类已被覆盖的方法
+#因为这里是多继承，调用的是speaker因为speaker 类在继承列表中排在student 类之前。你可以通过查看 sample 类的 MRO（方法解析顺序）来验证这一点
+print(sample.__mro__)
 ```
 
