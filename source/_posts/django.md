@@ -1,10 +1,10 @@
 ---
-title: jsp
+title: Django
 date: 2025-03-19 09:56:26
 categories:
   - note
   - language
-  - jsp
+  - Django
 tags: [language]
 banner_img: /images/壁纸.jpg
 ---
