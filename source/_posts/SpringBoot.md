@@ -53,8 +53,26 @@ public class PersonConfig {
 
 ### 属性绑定
 
-- `@ConfigurationProperties(prefix = "value")`绑定于application.properties
+- `@ConfigurationProperties(prefix = "value")`绑定于`application.properties`
 - `@EnableConfigurationProperties`
+
+### 异常回滚
+
+`@Transactional `注解用于确保方法中的所有数据库操作要么全部成功，要么全部失败（回滚），实现事务的原子性。
+
+```java
+@Transactional
+public void batchInsertWithScoreUpdate(List<Sutuo> sutuos) {
+    for (Sutuo sutuo : sutuos) {
+        // 插入素拓记录
+        sutuoMapper.InsertSutuo(sutuo);
+        // 更新学生总分
+        studentMapper.UpdateStudent(sutuo);
+    }
+}
+```
+
+
 
 ### 自动装配
 

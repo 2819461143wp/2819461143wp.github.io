@@ -48,7 +48,11 @@ banner_img: /images/壁纸.jpg
 | == !=                    | 等于运算符           |
 | = %= /= //= -= += *= **= | 赋值运算符           |
 
-**list列表**：列表内的元素可以修改
+### 数据结构
+
+#### list列表
+
+列表内的元素可以修改
 
 ```python
 list = []
@@ -71,7 +75,7 @@ list.sort()#['www', 2, 3]排序,默认升序,降序list.sort(reverse=True)
 list.reverse()#[3, 2, 'www']反转
 ```
 
-**tuple元组**：
+#### tuple元组
 
 &nbsp;&nbsp;&nbsp;&nbsp;定义时使用小括号且元组内的元素不可修改，访问元组内的元素与列表相同,删除只能删除整个元组
 
@@ -85,7 +89,8 @@ tup3 = tup1+tup2
 list = list(tup3)# ['Google', 'Runoob', 1997, 2000, 1, 2, 3, 4, 5]
 ```
 
-**dictionary字典**：
+#### dictionary字典（map）
+
 &nbsp;&nbsp;&nbsp;&nbsp;表示映射关系的键（`key`）值（`value`）对，`key`必须唯一，键不可变，因此可以使用数字，字符串，元组而不能使用列表
 
 ```python
@@ -100,7 +105,7 @@ del tinydict# 删除字典
 tinydict.clear()# 清空字典
 ```
 
-**set集合**：
+#### set集合
 
 &nbsp;&nbsp;&nbsp;&nbsp;是一种无需、可变的数据类型，用于存储唯一的元素，创建格式`parame = {value01,value02,...}`或者`set(value)`
 
@@ -122,7 +127,125 @@ set1.discard(8) # 删除元素,不存在不会报错
 set1.pop() # 随机删除一个元素
 ```
 
-### 面向对象
+### 函数
+
+#### 动态参数
+
+使用关键词 `*args` 接收任意数量的位置参数，存储为元组（tuple）。
+
+```python
+def func(*args):
+    print(args) # 元组类型 (22,)   (22,33,99,) ()
+
+# 只能按照位置传参
+func(22)
+func(22,33)
+func(22,33,99)
+func()
+```
+
+使用关键词 `**kwargs` 接收任意数量的关键字参数，存储为字典（dict）
+
+```python
+def func(**kwargs):
+    print(kwargs) # 字典类型 {"n1":"猪悟能"}    {"n1":"猪悟能","age":"18","email":"xxxx"}  {}
+    
+# 只能按关键字传参
+func(n1="猪悟能")
+func(n1="猪悟能",age=18)
+func(n1="猪悟能",age=18,email="xx@live.com")
+```
+
+**tips:**
+
+```python
+# 1. ** 必须放在 * 的后面
+def func1(*args, **kwargs):
+    print(args, **kwargs)
+
+
+# 2. 参数和动态参数混合时，动态参数只能放在最后。
+def func2(a1, a2, a3, *args, **kwargs):
+    print(a1, a2, a3, args, **kwargs)
+
+
+# 3. 默认值参数和动态参数可以同时存在
+def func3(a1, a2, a3, a4=10, *args, a5=20, **kwargs):
+    print(a1, a2, a3, a4, a5, args, kwargs)
+
+
+func3(11, 22, 33, 44, 55, 66, 77, a5=10, a10=123)
+```
+
+#### return
+
+当在函数中`未写返回值` 或 `return` 或 `return None` ，执行函数获取的返回值都是`None`
+
+`return`后面的值如果有逗号，则默认会将返回值转换成元组再返回。
+
+```python
+def func():
+    return 1,2,3
+
+value = func()
+print(value) # (1,2,3)
+```
+
+#### 传参
+在 Python 中，函数参数的传递方式本质上是 **传递对象的引用（内存地址）**
+
+1. **不可变对象**（int, str, tuple 等）：
+    - 函数内修改参数 **不会影响外部变量**
+    - 因为修改时会创建新对象
+2. **可变对象**（list, dict, set 等）：
+    - 函数内 **原地修改**（如 `append`/`update`）会影响外部变量
+    - 函数内 **重新赋值**（如 `= []`）不会影响外部变量
+3. **本质**：参数传递的是内存地址的副本，但操作方式决定了是否共享内存
+
+### 函数式编程
+
+#### map函数
+
+```python
+>>> def f(x):
+...     return x * x
+...
+>>> r = map(f, [1, 2, 3, 4, 5, 6, 7, 8, 9])
+>>> list(r)
+[1, 4, 9, 16, 25, 36, 49, 64, 81]
+```
+
+#### reduce函数
+
+```python
+>>> from functools import reduce
+>>> def add(x, y):
+...     return x + y
+...
+>>> reduce(add, [1, 3, 5, 7, 9])
+25
+```
+
+#### 过滤序列filter
+
+```python
+def is_odd(n):
+    return n % 2 == 1
+
+list(filter(is_odd, [1, 2, 4, 5, 6, 9, 10, 15]))
+#删除偶数
+```
+
+#### 列表生成式
+
+```python
+>>> list(range(1, 11))
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+
+
+## 面向对象
 
 ```python
 class Employee:
