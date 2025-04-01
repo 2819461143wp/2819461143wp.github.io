@@ -243,6 +243,32 @@ list(filter(is_odd, [1, 2, 4, 5, 6, 9, 10, 15]))
 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 
+### 海象运算符
+
+`py==3.8`后引入的新的赋值表达式运算符，可以在表达式中进行赋值操作，符号为`:=`
+
+```python
+# 传统写法
+line = input("Enter a line: ")
+while line != "quit":
+    print(f"You entered: {line}")
+    line = input("Enter a line: ")
+    
+# 使用海象运算符
+while (line := input("Enter a line: ")) != "quit":
+    print(f"You entered: {line}")
+    
+# 传统写法
+results = []
+for x in range(10):
+    y = x * x
+    if y > 10:
+        results.append(y)
+        
+# 使用海象运算符
+results = [y for x in range(10) if (y := x * x) > 10]
+```
+
 
 
 ## 面向对象
@@ -337,3 +363,76 @@ super(sample,test).speak()  #用子类对象调用父类已被覆盖的方法
 print(sample.__mro__)
 ```
 
+## 类
+
+### 特殊方法/魔法方法
+
+定义了类要如何对待运算符的python内置函数的方法，往往前后有两个下划线，叫作`dunder method`->`double underscore`
+
+### import
+
+导入文件时的查找是根据执行目录`sys.path`来的
+
+> 假设我们A导入B，在B导入C，BC在同目录下，运行A，当前目录是A所在的目录，虽然BC是同级，但无法直接导入
+
+导入时的`*`可用`__all__`来定义
+
+```python
+from packageA import *
+
+#packageA/__init__.py
+__all__=['X','moduleA']
+```
+
+
+
+### 相对导入
+
+1. **单个点 (`.`)**：表示当前包。
+2. **两个点 (`..`)**：表示当前包的父包。
+3. **三个点 (`...`)**：表示当前包的父包的父包，以此类推。
+
+例如，假设有以下目录结构：
+
+```markdown
+my_package/
+    __init__.py
+    test1.py
+    sub_package/
+        __init__.py
+        test2.py
+```
+
+在 `test2.py` 中，你可以使用相对导入来导入 `test1.py` 中的函数：
+
+```python
+from ..test1 import devide
+```
+
+为了使相对导入正常工作，请确保：
+
+1. 你的代码在包的上下文中运行。
+2. 使用 `-m` 选项从包的根目录运行 Python 解释器。
+
+### `__init__.py`
+
+- 包的初始化
+
+- 管理包的接口
+
+    ```python
+    from packageA import *
+    
+    #packageA/__init__.py
+    __all__=['X','moduleA']
+    ```
+
+    
+
+- 管理包的信息
+    ```python
+    __version__='1.0.0'
+    __outhor__='cwdpsky'
+    ```
+
+    
