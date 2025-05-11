@@ -1,68 +1,50 @@
-```mermaid
-classDiagram
-    class Member {
-        -memberId: String
-        -name: String
-        -phone: String
-        -email: String
-        -address: String
-        +register(): void
-        +updateProfile(name: String, phone: String): void
-        +validateEmail(): boolean
-    }
+- ### 1. 确定状态空间
 
-    class GoldMember {
-        +getDiscount(): double
-    }
+    - **定义状态**：首先需要明确系统的状态集合。状态可以是离散的，例如天气状态（晴天、阴天、雨天），也可以是连续的，但在实际应用中通常会将其离散化。
+    - **状态空间**：将所有可能的状态组合成一个状态空间 *S*={*s*1,*s*2,…,*s**n*}，其中 *n* 是状态的总数。
 
-    class SilverMember {
-        +getDiscount(): double
-    }
-    Member <|-- GoldMember
-    Member <|-- SilverMember
+    ### 2. 收集数据并构建状态序列
 
-    class Order {
-        -orderId: String
-        -orderDate: Date
-        -status: String
-        +addProductItem(product: Product, quantity: int): void
-        +calculateTotal(): double
-        +updateStatus(newStatus: String): void
-    }
-    Member "1" --> "*" Order : has
+    - **数据收集**：收集系统的状态变化数据，这些数据通常是按时间顺序排列的观测值，例如一段时间内的天气记录、股票价格走势等。
+    - **构建状态序列**：根据数据生成一个状态序列 *X*=(*x*1,*x*2,…,*x**t*)，其中 *x**i* 表示在时间点 *i* 的系统状态。
 
-    class ProductItem {
-        -itemId: String
-        -productId: String
-        -quantity: int
-        -unitPrice: double
-        -discount: double
-        +calculateSubtotal(): double
-    }
-    Order "1" *-- "*" ProductItem : contains
+    ### 3. 计算状态转移概率矩阵
 
-    class Product {
-        -productId: String
-        -name: String
-        -price: double
-        -stock: int
-        -origin: String
-        +updateStock(quantity: int): void
-        +getPrice(): double
-    }
-    ProductItem "n" --> "1" Product : refers to
-```
+    - **统计转移频率**：统计状态序列中从一个状态转移到另一个状态的频率。例如，从状态 *s**i* 转移到状态 *s**j* 的次数 *N**ij*。
 
-```mermaid
-stateDiagram-v2
-    [*] --> 初始
-    初始 --> 备货: 管理员处理无误
-    初始 --> 退回修改: 管理员处理有误
-    退回修改 --> 初始: 员工修改并重新提交
-    退回修改 --> 取消: 员工取消
-    备货 --> 发货: 仓库管理员备货完毕
-    发货 --> 关闭: 销售部员工确认收货
-    关闭 --> [*]
-    取消 --> [*]
-```
+    - **计算转移概率**：根据转移频率计算状态转移概率矩阵 *P*，其中 *p**ij* 表示从状态 *s**i* 转移到状态 *s**j* 的概率：
 
+        *p**ij*=∑*k*=1*n**N**ik**N**ij*
+
+        这里，∑*k*=1*n**N**ik* 是从状态 *s**i* 转移出去的总次数，确保每一行的概率之和为1。
+
+    - **构建转移概率矩阵**：将所有状态转移概率组合成一个矩阵 *P*：
+
+        *P*=*p*11*p*21⋮*p**n*1*p*12*p*22⋮*p**n*2……⋱…*p*1*n**p*2*n*⋮*p**nn*
+
+    ### 4. 确定初始状态分布
+
+    - **初始状态概率**：确定系统在初始时刻的状态分布 *π*(0)，通常是一个概率向量，表示系统在初始时刻处于各个状态的概率。例如：
+
+        *π*(0)=[*π*1(0),*π*2(0),…,*π**n*(0)]
+
+        其中，*π**i*(0) 是系统在初始时刻处于状态 *s**i* 的概率。
+
+    ### 5. 进行状态预测
+
+    - **一步预测**：根据初始状态分布和转移概率矩阵，可以预测下一步的状态分布：
+
+        *π*(1)=*π*(0)*P*
+
+        其中，*π*(1) 是系统在第一步的状态分布。
+
+    - **多步预测**：对于多步预测，可以递归计算：
+
+        *π*(*t*)=*π*(0)*P**t*
+
+        这里，*P**t* 表示转移概率矩阵的 *t* 次幂，用于预测 *t* 步之后的状态分布。
+
+    ### 6. 模型验证与调整
+
+    - **验证**：将模型的预测结果与实际数据进行比较，评估模型的准确性和可靠性。
+    - **调整**：如果预测结果与实际数据偏差较大，可以调整状态划分、重新计算转移概率矩阵或引入更高阶的Markov模型（例如二阶Markov模型）以提高预测精度。

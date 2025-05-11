@@ -925,6 +925,171 @@ let personlist: PersonInter[] = [
 </style>
 ```
 
-### Axio发送异步请求
+## Axios
 
-对Ajax进行封装
+| 特性           | 说明                             | 对比原生 `fetch`               |
+| :------------- | :------------------------------- | :----------------------------- |
+| 自动转换 JSON  | 响应数据自动转为 JavaScript 对象 | `fetch` 需要手动调用 `.json()` |
+| 拦截器         | 可以在请求/响应前后统一处理逻辑  | 原生无此功能                   |
+| 错误处理       | 自动识别 400/500 状态码为错误    | `fetch` 不认为 404 是错误      |
+| 请求取消       | 支持取消进行中的请求             | 需要 AbortController           |
+| 浏览器/Node.js | 两端通用                         | `fetch` 仅浏览器               |
+
+### async/await发送异步请求
+
+顺序执行
+
+```vue
+// 示例代码
+const funcA = async () => {
+  console.log('A开始');
+  await delay(1000); // 模拟1秒耗时操作
+  console.log('A结束');
+}
+
+const funcB = async () => {
+  console.log('B开始');
+  await delay(500); // 模拟0.5秒耗时操作
+  console.log('B结束');
+}
+
+// 执行顺序
+const main = async () => {
+  await funcA(); // 等待A完全执行完
+  await funcB(); // 再执行B
+}
+
+main();
+```
+
+并行执行
+
+```vue
+const main = async () => {
+  // 同时触发两个异步操作
+  const promiseA = funcA(); // 不写await，立即得到一个Promise
+  const promiseB = funcB(); 
+
+  await Promise.all([promiseA, promiseB]); // 等待全部完成
+  console.log('全部完成');
+}
+```
+
+不等待直接执行
+
+```vue
+const main = async () => {
+  funcA(); // 不写await
+  funcB(); 
+  console.log('我先执行');
+}
+```
+
+### axios基础用法
+
+```vue
+<script setup>
+import { ref } from 'vue'
+import axios from 'axios'
+
+const data = ref(null)
+const loading = ref(false)
+
+// 基本 GET 请求
+const fetchData = async () => {
+  loading.value = true
+  try {
+    const response = await axios.get('https://api.example.com/data')
+    data.value = response.data // 响应数据在 data 字段
+  } catch (error) {
+    console.error('请求失败:', error)
+  } finally {
+    loading.value = false
+  }
+}
+
+// POST 请求示例
+const postData = async () => {
+  try {
+    await axios.post('https://api.example.com/save', {
+      name: '张三',
+      age: 25
+    })
+    alert('保存成功！')
+  } catch (error) {
+    alert('保存失败！')
+  }
+}
+</script>
+```
+
+### 核心概念
+
+#### 请求配置
+
+```javascript
+axios.get(url, {
+  params: { id: 1 }, // URL 参数 → ?id=1
+  headers: { 'X-Token': 'abc123' }, // 自定义请求头
+  timeout: 5000 // 超时时间（毫秒）
+})
+```
+
+#### 响应结构
+
+```json
+{
+  data: {}, // 服务端返回的数据
+  status: 200, // HTTP 状态码
+  statusText: 'OK', // 状态消息
+  headers: {}, // 响应头
+  config: {} // 请求配置
+}
+```
+
+#### 错误处理
+
+```javascript
+try {
+  await axios.get('/api/data')
+} catch (error) {
+  if (error.response) {
+    // 服务端返回了 4xx/5xx 响应
+    console.log(error.response.status)
+    console.log(error.response.data)
+  } else if (error.request) {
+    // 请求已发送但无响应
+    console.log('网络连接异常')
+  } else {
+    // 其他错误（如配置错误）
+    console.log('请求配置错误')
+  }
+}
+```
+
+#### 拦截器
+
+```javascript
+// 请求拦截器（发送请求前统一处理）
+axios.interceptors.request.use(config => {
+  config.headers.Authorization = 'Bearer token123' // 自动添加 token
+  return config
+})
+
+// 响应拦截器（收到响应后统一处理）
+axios.interceptors.response.use(
+  response => {
+    return response.data // 直接返回数据部分
+  },
+  error => {
+    alert('全局错误提示') // 统一错误处理
+    return Promise.reject(error)
+  }
+)
+
+// 使用时会变得更简洁
+const response = await axios.get('/api/data') // 直接拿到数据
+```
+
+### 开发技巧
+

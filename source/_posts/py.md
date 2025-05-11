@@ -269,8 +269,6 @@ for x in range(10):
 results = [y for x in range(10) if (y := x * x) > 10]
 ```
 
-
-
 ## 面向对象
 
 ```python
@@ -435,4 +433,380 @@ from ..test1 import devide
     __outhor__='cwdpsky'
     ```
 
-    
+
+## NumPy
+
+安装
+
+`pip install numpy`或`conda install numpy`
+
+### n维数组对象`ndarray`
+
+创建`ndarray`对象,只需调用 NumPy 的 array 函数即可：
+
+```python
+numpy.array(object, dtype = None, copy = True, order = None, subok = False, ndmin = 0)
+```
+
+**参数说明：**
+
+| 名称 | 描述 |
+| --- | --- |
+| object | 数组或嵌套的数列 |
+| dtype | 数组元素的数据类型，可选 |
+| copy | 对象是否需要复制，可选 |
+| order | 创建数组的样式，C为行方向，F为列方向，A为任意方向（默认） |
+| subok | 默认返回一个与基类类型一致的数组 |
+| ndmin | 指定生成数组的最小维度 |
+
+#### 实例
+
+接下来可以通过以下实例帮助我们更好的理解。
+
+实例 1
+```python
+import numpy as np 
+a = np.array([1,2,3])  
+print (a)
+```
+输出结果如下：
+```bash
+[1 2 3]
+```
+实例 2
+```python
+# 多于一个维度  
+import numpy as np 
+a = np.array([[1,  2],  [3,  4]])  
+print (a)
+```
+输出结果如下：
+
+```bash
+[[1  2] 
+ [3  4]]
+```
+
+实例 3
+
+```python
+# 最小维度  
+import numpy as np 
+a = np.array([1, 2, 3, 4, 5], ndmin =  2)  
+print (a)
+```
+
+输出如下(注意这里有两层中括号，意味着这是一个二维数组)：
+```bash
+[[1 2 3 4 5]]
+```
+
+实例 4
+
+```python
+# dtype 参数  
+import numpy as np 
+a = np.array([1,  2,  3], dtype = complex)  #复数
+print (a)
+```
+
+输出结果如下：
+
+```bash
+[1.+0.j 2.+0.j 3.+0.j]
+```
+
+#### 数组属性
+
+&nbsp;&nbsp;&nbsp;&nbsp;NumPy 数组的维数称为秩（rank），秩就是轴的数量，即数组的维度，一维数组的秩为 1，二维数组的秩为 2，以此类推。
+
+&nbsp;&nbsp;&nbsp;&nbsp;在 NumPy中，每一个线性的数组称为是一个轴（axis），也就是维度（dimensions）。比如说，二维数组相当于是两个一维数组，其中第一个一维数组中每个元素又是一个一维数组。所以一维数组就是 NumPy 中的轴（axis），第一个轴相当于是底层数组，第二个轴是底层数组里的数组。而轴的数量——秩，就是数组的维数。
+
+&nbsp;&nbsp;&nbsp;&nbsp;很多时候可以声明 axis。axis=0，表示沿着第 0 轴进行操作，即对***每一列***进行操作；axis=1，表示沿着第1轴进行操作，即对***每一行***进行操作。
+
+&nbsp;&nbsp;&nbsp;&nbsp;NumPy 的数组中比较重要 ndarray 对象属性有：
+
+| 属性               | 说明                                                         |
+| ------------------ | ------------------------------------------------------------ |
+| `ndarray.ndim`     | 数组的秩（rank），即数组的维度数量或轴的数量。               |
+| `ndarray.shape`    | 数组的维度，表示数组在每个轴上的大小。对于二维数组（矩阵），表示其行数和列数。 |
+| `ndarray.size`     | 数组中元素的总个数，等于 `ndarray.shape` 中各个轴上大小的乘积。 |
+| `ndarray.dtype`    | 数组中元素的数据类型。                                       |
+| `ndarray.itemsize` | 数组中每个元素的大小，以字节为单位。                         |
+| `ndarray.flags`    | 包含有关内存布局的信息，如是否为 C 或 Fortran 连续存储，是否为只读等。 |
+| `ndarray.real`     | 数组中每个元素的实部（如果元素类型为复数）。                 |
+| `ndarray.imag`     | 数组中每个元素的虚部（如果元素类型为复数）。                 |
+| `ndarray.data`     | 实际存储数组元素的缓冲区，一般通过索引访问元素，不直接使用该属性。 |
+
+#### ndarray.ndim
+
+ndarray.ndim 用于获取数组的维度数量（即数组的轴数）。
+
+
+```python
+import numpy as np 
+ 
+a = np.arange(24)  
+print (a.ndim)             # a 现只有一个维度
+# 现在调整其大小
+b = a.reshape(2,4,3)  # b 现在拥有三个维度
+print (b.ndim)
+```
+
+输出结果为：
+
+```
+1
+3
+```
+
+#### ndarray.shape
+
+ndarray.shape 表示数组的维度，返回一个元组，这个元组的长度就是维度的数目，即 ndim 属性(秩)。比如，一个二维数组，其维度表示"行数"和"列数"。
+
+ndarray.shape 也可以用于调整数组大小。
+
+```python
+import numpy as np  
+ 
+a = np.array([[1,2,3],[4,5,6]])  
+print (a.shape)
+```
+
+输出结果为：
+
+```
+(2, 3)
+```
+
+调整数组大小。
+
+```python
+import numpy as np 
+ 
+a = np.array([[1,2,3],[4,5,6]]) 
+a.shape =  (3,2)  
+print (a)
+```
+
+输出结果为：
+
+```
+[[1 2]
+ [3 4]
+ [5 6]]
+```
+
+NumPy 也提供了 reshape 函数来调整数组大小
+
+```python
+import numpy as np 
+ 
+a = np.array([[1,2,3],[4,5,6]]) 
+b = a.reshape(3,2)  
+print (b)
+```
+
+输出结果为：
+
+```
+[[1 2]
+ [3 4]
+ [5 6]]
+```
+
+### NumPy创建数组
+
+#### numpy.empty
+
+```python
+numpy.empty(shape, dtype = float, order = 'C')
+```
+
+在使用 numpy.empty 创建数组时，数组中的元素是未初始化的内存值，既不是 0，也不保证是任何特定值，而是取决于当时内存的残留数据（可能是随机值、垃圾值或之前程序残留的数据）。
+
+参数说明：
+
+| 参数 | 描述 |
+| --- | --- |
+| shape | 数组形状 |
+| dtype | 数据类型，可选 |
+| order | 有"C"和"F"两个选项,分别代表，行优先和列优先，在计算机内存中的存储元素的顺序。 |
+
+```python
+import numpy as np 
+x = np.empty([3,2], dtype = int) 
+print (x)
+```
+输出结果为：
+
+```bash
+[[0 0]
+ [0 0]
+ [0 0]]
+```
+
+#### numpy.zeros
+
+创建指定大小的数组，数组元素以 0 来填充：
+
+```python
+numpy.zeros(shape, dtype = float, order = 'C')
+```
+
+参数说明：
+
+| 参数 | 描述 |
+| --- | --- |
+| shape | 数组形状 |
+| dtype | 数据类型，可选 |
+| order | 'C' 用于 C 的行数组，或者 'F' 用于 FORTRAN 的列数组 |
+
+```python
+import numpy as np
+ 
+# 默认为浮点数
+x = np.zeros(5) 
+print(x)
+ 
+# 设置类型为整数
+y = np.zeros((5), dtype = int) 
+print(y)
+ 
+# 自定义类型。(2,3)指定矩阵的尺寸，dtype中的x，y指定矩阵中的每个元素包含x,y以及它们的数据类型。
+z = np.zeros((2,2), dtype = [('x', 'int'), ('y', 'float')])  
+print(z)
+```
+
+输出结果为：
+
+```
+[0. 0. 0. 0. 0.]
+[0 0 0 0 0]
+[[(0, 0.) (0, 0.) (0, 0.)]
+ [(0, 0.) (0, 0.) (0, 0.)]]
+```
+
+#### numpy.ones
+
+创建指定形状的数组，数组元素以 1 来填充：
+
+```
+numpy.ones(shape, dtype = None, order = 'C')
+```
+
+参数说明：
+
+| 参数 | 描述 |
+| --- | --- |
+| shape | 数组形状 |
+| dtype | 数据类型，可选 |
+| order | 'C' 用于 C 的行数组，或者 'F' 用于 FORTRAN 的列数组 |
+
+```python
+import numpy as np
+ 
+# 默认为浮点数
+x = np.ones(5) 
+print(x)
+ 
+# 自定义类型
+x = np.ones([2,2], dtype = int)
+print(x)
+```
+
+输出结果为：
+
+```
+[1. 1. 1. 1. 1.]
+[[1 1]
+ [1 1]]
+```
+
+#### numpy.zeros\_like
+
+numpy.zeros\_like 用于创建一个与给定数组具有相同形状的数组，数组元素以 0 来填充。
+
+numpy.zeros 和 numpy.zeros\_like 都是用于创建一个指定形状的数组，其中所有元素都是 0。
+
+它们之间的区别在于：numpy.zeros 可以直接指定要创建的数组的形状，而 numpy.zeros\_like 则是创建一个与给定数组具有相同形状的数组。
+
+```python
+numpy.zeros_like(a, dtype=None, order='K', subok=True, shape=None)
+```
+
+参数说明：
+
+| 参数 | 描述 |
+| --- | --- |
+| a | 给定要创建相同形状的数组 |
+| dtype | 创建的数组的数据类型 |
+| order | 数组在内存中的存储顺序，可选值为 'C'（按行优先）或 'F'（按列优先），默认为 'K'（保留输入数组的存储顺序） |
+| subok | 是否允许返回子类，如果为 True，则返回一个子类对象，否则返回一个与 a 数组具有相同数据类型和存储顺序的数组 |
+| shape | 创建的数组的形状，如果不指定，则默认为 a 数组的形状。 |
+
+创建一个与 arr 形状相同的，所有元素都为 0 的数组：
+
+```python
+import numpy as np
+ 
+# 创建一个 3x3 的二维数组
+arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+ 
+# 创建一个与 arr 形状相同的，所有元素都为 0 的数组
+zeros_arr = np.zeros_like(arr)
+print(zeros_arr)
+
+```
+
+输出结果为：
+
+```
+[[0 0 0]
+ [0 0 0]
+ [0 0 0]]
+```
+
+#### numpy.ones\_like
+
+numpy.ones\_like 用于创建一个与给定数组具有相同形状的数组，数组元素以 1 来填充。
+
+numpy.ones 和 numpy.ones\_like 都是用于创建一个指定形状的数组，其中所有元素都是 1。
+
+它们之间的区别在于：numpy.ones 可以直接指定要创建的数组的形状，而 numpy.ones\_like 则是创建一个与给定数组具有相同形状的数组。
+
+```
+numpy.ones_like(a, dtype=None, order='K', subok=True, shape=None)
+```
+
+参数说明：
+
+| 参数 | 描述 |
+| --- | --- |
+| a | 给定要创建相同形状的数组 |
+| dtype | 创建的数组的数据类型 |
+| order | 数组在内存中的存储顺序，可选值为 'C'（按行优先）或 'F'（按列优先），默认为 'K'（保留输入数组的存储顺序） |
+| subok | 是否允许返回子类，如果为 True，则返回一个子类对象，否则返回一个与 a 数组具有相同数据类型和存储顺序的数组 |
+| shape | 创建的数组的形状，如果不指定，则默认为 a 数组的形状。 |
+
+创建一个与 arr 形状相同的，所有元素都为 1 的数组：
+
+```python
+import numpy as np
+ 
+# 创建一个 3x3 的二维数组
+arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+ 
+# 创建一个与 arr 形状相同的，所有元素都为 1 的数组
+ones_arr = np.ones_like(arr)
+print(ones_arr)
+
+```
+
+输出结果为：
+
+```
+[[1 1 1]
+ [1 1 1]
+ [1 1 1]]
+```
