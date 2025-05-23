@@ -27,6 +27,7 @@ banner_img: /images/壁纸.jpg
 | 主键约束 | 主键是一行数据的唯一标识，非空且唯一             | `primary key` |
 | 默认约束 | 若未规定该字段值，采用默认值                     | `default`     |
 | 外键约束 | 让两张表的数据建立连接，保证数据的一致性和完整性 | `foreign key` |
+|          |                                                  | `check`       |
 
 **数据类型**：
 数值类型：
@@ -258,7 +259,7 @@ SQL 条件运算符：
 
 `select 字段列表 from 表名 [where 条件列表] group by 分组字段名 [having 分组后过滤条件];`
 
-> where是分组前进行过滤，不满足where条件不参与分组，而having是分组之后对结果进行过滤
+> where是分组前进行过滤，不满足where条件不参与分组，不能使用聚合函数，而having是分组之后对结果进行过滤
 
 #### 聚合函数
 
@@ -362,3 +363,298 @@ SHOW GRANTS;
 SHOW GRANTS FOR 'sutuo_admin'@'localhost';
 ```
 
+## 视图
+
+用于有些数据需要频繁的查询
+
+视图是一个虚拟表，基于 SQL 查询的结果集。它不存储实际数据，而是动态地从基表（物理表）中获取数据。
+
+> 看起来是创建了一个新表，但本质上是记录了sql语句，当查询视图时，本质上执行了视图相关的sql语句
+
+```sql
+CREATE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
+
+查询视图
+
+```sql
+SELECT * FROM orders_2023;
+```
+
+**视图的更新限制**
+
+- **可更新视图**：满足以下条件时，可以通过视图修改基表数据：
+    - 视图基于单表（无 `JOIN`）。
+    - 不包含聚合函数、`DISTINCT`、`GROUP BY` 等操作。
+- **不可更新视图**：涉及多表关联或聚合操作时，无法直接通过视图修改数据
+
+## 索引
+
+索引是数据库中加速数据检索的数据结构（如 B-tree、哈希表）。它类似于书籍的目录，通过预排序或哈希映射快速定位数据。
+
+**常见索引类型**：
+
+| 索引类型     | 适用场景                          | 特点                         |
+| :----------- | :-------------------------------- | :--------------------------- |
+| **B-tree**   | 范围查询（如 `WHERE age > 18`）   | 支持排序、范围查询，通用性强 |
+| **哈希索引** | 精确查询（如 `WHERE id = 100`）   | 查询极快，不支持范围查询     |
+| **全文索引** | 文本搜索（如 `LIKE '%keyword%'`） | 优化文本模糊匹配             |
+| **复合索引** | 多列组合查询                      | 按列顺序匹配查询条件         |
+
+**2. 索引的创建与使用**
+**语法**：
+
+```sql
+CREATE INDEX index_name
+ON table_name (column1, column2, ...);
+```
+
+**示例**：
+在 `orders` 表的 `customer_id` 列上创建索引：
+
+```sql
+CREATE INDEX idx_customer
+ON orders (customer_id);
+```
+
+**查询优化效果**：
+
+```sql
+SELECT * FROM orders
+WHERE customer_id = 'A';  -- 使用索引加速
+```
+
+------
+
+**3. 索引的优缺点**
+
+- **优点**：
+    - 显著提高查询速度（尤其是大数据表）。
+    - 加速 `JOIN` 和 `ORDER BY` 操作。
+- **缺点**：
+    - 占用额外存储空间。
+    - 增删改操作变慢（需维护索引）。
+
+原理举例
+
+**1. 无索引的查询（全表扫描）**
+
+假设有一张 `users` 表（100 万行数据），执行以下查询：
+
+```sql
+SELECT * FROM users WHERE email = 'zhangsan@example.com';
+```
+
+- **操作流程**：
+    数据库会逐行扫描所有 100 万条记录，检查每行的 `email` 是否符合条件。
+- **时间复杂度**：O(N)（线性时间），数据量越大越慢。
+
+**2. 有索引的查询（B-tree 索引）**
+
+在 `email` 列上创建索引：
+
+```sql
+CREATE INDEX idx_email ON users(email);
+```
+
+再次执行相同查询：
+
+- **操作流程**：
+    1. 数据库使用 B-tree 索引（一种平衡树结构），快速定位到 `email = 'zhangsan@example.com'` 的存储位置。
+    2. 直接读取对应的数据行（通常只需几次磁盘 I/O）。
+- **时间复杂度**：O(log N)（对数时间），速度极快。
+
+## 触发器
+
+是一种特殊的数据库对象，它在指定的数据库事件（如 `INSERT`、`UPDATE`、`DELETE`）发生时自动执行预定义的操作。触发器常用于实现数据一致性约束、审计日志记录、级联更新/删除等业务逻辑。
+
+| **特性**     | **说明**                                                     |
+| :----------- | :----------------------------------------------------------- |
+| **触发事件** | `INSERT`、`UPDATE`、`DELETE`（可单独或组合使用）。           |
+| **触发时机** | `BEFORE`（操作前执行）或 `AFTER`（操作后执行）。             |
+| **触发粒度** | **行级触发器**（每行操作触发一次）或 **语句级触发器**（整个语句触发一次）。 |
+| **适用场景** | 数据校验、自动填充字段、维护业务规则、记录审计日志等。       |
+
+```sql
+CREATE TRIGGER trigger_name
+{BEFORE | AFTER} {INSERT | UPDATE | DELETE}
+ON table_name
+FOR EACH ROW  -- 行级触发器（默认）
+BEGIN
+    -- 触发器逻辑（如 SQL 或存储过程代码）
+END;
+```
+
+### **触发器的常见应用场景**
+
+##### **示例 1：数据校验（BEFORE INSERT）**
+
+确保插入的订单金额大于 0：
+
+```sql
+CREATE TRIGGER validate_order_amount
+BEFORE INSERT ON orders
+FOR EACH ROW
+BEGIN
+    IF NEW.amount <= 0 THEN
+        SIGNAL SQLSTATE '45000' 
+        SET MESSAGE_TEXT = '订单金额必须大于 0';
+    END IF;
+END;
+```
+
+- **效果**：插入金额 ≤ 0 的订单会抛出错误。
+
+------
+
+##### **示例 2：自动维护审计日志（AFTER UPDATE）**
+
+记录用户信息的修改历史：
+
+```sql
+CREATE TRIGGER log_user_changes
+AFTER UPDATE ON users
+FOR EACH ROW
+BEGIN
+    INSERT INTO audit_log (user_id, action, old_email, new_email, change_time)
+    VALUES (OLD.id, 'UPDATE', OLD.email, NEW.email, NOW());
+END;
+```
+
+- **效果**：每次更新用户邮箱时，自动记录到 `audit_log` 表。
+
+------
+
+##### **示例 3：级联更新库存（AFTER INSERT）**
+
+插入订单后自动减少库存：
+
+```sql
+CREATE TRIGGER update_inventory
+AFTER INSERT ON orders
+FOR EACH ROW
+BEGIN
+    UPDATE products
+    SET stock = stock - NEW.quantity
+    WHERE product_id = NEW.product_id;
+END;
+```
+
+- **效果**：新订单插入后，对应产品的库存自动减少。
+
+例子：
+
+假设有一个 `orders` 订单表和一个 `audit_log` 审计日志表，需求是：**每次订单状态更新时，自动记录修改日志**。
+
+```sql
+-- 订单表
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    customer_id VARCHAR(50),
+    status VARCHAR(20),  -- 状态字段（如 'pending', 'shipped'）
+    amount DECIMAL(10,2)
+);
+
+-- 审计日志表
+CREATE TABLE audit_log (
+    log_id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT,
+    old_status VARCHAR(20),
+    new_status VARCHAR(20),
+    change_time DATETIME
+);
+```
+
+**触发器代码**
+
+```sql
+DELIMITER $$  -- 修改语句分隔符（仅MySQL需要）
+
+CREATE TRIGGER after_order_status_update
+AFTER UPDATE ON orders
+FOR EACH ROW
+BEGIN
+    -- 仅当 status 字段实际发生变化时记录日志
+    IF OLD.status <> NEW.status THEN
+        INSERT INTO audit_log (order_id, old_status, new_status, change_time)
+        VALUES (OLD.order_id, OLD.status, NEW.status, NOW());
+    END IF;
+END$$
+
+DELIMITER ;  -- 恢复默认分隔符
+```
+
+### **DECLARE：声明变量**
+
+```sql
+DECLARE 变量名 数据类型 [DEFAULT 默认值];
+```
+
+- **作用**：声明一个变量，并指定其数据类型（如 `INT`、`VARCHAR`、`DECLIMAL` 等）。
+- **适用场景**：存储过程、函数、触发器或批处理脚本中。
+
+```sql
+DECLARE user_count INT;          -- 声明一个整数变量
+DECLARE user_name VARCHAR(50) DEFAULT '匿名用户';  -- 声明并设置默认值
+```
+
+**注意：**
+
+- **作用域**：变量仅在声明它的代码块（如 `BEGIN...END`）内有效。
+- **默认值**：若不指定 `DEFAULT`，变量初始值为 `NULL`。
+
+### **SET：变量赋值**
+
+```sql
+SET 变量名 = 值;  -- 通用写法
+或
+SELECT 值 INTO 变量名;  -- 通过查询赋值（需确保查询返回单值）
+```
+
+- **作用**：为已声明的变量赋值。
+- **区别**：
+    - `SET` 直接赋值。
+    - `SELECT INTO` 从查询结果中赋值（要求结果必须为单行单列）。
+
+```sql
+-- 示例1：直接赋值
+SET user_count = 100;  
+SET user_name = '张三';
+
+-- 示例2：通过查询赋值
+SELECT COUNT(*) INTO user_count FROM users WHERE age > 18;
+```
+
+```sql
+SET user_count = 10, user_name = '李四';  -- 同时为多个变量赋值
+```
+
+### **DECLARE 和 SET 的完整流程**
+
+```sql
+-- 声明变量
+DECLARE adult_count INT;
+DECLARE result_text VARCHAR(100);
+
+-- 赋值：查询成年用户数量
+SELECT COUNT(*) INTO adult_count FROM users WHERE age >= 18;
+
+-- 根据数量生成结果描述
+IF adult_count > 0 THEN
+    SET result_text = CONCAT('成年用户数量：', adult_count);
+ELSE
+    SET result_text = '没有符合条件的用户';
+END IF;
+
+-- 输出结果
+SELECT result_text;
+```
+
+**执行结果**：
+
+| result_text     |
+| :-------------- |
+| 成年用户数量：5 |
