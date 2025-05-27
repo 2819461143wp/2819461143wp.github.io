@@ -29,7 +29,7 @@ F(x)=∫ _{v(x)}^{u(x)}​f(t,x)dt
 $$
 其导数为：
 $$
-\frac{d}{dx}F(x) = f(u(x),x)u'(x) - f(v(x),x)v'(x) + ∫[v(x),u(x)] \frac{∂}{∂x}f(t,x) dt
+\frac{d}{dx}F(x) = f(u(x),x)u'(x) - f(v(x),x)v'(x) + ∫_{v(x)}^{u(x)}\frac{∂}{∂x}f(t,x) dt
 $$
 **三、分类公式与示例**
 
