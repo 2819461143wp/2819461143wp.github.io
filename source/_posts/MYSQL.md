@@ -29,6 +29,15 @@ banner_img: /images/壁纸.jpg
 | 外键约束 | 让两张表的数据建立连接，保证数据的一致性和完整性 | `foreign key` |
 |          |                                                  | `check`       |
 
+```sql
+CREATE TABLE Products (
+    ProductID INT PRIMARY KEY,
+    Price DECIMAL(10,2),
+    Discount DECIMAL(10,2),
+    CONSTRAINT chk_discount CHECK (Discount >= 0 AND Discount <= Price)
+);
+```
+
 **数据类型**：
 数值类型：
 ![数值类型](../images/SQL/数值类型.png)
@@ -467,194 +476,8 @@ CREATE INDEX idx_email ON users(email);
     2. 直接读取对应的数据行（通常只需几次磁盘 I/O）。
 - **时间复杂度**：O(log N)（对数时间），速度极快。
 
-## 触发器
+##
 
-是一种特殊的数据库对象，它在指定的数据库事件（如 `INSERT`、`UPDATE`、`DELETE`）发生时自动执行预定义的操作。触发器常用于实现数据一致性约束、审计日志记录、级联更新/删除等业务逻辑。
-
-| **特性**     | **说明**                                                     |
-| :----------- | :----------------------------------------------------------- |
-| **触发事件** | `INSERT`、`UPDATE`、`DELETE`（可单独或组合使用）。           |
-| **触发时机** | `BEFORE`（操作前执行）或 `AFTER`（操作后执行）。             |
-| **触发粒度** | **行级触发器**（每行操作触发一次）或 **语句级触发器**（整个语句触发一次）。 |
-| **适用场景** | 数据校验、自动填充字段、维护业务规则、记录审计日志等。       |
-
-```sql
-CREATE TRIGGER trigger_name
-{BEFORE | AFTER} {INSERT | UPDATE | DELETE}
-ON table_name
-FOR EACH ROW  -- 行级触发器（默认）
-BEGIN
-    -- 触发器逻辑（如 SQL 或存储过程代码）
-END;
-```
-
-### **触发器的常见应用场景**
-
-##### **示例 1：数据校验（BEFORE INSERT）**
-
-确保插入的订单金额大于 0：
-
-```sql
-CREATE TRIGGER validate_order_amount
-BEFORE INSERT ON orders
-FOR EACH ROW
-BEGIN
-    IF NEW.amount <= 0 THEN
-        SIGNAL SQLSTATE '45000' 
-        SET MESSAGE_TEXT = '订单金额必须大于 0';
-    END IF;
-END;
-```
-
-- **效果**：插入金额 ≤ 0 的订单会抛出错误。
-
-------
-
-##### **示例 2：自动维护审计日志（AFTER UPDATE）**
-
-记录用户信息的修改历史：
-
-```sql
-CREATE TRIGGER log_user_changes
-AFTER UPDATE ON users
-FOR EACH ROW
-BEGIN
-    INSERT INTO audit_log (user_id, action, old_email, new_email, change_time)
-    VALUES (OLD.id, 'UPDATE', OLD.email, NEW.email, NOW());
-END;
-```
-
-- **效果**：每次更新用户邮箱时，自动记录到 `audit_log` 表。
-
-------
-
-##### **示例 3：级联更新库存（AFTER INSERT）**
-
-插入订单后自动减少库存：
-
-```sql
-CREATE TRIGGER update_inventory
-AFTER INSERT ON orders
-FOR EACH ROW
-BEGIN
-    UPDATE products
-    SET stock = stock - NEW.quantity
-    WHERE product_id = NEW.product_id;
-END;
-```
-
-- **效果**：新订单插入后，对应产品的库存自动减少。
-
-例子：
-
-假设有一个 `orders` 订单表和一个 `audit_log` 审计日志表，需求是：**每次订单状态更新时，自动记录修改日志**。
-
-```sql
--- 订单表
-CREATE TABLE orders (
-    order_id INT PRIMARY KEY,
-    customer_id VARCHAR(50),
-    status VARCHAR(20),  -- 状态字段（如 'pending', 'shipped'）
-    amount DECIMAL(10,2)
-);
-
--- 审计日志表
-CREATE TABLE audit_log (
-    log_id INT AUTO_INCREMENT PRIMARY KEY,
-    order_id INT,
-    old_status VARCHAR(20),
-    new_status VARCHAR(20),
-    change_time DATETIME
-);
-```
-
-**触发器代码**
-
-```sql
-DELIMITER $$  -- 修改语句分隔符（仅MySQL需要）
-
-CREATE TRIGGER after_order_status_update
-AFTER UPDATE ON orders
-FOR EACH ROW
-BEGIN
-    -- 仅当 status 字段实际发生变化时记录日志
-    IF OLD.status <> NEW.status THEN
-        INSERT INTO audit_log (order_id, old_status, new_status, change_time)
-        VALUES (OLD.order_id, OLD.status, NEW.status, NOW());
-    END IF;
-END$$
-
-DELIMITER ;  -- 恢复默认分隔符
-```
-
-### **DECLARE：声明变量**
-
-```sql
-DECLARE 变量名 数据类型 [DEFAULT 默认值];
-```
-
-- **作用**：声明一个变量，并指定其数据类型（如 `INT`、`VARCHAR`、`DECLIMAL` 等）。
-- **适用场景**：存储过程、函数、触发器或批处理脚本中。
-
-```sql
-DECLARE user_count INT;          -- 声明一个整数变量
-DECLARE user_name VARCHAR(50) DEFAULT '匿名用户';  -- 声明并设置默认值
-```
-
-**注意：**
-
-- **作用域**：变量仅在声明它的代码块（如 `BEGIN...END`）内有效。
-- **默认值**：若不指定 `DEFAULT`，变量初始值为 `NULL`。
-
-### **SET：变量赋值**
-
-```sql
-SET 变量名 = 值;  -- 通用写法
-或
-SELECT 值 INTO 变量名;  -- 通过查询赋值（需确保查询返回单值）
-```
-
-- **作用**：为已声明的变量赋值。
-- **区别**：
-    - `SET` 直接赋值。
-    - `SELECT INTO` 从查询结果中赋值（要求结果必须为单行单列）。
-
-```sql
--- 示例1：直接赋值
-SET user_count = 100;  
-SET user_name = '张三';
-
--- 示例2：通过查询赋值
-SELECT COUNT(*) INTO user_count FROM users WHERE age > 18;
-```
-
-```sql
-SET user_count = 10, user_name = '李四';  -- 同时为多个变量赋值
-```
-
-### **DECLARE 和 SET 的完整流程**
-
-```sql
--- 声明变量
-DECLARE adult_count INT;
-DECLARE result_text VARCHAR(100);
-
--- 赋值：查询成年用户数量
-SELECT COUNT(*) INTO adult_count FROM users WHERE age >= 18;
-
--- 根据数量生成结果描述
-IF adult_count > 0 THEN
-    SET result_text = CONCAT('成年用户数量：', adult_count);
-ELSE
-    SET result_text = '没有符合条件的用户';
-END IF;
-
--- 输出结果
-SELECT result_text;
-```
-
-**执行结果**：
-
-| result_text     |
-| :-------------- |
-| 成年用户数量：5 |
+|      |
+| :--- |
+|      |
