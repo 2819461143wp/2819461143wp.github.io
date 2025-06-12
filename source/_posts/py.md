@@ -64,7 +64,7 @@ len([1,2,3])#3
 print([1,2,3]+[4,5,6])# [1, 2, 3, 4, 5, 6]
 [1,2,3]*2 # [1, 2, 3, 1, 2, 3]
 3 in [1,2,3] # True
-print(list)
+print(list) #['www']
 list.extend([1,2,3])#['www', 1, 2, 3]
 list.count('Google') # 0
 list.insert(2,'he')#['www', 1, 'he', 2, 3]
@@ -274,7 +274,7 @@ results = [y for x in range(10) if (y := x * x) > 10]
 ```python
 class Employee:
     '所有员工的基类'
-    empCount = 0  # 成员变量
+    empCount = 0  # 成员变量/这个类的值
     name = ""
     salary = 0
 
@@ -571,20 +571,7 @@ import numpy as np
  
 a = np.array([[1,2,3],[4,5,6]])  
 print (a.shape)
-```
-
-输出结果为：
-
-```
-(2, 3)
-```
-
-调整数组大小。
-
-```python
-import numpy as np 
- 
-a = np.array([[1,2,3],[4,5,6]]) 
+# 现在调整数组的形状
 a.shape =  (3,2)  
 print (a)
 ```
@@ -592,6 +579,7 @@ print (a)
 输出结果为：
 
 ```
+(2, 3)
 [[1 2]
  [3 4]
  [5 6]]
@@ -810,3 +798,455 @@ print(ones_arr)
  [1 1 1]
  [1 1 1]]
 ```
+
+## pandas
+
+pandas是基于NumPy的数据分析库，提供了高性能、易用的数据结构和数据分析工具。
+
+安装：`pip install pandas` 或 `conda install pandas`
+
+### 数据结构
+
+#### Series（一维数据）
+
+Series是一种类似于一维数组的对象，由数据和索引组成。
+
+```python
+import pandas as pd
+import numpy as np
+
+# 创建Series
+s1 = pd.Series([1, 3, 5, np.nan, 6, 8])
+print(s1)
+
+# 指定索引
+s2 = pd.Series([1, 2, 3, 4], index=['a', 'b', 'c', 'd'])
+print(s2)
+
+# 从字典创建
+data = {'a': 1, 'b': 2, 'c': 3}
+s3 = pd.Series(data)
+print(s3)
+```
+
+#### DataFrame（二维数据）
+
+DataFrame是二维的表格型数据结构，有行索引和列索引。
+
+```python
+# 从字典创建
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie'],
+    'Age': [25, 30, 35],
+    'City': ['New York', 'Paris', 'London']
+}
+df = pd.DataFrame(data)
+print(df)
+
+# 从NumPy数组创建
+dates = pd.date_range('20240101', periods=6)
+df2 = pd.DataFrame(np.random.randn(6, 4), index=dates, columns=list('ABCD'))
+print(df2)
+```
+
+### 数据操作
+
+#### 数据查看
+
+```python
+# 查看前几行
+df.head()  # 默认前5行
+df.head(3)  # 前3行
+
+# 查看后几行
+df.tail()
+
+# 查看数据信息
+df.info()
+
+# 描述性统计
+df.describe()
+
+# 查看形状
+df.shape
+
+# 查看列名
+df.columns
+
+# 查看索引
+df.index
+```
+
+#### 数据选择
+
+```python
+# 选择列
+df['Name']  # 单列
+df[['Name', 'Age']]  # 多列
+
+# 选择行
+df.loc[0]  # 按标签选择
+df.iloc[0]  # 按位置选择
+
+# 切片
+df[0:2]  # 前2行
+df.loc[0:2, 'Name':'Age']  # 行列切片
+
+# 条件筛选
+df[df['Age'] > 25]
+df[df['City'].isin(['New York', 'Paris'])]
+```
+
+#### 数据修改
+
+```python
+# 添加新列
+df['Salary'] = [50000, 60000, 70000]
+
+# 修改数据
+df.loc[0, 'Age'] = 26
+
+# 删除列
+df.drop('Salary', axis=1, inplace=True)
+
+# 删除行
+df.drop(0, axis=0, inplace=True)
+```
+
+### 数据处理
+
+#### 处理缺失值
+
+```python
+# 检查缺失值
+df.isnull()
+df.isna()
+
+# 删除缺失值
+df.dropna()  # 删除包含缺失值的行
+df.dropna(axis=1)  # 删除包含缺失值的列
+
+# 填充缺失值
+df.fillna(0)  # 用0填充
+df.fillna(method='ffill')  # 前向填充
+df.fillna(df.mean())  # 用均值填充
+```
+
+#### 数据分组和聚合
+
+```python
+# 分组
+grouped = df.groupby('City')
+
+# 聚合操作
+grouped.mean()
+grouped.sum()
+grouped.count()
+
+# 多重聚合
+df.groupby('City').agg({'Age': 'mean', 'Salary': 'sum'})
+```
+
+#### 数据合并
+
+```python
+# 连接
+pd.concat([df1, df2])  # 垂直连接
+pd.concat([df1, df2], axis=1)  # 水平连接
+
+# 合并
+pd.merge(df1, df2, on='key')  # 内连接
+pd.merge(df1, df2, on='key', how='left')  # 左连接
+```
+
+### 文件读写
+
+```python
+# 读取文件
+df = pd.read_csv('data.csv')
+df = pd.read_excel('data.xlsx')
+df = pd.read_json('data.json')
+
+# 写入文件
+df.to_csv('output.csv', index=False)
+df.to_excel('output.xlsx', index=False)
+df.to_json('output.json')
+```
+
+## Scikit-Learn
+
+Scikit-Learn是Python中最流行的机器学习库，提供了各种监督和无监督学习算法。
+
+安装：`pip install scikit-learn` 或 `conda install scikit-learn`
+
+### 基本工作流程
+
+```python
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+import pandas as pd
+import numpy as np
+
+# 1. 加载数据
+# 这里使用示例数据
+from sklearn.datasets import load_boston
+data = load_boston()
+X, y = data.data, data.target
+
+# 2. 数据划分
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# 3. 数据预处理
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# 4. 模型训练
+model = LinearRegression()
+model.fit(X_train_scaled, y_train)
+
+# 5. 预测
+y_pred = model.predict(X_test_scaled)
+
+# 6. 评估
+mse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+print(f'MSE: {mse}, R²: {r2}')
+```
+
+### 常见算法
+
+#### 线性回归
+
+```python
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
+
+# 普通线性回归
+lr = LinearRegression()
+lr.fit(X_train, y_train)
+
+# 岭回归（L2正则化）
+ridge = Ridge(alpha=1.0)
+ridge.fit(X_train, y_train)
+
+# Lasso回归（L1正则化）
+lasso = Lasso(alpha=1.0)
+lasso.fit(X_train, y_train)
+```
+
+#### 逻辑回归
+
+```python
+from sklearn.linear_model import LogisticRegression
+from sklearn.datasets import load_iris
+
+# 加载分类数据
+iris = load_iris()
+X, y = iris.data, iris.target
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# 逻辑回归
+log_reg = LogisticRegression()
+log_reg.fit(X_train, y_train)
+y_pred = log_reg.predict(X_test)
+
+# 分类评估
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+print(f'Accuracy: {accuracy_score(y_test, y_pred)}')
+print(classification_report(y_test, y_pred))
+```
+
+#### 决策树
+
+```python
+from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
+
+# 分类树
+dt_clf = DecisionTreeClassifier(max_depth=5, random_state=42)
+dt_clf.fit(X_train, y_train)
+
+# 回归树
+dt_reg = DecisionTreeRegressor(max_depth=5, random_state=42)
+dt_reg.fit(X_train, y_train)
+```
+
+#### 随机森林
+
+```python
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
+
+# 随机森林分类
+rf_clf = RandomForestClassifier(n_estimators=100, random_state=42)
+rf_clf.fit(X_train, y_train)
+
+# 随机森林回归
+rf_reg = RandomForestRegressor(n_estimators=100, random_state=42)
+rf_reg.fit(X_train, y_train)
+
+# 特征重要性
+feature_importance = rf_clf.feature_importances_
+```
+
+#### 支持向量机
+
+```python
+from sklearn.svm import SVC, SVR
+
+# SVM分类
+svm_clf = SVC(kernel='rbf', C=1.0)
+svm_clf.fit(X_train, y_train)
+
+# SVM回归
+svm_reg = SVR(kernel='rbf', C=1.0)
+svm_reg.fit(X_train, y_train)
+```
+
+#### K-均值聚类
+
+```python
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+
+# K-均值聚类
+kmeans = KMeans(n_clusters=3, random_state=42)
+clusters = kmeans.fit_predict(X)
+
+# 聚类中心
+centers = kmeans.cluster_centers_
+```
+
+### 数据预处理
+
+#### 特征缩放
+
+```python
+from sklearn.preprocessing import StandardScaler, MinMaxScaler, RobustScaler
+
+# 标准化（零均值，单位方差）
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# 最小-最大缩放
+minmax_scaler = MinMaxScaler()
+X_minmax = minmax_scaler.fit_transform(X)
+
+# 鲁棒缩放
+robust_scaler = RobustScaler()
+X_robust = robust_scaler.fit_transform(X)
+```
+
+#### 特征编码
+
+```python
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+
+# 标签编码
+le = LabelEncoder()
+y_encoded = le.fit_transform(y)
+
+# 独热编码
+from sklearn.preprocessing import get_dummies
+df_encoded = pd.get_dummies(df, columns=['category_column'])
+```
+
+### 模型评估
+
+#### 交叉验证
+
+```python
+from sklearn.model_selection import cross_val_score, KFold
+
+# K折交叉验证
+scores = cross_val_score(model, X, y, cv=5)
+print(f'CV scores: {scores}')
+print(f'Mean CV score: {scores.mean()} (+/- {scores.std() * 2})')
+
+# 自定义交叉验证
+kf = KFold(n_splits=5, shuffle=True, random_state=42)
+scores = cross_val_score(model, X, y, cv=kf)
+```
+
+#### 网格搜索
+
+```python
+from sklearn.model_selection import GridSearchCV
+
+# 参数网格
+param_grid = {
+    'n_estimators': [50, 100, 200],
+    'max_depth': [3, 5, 7],
+    'min_samples_split': [2, 5, 10]
+}
+
+# 网格搜索
+grid_search = GridSearchCV(RandomForestClassifier(), param_grid, cv=5)
+grid_search.fit(X_train, y_train)
+
+# 最佳参数
+print(f'Best parameters: {grid_search.best_params_}')
+print(f'Best score: {grid_search.best_score_}')
+```
+
+#### 学习曲线
+
+```python
+from sklearn.model_selection import learning_curve
+
+# 绘制学习曲线
+train_sizes, train_scores, val_scores = learning_curve(
+    model, X, y, cv=5, train_sizes=np.linspace(0.1, 1.0, 10)
+)
+
+# 绘图
+plt.figure(figsize=(10, 6))
+plt.plot(train_sizes, train_scores.mean(axis=1), label='Training score')
+plt.plot(train_sizes, val_scores.mean(axis=1), label='Validation score')
+plt.xlabel('Training Size')
+plt.ylabel('Score')
+plt.legend()
+plt.show()
+```
+
+### 管道（Pipeline）
+
+```python
+from sklearn.pipeline import Pipeline
+
+# 创建管道
+pipe = Pipeline([
+    ('scaler', StandardScaler()),
+    ('classifier', RandomForestClassifier())
+])
+
+# 训练管道
+pipe.fit(X_train, y_train)
+
+# 预测
+y_pred = pipe.predict(X_test)
+
+# 在网格搜索中使用管道
+param_grid = {
+    'classifier__n_estimators': [50, 100],
+    'classifier__max_depth': [3, 5]
+}
+
+grid_search = GridSearchCV(pipe, param_grid, cv=5)
+grid_search.fit(X_train, y_train)
+```
+
+## 机器学习
+
+### 分类
+
+|          | 肯定类别       | 否定类别       |
+| -------- | -------------- | -------------- |
+| 阳性判断 | 真阳性记录数TP | 假阳性记录数FP |
+| 阴性判断 | 假阴性记录数FN | 真阴性记录数TN |
+
+精确率：precision=$\frac{TP}{TP+FP}$,表示预测为正的样本中有多少是真正的正的样本
+
+召回率：recall=$\frac{TP}{TP+FN}$，表示预测为正且正确的样本占预测为正的比例
+
+### 支持向量机（SVM）
