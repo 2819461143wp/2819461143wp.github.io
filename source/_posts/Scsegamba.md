@@ -1,5 +1,5 @@
 ---
-title: Mamba out！
+title: Scsegamba
 date: 2025-8-2 10:56:26
 categories:
   - note
