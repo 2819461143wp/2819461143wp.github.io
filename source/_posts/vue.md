@@ -729,8 +729,6 @@ function changefullname2(){
     </style>
     ```
 
-    
-
 - 监视上述多个数据
 
     ```vue
@@ -790,7 +788,6 @@ function changefullname2(){
     </style>
     ```
 
-    
 
 ### watcheffect
 
@@ -1092,4 +1089,20 @@ const response = await axios.get('/api/data') // 直接拿到数据
 ```
 
 ### 开发技巧
+
+## new
+
+```vue
+   <nav>
+
+​    <RouterLink to="/">Home</RouterLink>
+
+​    <RouterLink to="/about">About</RouterLink>
+
+   </nav>
+```
+
+
+
+
 
