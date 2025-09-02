@@ -24,7 +24,7 @@ banner_img: /images/壁纸.jpg
 
 ### EDFFN
 
-![EDFFN结构](../images/Scsegamba/Scsegamba网络图.png)
+![EDFFN结构](../images/Scsegamba/EDFFN结构.png)
 
 EDFFN 是一种高效的频域前馈网络，旨在增强图像复原任务中的局部-频域信息。
 
