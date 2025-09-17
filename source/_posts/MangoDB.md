@@ -1,5 +1,5 @@
 ---
-title: MYSQL
+title: MangoDB
 date: 2025-09-02 13:56:26
 categories:
   - note
