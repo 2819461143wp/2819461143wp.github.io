@@ -12,11 +12,11 @@ banner_img: /images/壁纸.jpg
 
 #### 三角函数
 
-双曲正弦函数：
+&nbsp;&nbsp;&nbsp;&nbsp;双曲正弦函数：
 $$
 sinh(x)=\frac{e^x-e^{-x}}{2}
 $$
-反双曲正弦函数：
+&nbsp;&nbsp;&nbsp;&nbsp;反双曲正弦函数：
 $$
 arsinh(x)=ln(x+\sqrt{x^2+1})
 $$
@@ -27,16 +27,28 @@ $$
 
 - $[ln(x+\sqrt{x^2+1})]'=\frac{1}{\sqrt{x^2+1}}$,所以$\int\frac{1}{\sqrt{x^2+1}}dx=ln(x+\sqrt{x^2+1})+C$
 
-双曲余弦函数:
+&nbsp;&nbsp;&nbsp;&nbsp;双曲余弦函数:
 $$
 cosh(x)=\frac{e^x+e^{-x}}{2}
 $$
 
 ![三角函数图](../images/math/三角函数图.png)
 
+&nbsp;&nbsp;&nbsp;&nbsp;双曲正切函数：
+$$
+tanh(x)=\frac {sinh(x)}{cosh(x)}
+$$
+&nbsp;&nbsp;&nbsp;&nbsp;$sin(arcsinx)=x,x\in [-1,1],sin(arccosx)=\sqrt{1-x^2},x\in [-1,1]$
+
+&nbsp;&nbsp;&nbsp;&nbsp;$cos(arccosx)=x,x\in [-1,1],cos(arcsinx)=\sqrt{1-x^2},x\in [-1,1]$
+
+&nbsp;&nbsp;&nbsp;&nbsp;三角函数求反函数先移到$[-\frac{\pi}{2},\frac{\pi}{2}]$，再求反函数
+
+![反函数求解](../images/math/反函数求解.jpg)
+
 #### 等价无穷小
 
-实质是将分式上下同乘1，进行相消操作，因此无法在加减的情况下运用
+&nbsp;&nbsp;&nbsp;&nbsp;实质是将分式上下同乘1，进行相消操作，因此无法在加减的情况下运用
 
 #### 函数奇偶性判定
 
@@ -46,6 +58,20 @@ $$
 - $f[\phi](x)$，若$\phi(x)$为偶函数，整个为偶函数，$\phi(x)$为奇函数则复合函数奇偶性与外层函数奇偶性一致
 - 函数求导一次奇偶性互换
 - 对任意的$x,y$,都有$f(x+y)=f(x)+f(y)$，则$f(x)$是奇函数
+
+
+$$
+[|f(x)|]' &= [\sqrt{f^2(x)}] \\
+&= \frac{2f(x)f'(x)}{2\sqrt{f^2(x)}} \\
+&= \frac{f(x)f'(x)}{|f(x)|}\\
+$$
+
+$$
+ln(e+\frac{1}{x})-1 &= ln(e+\frac{1}{x}) - lne\\
+&=ln(1+\frac{1}{ex})\\
+$$
+
+
 
 #### 二元函数求极值
 
@@ -60,15 +86,15 @@ $$
 ####  变限积分求导
 
 **一、基本形式**
-若 `f(x)` 连续，$F(x) = ∫[a,x] f(t) dt$，则：
+&nbsp;&nbsp;&nbsp;&nbsp;若 `f(x)` 连续，$F(x) = ∫[a,x] f(t) dt$，则：
 $$
 \frac{d}{dx}F(x) = f(x)
 $$
-**几何意义**：积分变限函数 F(x)*F*(*x*) 的导数等于被积函数 f(x)*f*(*x*) 在上限处的值。
+&nbsp;&nbsp;&nbsp;&nbsp;**几何意义**：积分变限函数 F(x)*F*(*x*) 的导数等于被积函数 f(x)*f*(*x*) 在上限处的值。
 
 **二、一般形式的变限积分求导**
 
-若积分上下限均为函数 $u(x)$ 和 $v(x)$，且被积函数含参变量 $t$，即：
+&nbsp;&nbsp;&nbsp;&nbsp;若积分上下限均为函数 $u(x)$ 和 $v(x)$，且被积函数含参变量 $t$，即：
 
 $$
 F(x)=∫ _{v(x)}^{u(x)}​f(t,x)dt
