@@ -142,11 +142,11 @@ $$
 ####  变限积分求导
 
 **一、基本形式**
-&nbsp;&nbsp;&nbsp;&nbsp;若 `f(x)` 连续，$F(x) = ∫[a,x] f(t) dt$，则：
+&nbsp;&nbsp;&nbsp;&nbsp;若 `f(x)` 连续，$F(x) = ∫_a^x f(t) dt$，则：
 $$
 \frac{d}{dx}F(x) = f(x)
 $$
-&nbsp;&nbsp;&nbsp;&nbsp;**几何意义**：积分变限函数 F(x)*F*(*x*) 的导数等于被积函数 f(x)*f*(*x*) 在上限处的值。
+&nbsp;&nbsp;&nbsp;&nbsp;**几何意义**：积分变限函数F*(*x*) 的导数等于被积函数 f(x)*在上限处的值。
 
 **二、一般形式的变限积分求导**
 
