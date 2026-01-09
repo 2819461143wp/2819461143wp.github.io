@@ -24,6 +24,31 @@ class MLP(nn.Module):
         return self.out(F.relu(self.hidden(X)))
 ```
 
+```python
+class MLP(nn.Module):
+    def __init__(self, input_dim, hidden_dim1, hidden_dim2, output_dim, dropout_rate=0.2):
+        super(MLP, self).__init__()
+        # 定义多层感知机的层结构
+        self.layers = nn.Sequential(
+            # 第一层线性层：输入维度 → 第一个隐藏层维度
+            nn.Linear(input_dim, hidden_dim1),
+            nn.ReLU(),  # 激活函数，引入非线性
+            nn.Dropout(dropout_rate),  # Dropout 防止过拟合
+            
+            # 第二层线性层：第一个隐藏层 → 第二个隐藏层
+            nn.Linear(hidden_dim1, hidden_dim2),
+            nn.ReLU(),
+            nn.Dropout(dropout_rate),
+            
+            # 输出层：第二个隐藏层 → 输出维度（分类任务=类别数，回归任务=1）
+            nn.Linear(hidden_dim2, output_dim)
+        )
+    
+    # 前向传播（自动调用）
+    def forward(self, x):
+        return self.layers(x)
+```
+
 LeNet
 
 ```python
@@ -63,22 +88,20 @@ net = nn.Sequential(
 - nn.Tanh()  # Tanh 激活函数，将输出压缩到 (-1, 1) 区间
 - nn.ReLU(inplace=True),  # ReLU 激活函数，inplace=True 节省内存
 - nn.Linear(128, 64)  # 全连接层，输入 128 维，输出 64 维
-- nn.Conv2d(256, 256, kernel_size=3, padding=1),  # 2D 卷积层，256个输入通道，256个输出通道，3x3 卷积核
+- nn.Conv2d(256, 256, kernel_size=3, padding=1, stride=1),  # 2D 卷积层，256个输入通道，256个输出通道，3x3 卷积核
 - nn.BatchNorm2d(512),  # 批归一化层，对 512 个通道进行归一化，加速训练并提高稳定性
-- nn.ReLU(inplace=True),  # ReLU 激活函数
 - nn.MaxPool2d(kernel_size=2, stride=2),  # 最大池化层，2x2 窗口降采样
 - nn.Dropout(0.5),  # Dropout 层，50% 的概率随机失活
 - torch.flatten(x, 1)  # 展平张量，从第1维开始（保留 batch 维度）
 - torch.zeros(3, 224, 224)  # 创建 3 通道、224x224 尺寸的全零张量
-- nn.MultiheadAttention(d_model, nhead, dropout=dropout,
-- batch_first=True)  # 多头注意力机制，d_model 是特征维度，nhead 是注意力头数，batch_first=True 表示输入格式为 (batch, seq, feature)
-    nn.LayerNorm(d_model)  # 层归一化，对 d_model 维度的特征进行归一化，常用于 Transformer 架构
+- nn.MultiheadAttention(d_model,nhead,dropout=dropout,batch_first=True)  # 多头注意力机制，d_model 是特征维度，nhead 是注意力头数，batch_first=True 表示输入格式为 (batch, seq, feature)
+- nn.LayerNorm(d_model)  # 层归一化，对 d_model 维度的特征进行归一化，常用于 Transformer 架构
 - nn.GELU()  # GELU 激活函数（高斯误差线性单元），比 ReLU 更平滑，常用于 Transformer 模型如 BERT、GPT
 - self.criterion = nn.CrossEntropyLoss() # 交叉熵损失函数
-
 - torch.device('cuda')
-
 - nn.backward()#梯度下降
+- nn.Paramter()#torch张量
+- self.rnn = nn.RNN(input_size, hidden_size, batch_first=True, bidirectional=False)
 
 1.请从任务类型、输出形式和损失函数三个方面，对比softmax回归与逻辑回归的不同。
 (1) 任务类型：
@@ -145,3 +168,19 @@ Sigmoid优点：输出值在(0,1)区间，可直接表示概率；
 两阶段算法，检测精度高，缺点是步骤多、速度慢，不适合实时任务。
 (3) SSD
 单阶段算法，兼顾速度和精度，对小目标的检测效果比YOLO好。
+
+8. loss不收敛
+
+- 学习率过大或过小
+
+- 梯度问题
+
+- 数据问题
+
+- 模型不适合
+
+- 权重初始化不当
+
+- 优化器与超参选择不当
+
+    
