@@ -111,14 +111,6 @@ relative_link: ture # 是否使用相对链接，false 表示使用绝对链接
 future: true # 是否显示未来的文章，true 表示显示
 syntax_highlighter: highlight.js # 语法高亮工具，默认使用 highlight.js
 
-# Pandoc 渲染器配置（hexo-renderer-pandoc）
-# 用于更好地保留复杂 LaTeX 公式，交由 Fluid 的 MathJax 在前端渲染。
-pandoc:
-  pandocPath: pandoc
-  timeout: 10000
-  args:
-    - "--mathjax"
-
 post:
   views:  # 阅读次数
     enable: true
