@@ -199,5 +199,11 @@ u = \phi(t)\\
 v = \psi(t)\\
 \end{cases}$，$z=f(u,v)$,则$\frac{\partial z}{\partial t}=\frac{\partial z}{\partial u}\cdot \frac{\partial u}{\partial t}+\frac{\partial z}{\partial v}\cdot \frac{\partial v}{\partial t}$
 
+线面积分
 
+级数一年求和，一年收敛
+
+旋转曲面
+
+微分方程
 
