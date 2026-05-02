@@ -79,7 +79,7 @@ footer:
 
 # URL
 ## 在此设置您的站点 URL。例如，如果您使用 GitHub Page，请将 URL 设置为 'https://username.github.io/project'
-url: http://2819461143wp.github.io # 网站 URL
+url: https://cwdpsky.top # 网站 URL
 permalink: /:title/ # 文章永久链接格式
 permalink_defaults: # 永久链接默认值
 pretty_urls: # 美化 URL 设置
@@ -107,7 +107,7 @@ external_link: # 外部链接设置
 filename_case: 0 # 文件名大小写，0 表示不变，1 表示小写，2 表示大写
 render_drafts: false # 是否渲染草稿文章，false 表示不渲染
 post_asset_folder: true # 是否为每篇文章创建单独的资源文件夹，true 表示创建
-relative_link: ture # 是否使用相对链接，false 表示使用绝对链接
+relative_link: false # 是否使用相对链接，false 表示使用绝对链接
 future: true # 是否显示未来的文章，true 表示显示
 syntax_highlighter: highlight.js # 语法高亮工具，默认使用 highlight.js
 
@@ -186,10 +186,3 @@ about:
 ## 主题: https://hexo.io/themes/
 theme: fluid # 使用的主题名称
 
-# 部署
-## 文档: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: git
-  repo: https://github.com/2819461143wp/2819461143wp.github.io
-  # example, https://github.com/hexojs/hexojs.github.io
-  branch: gh-pages
