@@ -119,7 +119,16 @@ post:
   math:
     enable: true
     specific: false
-    engine: mathjax
+    engine: katex
+
+markdown_it_plus:
+  highlight: true
+  html: true
+  xhtmlOut: true
+  breaks: true
+  linkify: true
+  typographer: true
+  pre_class: highlight
 
 highlight: # highlight.js 配置
   line_number: true # 是否显示行号，true 表示显示
@@ -185,4 +194,3 @@ about:
 ## 插件: https://hexo.io/plugins/
 ## 主题: https://hexo.io/themes/
 theme: fluid # 使用的主题名称
-
