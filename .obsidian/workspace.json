@@ -13,12 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/高数第十二章.md",
+                "file": "source/_posts/高数竞赛真题.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "高数第十二章"
+              "title": "高数竞赛真题"
+            }
+          },
+          {
+            "id": "c2ab8ab7454450e4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "希腊字母.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "希腊字母"
             }
           }
         ]
@@ -195,15 +209,30 @@
   },
   "active": "cf7ead1338985e7b",
   "lastOpenFiles": [
+    "希腊字母.md",
+    "source/_posts/高数竞赛真题.md",
+    "source/_posts/高数第一章.md",
+    "source/_posts/操作系统第二章.md",
+    "未命名.base",
+    "source/_posts/大数定律与中心极限定理.md",
+    "source/_posts/计组第五章.md",
+    "source/images/计组第五章/指令的执行方式.png",
+    "source/images/计组第五章/效率.png",
+    "source/images/计组第五章/加速比.png",
+    "source/images/计组第五章/吞吐率.png",
+    "source/images/计组第五章/流水线的表示方法.png",
+    "source/images/计组第五章/指令的执行阶段.png",
+    "source/_posts/计组第六章.md",
+    "source/_posts/计网第五章.md",
+    "source/_posts/高数第十二章.md",
+    "source/images/高数第十二章/极限审敛法.png",
+    "source/images/高数第十二章/比较审敛法.png",
     "source/images/高数第十二章/级数性质四.png",
     "source/_posts/高数第八章.md",
-    "希腊字母.md",
-    "source/_posts/高数第十二章.md",
     "source/images/高数第十二章/级数性质三.png",
     "source/images/高数第十二章",
     "source/images/新建文件夹",
     "期末.md",
-    "c63b6023631778c059f3f20485d5fff8.png",
     "九格多模态.md",
     "多光束模型.md",
     "答辩.md",
@@ -215,9 +244,7 @@
     "source/_posts/计算机视觉期末题目.md",
     "source/_posts/高数第六章.md",
     "source/_posts/高数第二章.md",
-    "source/images/高数第十章/三重积分求面积例题.png",
     "未命名.canvas",
-    "2026-05-18.md",
-    "source/images/操作系统第二章/单标志法.png"
+    "2026-05-18.md"
   ]
 }
