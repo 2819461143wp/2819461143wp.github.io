@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/高数竞赛真题.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "高数竞赛真题"
+              "title": "README"
             }
           },
           {
@@ -209,11 +209,17 @@
   },
   "active": "cf7ead1338985e7b",
   "lastOpenFiles": [
-    "希腊字母.md",
+    "url.md",
+    "README.md",
+    "javaweb.md",
+    "未命名.base",
+    "hyperbolic_funcs.png",
+    "news.md",
+    "Q.md",
     "source/_posts/高数竞赛真题.md",
+    "希腊字母.md",
     "source/_posts/高数第一章.md",
     "source/_posts/操作系统第二章.md",
-    "未命名.base",
     "source/_posts/大数定律与中心极限定理.md",
     "source/_posts/计组第五章.md",
     "source/images/计组第五章/指令的执行方式.png",
@@ -229,7 +235,6 @@
     "source/images/高数第十二章/比较审敛法.png",
     "source/images/高数第十二章/级数性质四.png",
     "source/_posts/高数第八章.md",
-    "source/images/高数第十二章/级数性质三.png",
     "source/images/高数第十二章",
     "source/images/新建文件夹",
     "期末.md",
@@ -242,9 +247,6 @@
     "source/_posts/高数第七章.md",
     "神经网络与深度学习期末复习材料.md",
     "source/_posts/计算机视觉期末题目.md",
-    "source/_posts/高数第六章.md",
-    "source/_posts/高数第二章.md",
-    "未命名.canvas",
-    "2026-05-18.md"
+    "未命名.canvas"
   ]
 }
