@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/高数竞赛真题.md",
+                "file": "source/_posts/计组第五章.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "高数竞赛真题"
+              "title": "计组第五章"
             }
           },
           {
@@ -27,15 +27,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "希腊字母.md",
+                "file": "source/_posts/计组第六章.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "希腊字母"
+              "title": "计组第六章"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -92,7 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 260.5
+    "width": 202.5
   },
   "right": {
     "id": "4b6803a237e23d71",
@@ -207,35 +208,36 @@
       "bases:新建数据库": false
     }
   },
-  "active": "cf7ead1338985e7b",
+  "active": "c2ab8ab7454450e4",
   "lastOpenFiles": [
+    "未命名.md",
     "source/_posts/计组第五章.md",
+    "source/images/计组第五章/三种硬件多线程.png",
+    "source/images/计组第五章/硬件多线程示意.png",
+    "source/images/计组第五章/多处理器基本概念.png",
+    "source/_posts/高数第十二章.md",
     "source/_posts/高数竞赛真题.md",
+    "source/images/计组第五章/指令执行过程例题.png",
+    "source/images/计组第五章/无条件转移指令执行过程.png",
+    "source/images/计组第五章/条件转移指令执行过程.png",
+    "source/images/计组第五章/STORE指令执行过程.png",
+    "source/images/计组第五章/LOAD指令执行过程.png",
+    "source/images/计组第五章/运算类指令执行过程.png",
+    "source/images/计组第五章/超长指令字.png",
     "source/_posts/计组第四章.md",
     "source/_posts/计组第三章.md",
-    "source/images/计组第五章/控制相关.png",
-    "source/images/计组第五章/数据相关.png",
-    "Pasted image 20260525194346.png",
-    "source/images/计组第五章/结构相关.png",
     "README.md",
     "url.md",
     "javaweb.md",
     "未命名.base",
-    "hyperbolic_funcs.png",
     "news.md",
     "Q.md",
     "希腊字母.md",
     "source/_posts/高数第一章.md",
     "source/_posts/操作系统第二章.md",
     "source/_posts/大数定律与中心极限定理.md",
-    "source/images/计组第五章/指令的执行方式.png",
-    "source/images/计组第五章/效率.png",
-    "source/images/计组第五章/加速比.png",
-    "source/images/计组第五章/吞吐率.png",
-    "source/images/计组第五章/流水线的表示方法.png",
     "source/_posts/计组第六章.md",
     "source/_posts/计网第五章.md",
-    "source/_posts/高数第十二章.md",
     "source/_posts/高数第八章.md",
     "source/images/高数第十二章",
     "source/images/新建文件夹",
@@ -247,7 +249,6 @@
     "source/_posts/高数.md",
     "source/_posts/高数第十章.md",
     "source/_posts/高数第七章.md",
-    "神经网络与深度学习期末复习材料.md",
     "未命名.canvas"
   ]
 }
