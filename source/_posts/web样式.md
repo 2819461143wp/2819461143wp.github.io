@@ -3,7 +3,8 @@ title: web样式
 date: 2024-12-06 19:56:04
 categories:
   - 期末考试
-tags: [期末]
+tags:
+  - 期末
 index_img:
 banner_img: /images/壁纸.jpg
 ---

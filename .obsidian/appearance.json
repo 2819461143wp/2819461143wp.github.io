@@ -2,5 +2,6 @@
   "cssTheme": "Cupertino",
   "baseFontSizeAction": true,
   "accentColor": "#2b43f7",
-  "theme": "moonstone"
+  "theme": "moonstone",
+  "baseFontSize": 19
 }
