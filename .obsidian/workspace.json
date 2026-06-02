@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/KPM算法.md",
+                "file": "source/_posts/web样式.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "KPM算法"
+              "title": "web样式"
             }
           },
           {
@@ -210,6 +210,7 @@
   },
   "active": "cf7ead1338985e7b",
   "lastOpenFiles": [
+    "source/_posts/KPM算法.md",
     "source/_posts/小程序模拟卷.md",
     "source/_posts/Untitled.md",
     "source/_posts/小程序知识点.md",
@@ -246,7 +247,6 @@
     "url.md",
     "javaweb.md",
     "未命名.base",
-    "news.md",
     "source/images/高数第十二章",
     "source/images/新建文件夹",
     "未命名.canvas"
