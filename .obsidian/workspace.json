@@ -4,46 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "42797459fd720a19",
+        "id": "f82fc9ffb033e5b6",
         "type": "tabs",
         "children": [
           {
-            "id": "7e92847fffc56a54",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "news.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "news"
-            }
-          },
-          {
-            "id": "aee517f544d59d8d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "source/_posts/计网题目.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "计网题目"
-            }
-          }
-        ],
-        "currentTab": 1
-      },
-      {
-        "id": "cd8d1147ef391228",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "b087590aa25a9d24",
+            "id": "de9eed4ccecd0eb1",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -54,20 +19,6 @@
               },
               "icon": "lucide-file",
               "title": "web样式"
-            }
-          },
-          {
-            "id": "5805e3ec55c82555",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "source/_posts/计网第五章.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "计网第五章"
             }
           }
         ]
@@ -243,19 +194,33 @@
       "bases:新建数据库": false
     }
   },
-  "active": "aee517f544d59d8d",
+  "active": "de9eed4ccecd0eb1",
   "lastOpenFiles": [
+    "source/_posts/vue.md",
     "source/_posts/web样式.md",
-    "source/_posts/计网题目.md",
-    "答辩.md",
+    "source/_posts/高数第十一章.md",
+    "source/_posts/计组第七章.md",
+    "source/images/计组第七章/程序查询方式详细过程.png",
+    "source/images/计组第七章/程序查询方式例题.png",
+    "source/images/计组第七章/IO端口编址方式优缺点.png",
+    "Pasted image 20260616184609.png",
+    "source/images/计组第七章/IO端口编址方式.png",
+    "source/images/计组第七章/IO接口的工作原理.png",
+    "source/images/计组第七章/IO接口的作用.png",
+    "source/images/计组第七章/DMA控制方式.png",
+    "source/images/计组第七章/通道控制方式.png",
+    "source/images/计组第七章/IO控制方式.png",
+    "source/images/计组第七章",
+    "source/images/新建文件夹",
+    "source/_posts/计组第六章.md",
+    "source/_posts/计网第六章.md",
     "source/_posts/计网第五章.md",
     "news.md",
-    "source/_posts/vue.md",
-    "e07bac55-c1ac-44a3-a85b-aaba8ed07c0f.png",
+    "source/_posts/计网题目.md",
+    "答辩.md",
     "javaweb.md",
     "README.md",
     "Q.md",
-    "source/_posts/计网第六章.md",
     "source/_posts/计网第四章.md",
     "source/_posts/计网第三章.md",
     "source/_posts/计网第一章.md",
@@ -269,20 +234,7 @@
     "实验一.md",
     "外包.md",
     "问题.md",
-    "希腊字母.md",
-    "edffn.md",
-    "source/_posts/四六级.md",
-    "source/images/高数第十一章/第一类曲线积分的应用.png",
-    "source/images/高数第十一章/对称性计算第一类曲线积分例题二.png",
-    "source/images/高数第十一章/对称性计算第一类曲线积分例题一.png",
-    "source/images/计组第六章/分离式通信.png",
-    "source/images/计组第六章/半同步通信.png",
-    "source/images/计组第六章/异步定时方式.png",
-    "source/images/计组第六章/三种异步定时方式.png",
-    "Pasted image 20260612113941.png",
-    "source/images/计组第六章/同步定时方式.png",
     "source/images/高数第十一章",
-    "source/images/新建文件夹",
     "public/css/site-polish.css",
     "source/css/site-polish.css",
     "未命名.base",
