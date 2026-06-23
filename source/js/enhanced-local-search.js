@@ -10,9 +10,9 @@
   'use strict';
 
   var MAX_ARTICLES = 30;
-  var MAX_MATCHES_PER_ARTICLE = 8;
-  var SNIPPET_RADIUS = 54;
-  var MIN_SNIPPET_DISTANCE = 42;
+  var MAX_MATCHES_PER_ARTICLE = 10;
+  var SNIPPET_RADIUS = 80;
+  var MIN_SNIPPET_DISTANCE = 50;
   var SEARCH_STATE_KEY = 'fluid-enhanced-search-target';
 
   function escapeHtml(value) {

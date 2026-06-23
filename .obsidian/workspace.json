@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "f82fc9ffb033e5b6",
+        "id": "6879a0eed2abe192",
         "type": "tabs",
         "children": [
           {
-            "id": "de9eed4ccecd0eb1",
+            "id": "a1576758fb824bd5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/web样式.md",
+                "file": "source/_posts/试题汇总.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "web样式"
+              "title": "试题汇总"
             }
           }
         ]
@@ -194,22 +194,28 @@
       "bases:新建数据库": false
     }
   },
-  "active": "de9eed4ccecd0eb1",
+  "active": "a1576758fb824bd5",
   "lastOpenFiles": [
-    "source/_posts/vue.md",
+    "source/_posts/软件项目管理案例教程_第5版_MinerU整合整理版.md",
+    "source/_posts/试题汇总.md",
     "source/_posts/web样式.md",
-    "source/_posts/高数第十一章.md",
+    "source/_posts/考研英语.md",
     "source/_posts/计组第七章.md",
+    "source/images/计组第七章/中断服务程序.png",
+    "source/images/计组第七章/硬件向量法实现中断隐指令.png",
+    "source/images/计组第七章/中断判优.png",
+    "source/images/计组第七章/中断请求标记.png",
+    "source/_posts/操作系统第二章.md",
+    "source/images/计组第七章/中断请求的分类.png",
+    "source/_posts/数据结构第五章.md",
+    "source/_posts/数据结构第一章.md",
+    "source/_posts/vue.md",
+    "source/_posts/高数第十一章.md",
     "source/images/计组第七章/程序查询方式详细过程.png",
     "source/images/计组第七章/程序查询方式例题.png",
     "source/images/计组第七章/IO端口编址方式优缺点.png",
     "Pasted image 20260616184609.png",
     "source/images/计组第七章/IO端口编址方式.png",
-    "source/images/计组第七章/IO接口的工作原理.png",
-    "source/images/计组第七章/IO接口的作用.png",
-    "source/images/计组第七章/DMA控制方式.png",
-    "source/images/计组第七章/通道控制方式.png",
-    "source/images/计组第七章/IO控制方式.png",
     "source/images/计组第七章",
     "source/images/新建文件夹",
     "source/_posts/计组第六章.md",
@@ -228,12 +234,6 @@
     "多光束模型.md",
     "九格多模态.md",
     "期末.md",
-    "神经网络与深度学习期末复习材料.md",
-    "实验三.md",
-    "实验四.md",
-    "实验一.md",
-    "外包.md",
-    "问题.md",
     "source/images/高数第十一章",
     "public/css/site-polish.css",
     "source/css/site-polish.css",
