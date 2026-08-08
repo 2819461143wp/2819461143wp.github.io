@@ -1,0 +1,24 @@
+{
+  "id": "conv-1782994538712-fyzubwstf",
+  "providerId": "claude",
+  "title": "如何理解行列式的行列互换，行列式的值保持不变",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1782994538713,
+  "updatedAt": 1783066590777,
+  "lastResponseAt": 1782994576919,
+  "sessionId": "18351c08-5cc5-484a-819c-d5b884b3cfd9",
+  "providerState": {
+    "providerSessionId": "18351c08-5cc5-484a-819c-d5b884b3cfd9"
+  },
+  "currentNote": "source/_posts/线性代数第一章.md",
+  "usage": {
+    "model": "opus[1m]",
+    "inputTokens": 32,
+    "cacheCreationInputTokens": 36587,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 1000000,
+    "contextTokens": 36619,
+    "percentage": 4,
+    "contextWindowIsAuthoritative": true
+  }
+}

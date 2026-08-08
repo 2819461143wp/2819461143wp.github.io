@@ -4,24 +4,39 @@
     "type": "split",
     "children": [
       {
-        "id": "6879a0eed2abe192",
+        "id": "ddc7cfde0b51fa61",
         "type": "tabs",
         "children": [
           {
-            "id": "a1576758fb824bd5",
+            "id": "c942058b9799b464",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/试题汇总.md",
+                "file": "source/_posts/高数第一章.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "试题汇总"
+              "title": "高数第一章"
+            }
+          },
+          {
+            "id": "9fa8409e939bd2f9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "source/_posts/数据结构第八章.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "数据结构第八章"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -41,7 +56,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -78,7 +95,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 346.5
+    "width": 252.5
   },
   "right": {
     "id": "4b6803a237e23d71",
@@ -169,19 +186,28 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "source/_posts/高数第十二章.md"
+                "file": "source/_posts/高数第九章.md"
               },
               "icon": "lucide-info",
-              "title": "高数第十二章的笔记属性"
+              "title": "高数第九章的笔记属性"
+            }
+          },
+          {
+            "id": "ffa3919961c6b223",
+            "type": "leaf",
+            "state": {
+              "type": "claudian-view",
+              "state": {},
+              "icon": "bot",
+              "title": "Claudian"
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 837.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -191,53 +217,55 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "bases:新建数据库": false
+      "bases:新建数据库": false,
+      "realclaudian:Open Claudian": false
     }
   },
-  "active": "a1576758fb824bd5",
+  "active": "9fa8409e939bd2f9",
   "lastOpenFiles": [
-    "source/_posts/软件项目管理案例教程_第5版_MinerU整合整理版.md",
-    "source/_posts/试题汇总.md",
-    "source/_posts/web样式.md",
-    "source/_posts/考研英语.md",
-    "source/_posts/计组第七章.md",
-    "source/images/计组第七章/中断服务程序.png",
-    "source/images/计组第七章/硬件向量法实现中断隐指令.png",
-    "source/images/计组第七章/中断判优.png",
-    "source/images/计组第七章/中断请求标记.png",
-    "source/_posts/操作系统第二章.md",
-    "source/images/计组第七章/中断请求的分类.png",
+    "source/_posts/数据结构第七章.md",
+    "source/_posts/数据结构第六章.md",
     "source/_posts/数据结构第五章.md",
+    "source/_posts/数据结构第四章.md",
+    "source/_posts/数据结构第三章.md",
+    "source/_posts/数据结构第二章.md",
     "source/_posts/数据结构第一章.md",
-    "source/_posts/vue.md",
-    "source/_posts/高数第十一章.md",
-    "source/images/计组第七章/程序查询方式详细过程.png",
-    "source/images/计组第七章/程序查询方式例题.png",
-    "source/images/计组第七章/IO端口编址方式优缺点.png",
-    "Pasted image 20260616184609.png",
-    "source/images/计组第七章/IO端口编址方式.png",
-    "source/images/计组第七章",
+    "source/_posts/数据结构第八章.md",
+    "source/images/数据结构第八章/判断补充虚段.png",
+    "source/images/数据结构第八章/构造虚段.png",
+    "source/images/数据结构第八章/最佳归并树.png",
+    "source/images/数据结构第八章/置换选择排序2.png",
+    "source/images/数据结构第八章/置换选择排序1.png",
+    "source/images/数据结构第八章/置换选择排序.png",
+    "source/images/数据结构第八章/败者树的实现思路.png",
+    "source/images/数据结构第八章/败者树使用.png",
+    "source/images/数据结构第八章/败者树构造.png",
+    "source/_posts/重要排序算法.md",
+    "source/_posts/高数第一章.md",
+    "source/_posts/高数第十二章.md",
+    "source/images/数据结构第八章/多路归并优化.png",
+    "source/images/数据结构第八章",
     "source/images/新建文件夹",
-    "source/_posts/计组第六章.md",
-    "source/_posts/计网第六章.md",
-    "source/_posts/计网第五章.md",
-    "news.md",
-    "source/_posts/计网题目.md",
-    "答辩.md",
-    "javaweb.md",
-    "README.md",
-    "Q.md",
-    "source/_posts/计网第四章.md",
-    "source/_posts/计网第三章.md",
-    "source/_posts/计网第一章.md",
-    "source/_posts/计网第二章.md",
-    "多光束模型.md",
-    "九格多模态.md",
-    "期末.md",
+    "[重要排序算法.md",
+    "source/_posts/最小生成树.md",
+    "source/_posts/四六级.md",
+    "source/_posts/考研英语.md",
+    "source/_posts/考研单词.md",
+    "source/_posts/概率论第一章.md",
+    "source/_posts/线代第一章.md",
+    "source/_posts/概率论第五章.md",
+    "source/_posts/最大公约数、同余原理.md",
+    "source/_posts/前缀树.md",
+    "source/_posts/操作系统第二章.md",
+    "source/_posts/概率论第三章.md",
+    "source/_posts/概率论第二章.md",
+    "source/_posts/概率论第四章.md",
+    "source/_posts/数据库系统概论.md",
+    "未命名.base",
+    "source/images/计组第七章",
     "source/images/高数第十一章",
     "public/css/site-polish.css",
     "source/css/site-polish.css",
-    "未命名.base",
     "source/images/高数第十二章",
     "未命名.canvas"
   ]

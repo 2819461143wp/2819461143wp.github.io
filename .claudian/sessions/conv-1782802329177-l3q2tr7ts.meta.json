@@ -1,0 +1,23 @@
+{
+  "id": "conv-1782802329177-l3q2tr7ts",
+  "providerId": "claude",
+  "title": "what is your model",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1782802329187,
+  "updatedAt": 1786179736625,
+  "lastResponseAt": 1786179736625,
+  "sessionId": "529be6dc-f428-464f-b6e2-c2803c7b4c46",
+  "providerState": {
+    "providerSessionId": "529be6dc-f428-464f-b6e2-c2803c7b4c46"
+  },
+  "usage": {
+    "model": "opus[1m]",
+    "inputTokens": 91,
+    "cacheCreationInputTokens": 5643,
+    "cacheReadInputTokens": 184610,
+    "contextWindow": 1000000,
+    "contextTokens": 190344,
+    "percentage": 19,
+    "contextWindowIsAuthoritative": true
+  }
+}
