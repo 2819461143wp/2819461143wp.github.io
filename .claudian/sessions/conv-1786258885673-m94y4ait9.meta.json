@@ -1,0 +1,23 @@
+{
+  "id": "conv-1786258885673-m94y4ait9",
+  "providerId": "claude",
+  "title": "计算香农定理信道容量",
+  "titleGenerationStatus": "success",
+  "createdAt": 1786258885675,
+  "updatedAt": 1786449707581,
+  "lastResponseAt": 1786449707581,
+  "sessionId": "f731e74a-2bee-46a7-ae1b-dc0940bca955",
+  "providerState": {
+    "providerSessionId": "f731e74a-2bee-46a7-ae1b-dc0940bca955"
+  },
+  "usage": {
+    "model": "opus[1m]",
+    "inputTokens": 16,
+    "cacheCreationInputTokens": 51161,
+    "cacheReadInputTokens": 87,
+    "contextWindow": 1000000,
+    "contextTokens": 51264,
+    "percentage": 5,
+    "contextWindowIsAuthoritative": true
+  }
+}

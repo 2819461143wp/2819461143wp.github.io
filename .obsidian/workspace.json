@@ -4,39 +4,38 @@
     "type": "split",
     "children": [
       {
-        "id": "ddc7cfde0b51fa61",
+        "id": "f1d6caddcf5ba73c",
         "type": "tabs",
         "children": [
           {
-            "id": "c942058b9799b464",
+            "id": "b1bc3b7275362f3c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/高数第一章.md",
+                "file": "source/_posts/操作系统第五章.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "高数第一章"
+              "title": "操作系统第五章"
             }
           },
           {
-            "id": "9fa8409e939bd2f9",
+            "id": "9ba20f446a3b0d71",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/数据结构第八章.md",
+                "file": "希腊字母.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "数据结构第八章"
+              "title": "希腊字母"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -95,7 +94,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 252.5
+    "width": 260.5
   },
   "right": {
     "id": "4b6803a237e23d71",
@@ -207,7 +206,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 837.5
+    "width": 837.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -221,46 +221,47 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "9fa8409e939bd2f9",
+  "active": "a6bb37a7e5e1ea8a",
   "lastOpenFiles": [
-    "source/_posts/数据结构第七章.md",
-    "source/_posts/数据结构第六章.md",
-    "source/_posts/数据结构第五章.md",
-    "source/_posts/数据结构第四章.md",
-    "source/_posts/数据结构第三章.md",
-    "source/_posts/数据结构第二章.md",
-    "source/_posts/数据结构第一章.md",
-    "source/_posts/数据结构第八章.md",
-    "source/images/数据结构第八章/判断补充虚段.png",
-    "source/images/数据结构第八章/构造虚段.png",
-    "source/images/数据结构第八章/最佳归并树.png",
-    "source/images/数据结构第八章/置换选择排序2.png",
-    "source/images/数据结构第八章/置换选择排序1.png",
-    "source/images/数据结构第八章/置换选择排序.png",
-    "source/images/数据结构第八章/败者树的实现思路.png",
-    "source/images/数据结构第八章/败者树使用.png",
-    "source/images/数据结构第八章/败者树构造.png",
-    "source/_posts/重要排序算法.md",
-    "source/_posts/高数第一章.md",
-    "source/_posts/高数第十二章.md",
-    "source/images/数据结构第八章/多路归并优化.png",
-    "source/images/数据结构第八章",
-    "source/images/新建文件夹",
-    "[重要排序算法.md",
-    "source/_posts/最小生成树.md",
-    "source/_posts/四六级.md",
-    "source/_posts/考研英语.md",
-    "source/_posts/考研单词.md",
-    "source/_posts/概率论第一章.md",
-    "source/_posts/线代第一章.md",
-    "source/_posts/概率论第五章.md",
-    "source/_posts/最大公约数、同余原理.md",
-    "source/_posts/前缀树.md",
-    "source/_posts/操作系统第二章.md",
-    "source/_posts/概率论第三章.md",
-    "source/_posts/概率论第二章.md",
+    "source/_posts/计组第三章.md",
+    "source/_posts/操作系统第五章.md",
+    "source/images/操作系统第五章/固态硬盘结构.png",
+    "source/images/操作系统第五章/缓冲池.png",
+    "source/images/操作系统第五章/双缓冲.png",
+    "source/images/操作系统第五章/单缓冲.png",
+    "Pasted image 20260909092144.png",
     "source/_posts/概率论第四章.md",
-    "source/_posts/数据库系统概论.md",
+    "希腊字母.md",
+    "source/_posts/概率论第三章.md",
+    "source/_posts/操作系统第四章.md",
+    "source/images/操作系统第四章/文件系统挂载.png",
+    "source/images/操作系统第四章/统一目录项结构.png",
+    "source/images/操作系统第四章/虚拟文件系统.png",
+    "source/images/操作系统第四章/open系统调用打开过程.png",
+    "source/images/操作系统第四章/写文件.png",
+    "source/_posts/线代第四章.md",
+    "source/_posts/线代第三章.md",
+    "source/_posts/线代第一章.md",
+    "source/_posts/线代第二章.md",
+    "source/_posts/概率论第二章.md",
+    "source/_posts/操作系统第三章.md",
+    "source/_posts/高数第十章.md",
+    "source/_posts/高数第九章.md",
+    "source/_posts/高数第六章.md",
+    "source/_posts/高数第七章.md",
+    "source/_posts/高数第八章.md",
+    "source/_posts/计网第六章.md",
+    "source/_posts/计网第五章.md",
+    "source/_posts/计网第四章.md",
+    "z.md",
+    "答辩.md",
+    "source/_posts/计网第一章.md",
+    "news.md",
+    "source/_posts/计网第三章.md",
+    "source/_posts/计网第二章.md",
+    "source/images/线代第三章",
+    "source/images/新建文件夹",
+    "source/images/数据结构第八章",
     "未命名.base",
     "source/images/计组第七章",
     "source/images/高数第十一章",

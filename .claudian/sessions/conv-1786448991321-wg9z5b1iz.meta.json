@@ -1,0 +1,24 @@
+{
+  "id": "conv-1786448991321-wg9z5b1iz",
+  "providerId": "claude",
+  "title": "Calculate 802.11 NAV with CSMA/CA",
+  "titleGenerationStatus": "success",
+  "createdAt": 1786448991336,
+  "updatedAt": 1786449045493,
+  "lastResponseAt": 1786449045493,
+  "sessionId": "8afc4fb1-ebef-4077-bd5b-fb8872777f24",
+  "providerState": {
+    "providerSessionId": "8afc4fb1-ebef-4077-bd5b-fb8872777f24"
+  },
+  "currentNote": "source/_posts/计网第三章.md",
+  "usage": {
+    "model": "opus[1m]",
+    "inputTokens": 6248,
+    "cacheCreationInputTokens": 762,
+    "cacheReadInputTokens": 31915,
+    "contextWindow": 1000000,
+    "contextTokens": 38925,
+    "percentage": 4,
+    "contextWindowIsAuthoritative": true
+  }
+}
