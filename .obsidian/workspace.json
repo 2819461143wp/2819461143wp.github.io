@@ -4,35 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "f1d6caddcf5ba73c",
+        "id": "f24f06aaf08f0db3",
         "type": "tabs",
         "children": [
           {
-            "id": "149686219a6d0b0e",
+            "id": "12815ba0339aa90f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/概率论第六章.md",
+                "file": "source/_posts/高数第十一章.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "概率论第六章"
+              "title": "高数第十一章"
             }
           },
           {
-            "id": "9ba20f446a3b0d71",
+            "id": "474a61ef62e0a892",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "希腊字母.md",
+                "file": "source/_posts/高数第十二章.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "希腊字母"
+              "title": "高数第十二章"
             }
           }
         ]
@@ -85,7 +85,10 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {},
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
               "icon": "lucide-bookmark",
               "title": "书签"
             }
@@ -94,7 +97,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 212.5
   },
   "right": {
     "id": "4b6803a237e23d71",
@@ -221,44 +224,44 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "149686219a6d0b0e",
+  "active": "12815ba0339aa90f",
   "lastOpenFiles": [
+    "source/_posts/高数第十二章.md",
+    "source/_posts/计组第三章.md",
+    "source/_posts/计组第四章.md",
+    "source/_posts/考研.md",
+    "source/_posts/高数第八章.md",
+    "source/_posts/高数第九章.md",
+    "source/_posts/高数第七章.md",
+    "source/_posts/高数第十一章.md",
+    "source/images/计组第三章/交叉编址的多体并行存储器.png",
+    "source/_posts/计组第五章.md",
+    "source/_posts/计网第五章.md",
+    "source/_posts/马原第一章.md",
+    "source/_posts/计组第二章.md",
+    "source/_posts/概率论第六章.md",
+    "希腊字母.md",
+    "source/_posts/数据结构第六章.md",
+    "source/_posts/高数第六章.md",
+    "source/images/数理统计/拒绝域的相关思想.png",
     "source/images/数理统计/单个正态总体估计方差样本均值未知.png",
     "source/images/数理统计/单个正态总体估计方差样本均值已知.png",
-    "source/_posts/考研.md",
-    "source/_posts/概率论第六章.md",
     "source/images/数理统计/单个正态总体估计均值.png",
-    "source/_posts/计组第二章.md",
     "source/_posts/计组第一章.md",
     "source/images/数理统计/置信区间例题.png",
     "source/images/数理统计/区间估计例题.png",
     "source/images/数理统计/置信区间相关实际概念.png",
     "source/images/数理统计/一致性例题2.png",
     "source/images/数理统计/一致性例题1.png",
-    "希腊字母.md",
-    "source/images/数理统计/有效性例题2.png",
-    "source/images/数理统计/有效性例题1.png",
-    "source/images/数理统计/无偏性例题2.png",
-    "source/_posts/高数第十二章.md",
     "source/_posts/概率论第五章.md",
     "source/_posts/概率论第四章.md",
     "source/_posts/概率论第二章.md",
     "source/_posts/马原第五章.md",
     "source/_posts/马原第四章.md",
     "source/_posts/操作系统第五章.md",
-    "source/_posts/计组第三章.md",
     "source/_posts/概率论第三章.md",
     "source/_posts/操作系统第四章.md",
     "source/_posts/线代第四章.md",
-    "source/_posts/线代第三章.md",
-    "source/_posts/线代第一章.md",
-    "source/_posts/线代第二章.md",
-    "source/_posts/操作系统第三章.md",
-    "source/_posts/高数第十章.md",
-    "source/_posts/高数第九章.md",
-    "source/_posts/高数第六章.md",
-    "source/_posts/高数第七章.md",
-    "source/_posts/高数第八章.md",
     "source/images/线代第三章",
     "source/images/新建文件夹",
     "source/images/数据结构第八章",
