@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/线代第二章.md",
+                "file": "希腊字母.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "线代第二章"
+              "title": "希腊字母"
+            }
+          },
+          {
+            "id": "2978879b02e0db6c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "source/_posts/高数第三章.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "高数第三章"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -55,7 +70,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "等价",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -160,7 +175,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "source/_posts/线代第二章.md",
+                "file": "source/_posts/高数第三章.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -196,49 +211,49 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "bases:新建数据库": false,
-      "copilot:Open Copilot Agent Chat": false
+      "bases:新建数据库": false
     }
   },
-  "active": "f1ad3dfc02cd6f96",
+  "active": "2978879b02e0db6c",
   "lastOpenFiles": [
-    "source/_posts/线代第五章.md",
-    "source/images/线代第五章/二次型等于0的求解.png",
-    "source/images/线代第五章/平方和二次型例题2.png",
-    "source/images/线代第五章/平方和二次型例题1.png",
-    "source/images/线代第五章/平方和二次型例题.png",
-    "source/images/线代第五章/平方和二次型性质.png",
-    "source/images/线代第五章/正交变换例题.png",
-    "source/_posts/线代第四章.md",
-    "source/images/线代第五章/正交变换步骤.png",
-    "source/images/线代第五章/配方法例题2.png",
-    "source/images/线代第五章/配方法例题1.png",
-    "source/images/线代第五章/配方法规范流程.png",
-    "source/_posts/计网第四章.md",
-    "source/_posts/计网第三章.md",
+    "source/_posts/高数第十二章.md",
+    "source/_posts/高数第三章.md",
+    "希腊字母.md",
+    "source/_posts/高数第二章.md",
+    "source/_posts/高数第一章.md",
+    "source/_posts/高数第十一章.md",
+    "source/_posts/计网第六章.md",
     "source/_posts/计网第二章.md",
+    "source/_posts/线代第四章.md",
+    "source/_posts/线代第五章.md",
+    "source/_posts/计组第二章.md",
+    "source/_posts/计组第一章.md",
+    "source/_posts/计网第四章.md",
+    "source/images/线代第五章/矩阵相似与合同例题2.png",
+    "source/images/线代第五章/矩阵相似与合同例题1.png",
+    "source/images/线代第五章/矩阵相似与合同的判定.png",
+    "source/images/线代第五章/涉及正定二次型的例题.png",
+    "source/images/线代第五章/正定二次型结论推导.png",
+    "source/images/线代第五章/正定二次型基础知识.png",
+    "source/images/线代第五章/二次型最值问题例题1-2.png",
+    "source/images/线代第五章/二次型最值问题例题1-1.png",
+    "source/_posts/考研.md",
+    "source/images/线代第五章/二次型最值问题求解方法.png",
+    "source/images/线代第五章/二次型化为另一个二次型例题3.png",
+    "source/_posts/计网第五章.md",
+    "source/_posts/计网第三章.md",
+    "source/_posts/线代第三章.md",
+    "source/_posts/线代第二章.md",
+    "source/_posts/线代第一章.md",
     "source/_posts/考研英语.md",
     "source/images/线代第五章",
     "source/images/新建文件夹",
-    "source/_posts/线代第三章.md",
-    "source/_posts/线代第二章.md",
-    "source/_posts/计组第二章.md",
     "source/_posts/计网第一章.md",
     "source/_posts/数据结构第六章.md",
     "source/_posts/KMP算法.md",
     "source/_posts/重要排序算法.md",
     "source/_posts/数据结构第八章.md",
-    "source/_posts/线代第一章.md",
     "source/_posts/习概第一章.md",
-    "source/_posts/位运算.md",
-    "source/_posts/滑动窗口.md",
-    "source/_posts/背包问题.md",
-    "source/_posts/堆及堆排序.md",
-    "source/_posts/数据结构第五章.md",
-    "source/_posts/分类.md",
-    "source/_posts/动态规划.md",
-    "source/_posts/递归分析.md",
-    "source/_posts/二叉树及其实现.md",
     "source/images/线代第四章",
     "source/images/线代第二章",
     "source/images/数据结构第四章",
