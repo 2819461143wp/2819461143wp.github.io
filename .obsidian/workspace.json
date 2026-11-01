@@ -8,31 +8,31 @@
         "type": "tabs",
         "children": [
           {
-            "id": "f1ad3dfc02cd6f96",
+            "id": "ada1eac3c19bec32",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "希腊字母.md",
+                "file": "source/_posts/线代第五章.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "希腊字母"
+              "title": "线代第五章"
             }
           },
           {
-            "id": "2978879b02e0db6c",
+            "id": "b1055998a3378b17",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/高数第三章.md",
+                "file": "source/_posts/考研纪要.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "高数第三章"
+              "title": "考研纪要"
             }
           }
         ],
@@ -175,7 +175,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "source/_posts/高数第三章.md",
+                "file": "source/_posts/考研纪要.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -214,46 +214,47 @@
       "bases:新建数据库": false
     }
   },
-  "active": "2978879b02e0db6c",
+  "active": "b1055998a3378b17",
   "lastOpenFiles": [
-    "source/_posts/高数第十二章.md",
-    "source/_posts/高数第三章.md",
-    "希腊字母.md",
-    "source/_posts/高数第二章.md",
-    "source/_posts/高数第一章.md",
-    "source/_posts/高数第十一章.md",
-    "source/_posts/计网第六章.md",
-    "source/_posts/计网第二章.md",
-    "source/_posts/线代第四章.md",
+    "source/_posts/考研政治.md",
+    "source/_posts/马原第一章.md",
+    "source/_posts/考研纪要.md",
     "source/_posts/线代第五章.md",
-    "source/_posts/计组第二章.md",
-    "source/_posts/计组第一章.md",
-    "source/_posts/计网第四章.md",
-    "source/images/线代第五章/矩阵相似与合同例题2.png",
-    "source/images/线代第五章/矩阵相似与合同例题1.png",
-    "source/images/线代第五章/矩阵相似与合同的判定.png",
-    "source/images/线代第五章/涉及正定二次型的例题.png",
-    "source/images/线代第五章/正定二次型结论推导.png",
-    "source/images/线代第五章/正定二次型基础知识.png",
-    "source/images/线代第五章/二次型最值问题例题1-2.png",
-    "source/images/线代第五章/二次型最值问题例题1-1.png",
-    "source/_posts/考研.md",
-    "source/images/线代第五章/二次型最值问题求解方法.png",
-    "source/images/线代第五章/二次型化为另一个二次型例题3.png",
-    "source/_posts/计网第五章.md",
-    "source/_posts/计网第三章.md",
     "source/_posts/线代第三章.md",
+    "source/_posts/线代第四章.md",
     "source/_posts/线代第二章.md",
-    "source/_posts/线代第一章.md",
-    "source/_posts/考研英语.md",
-    "source/images/线代第五章",
-    "source/images/新建文件夹",
-    "source/_posts/计网第一章.md",
-    "source/_posts/数据结构第六章.md",
-    "source/_posts/KMP算法.md",
-    "source/_posts/重要排序算法.md",
+    "source/_posts/数据结构第五章.md",
+    "source/_posts/计组第二章.md",
+    "source/_posts/计网第五章.md",
+    "source/_posts/计组第三章.md",
+    "source/_posts/计组第五章.md",
+    "source/_posts/计组第四章.md",
+    "source/_posts/计组第六章.md",
+    "source/_posts/计组第七章.md",
+    "source/_posts/操作系统第五章.md",
+    "source/_posts/高数第九章.md",
+    "source/_posts/高数第六章.md",
+    "source/_posts/高数第八章.md",
+    "source/_posts/高数第七章.md",
+    "source/_posts/高数第十章.md",
     "source/_posts/数据结构第八章.md",
-    "source/_posts/习概第一章.md",
+    "source/_posts/概率论第三章.md",
+    "source/_posts/操作系统第四章.md",
+    "source/_posts/操作系统第三章.md",
+    "source/_posts/概率论第四章.md",
+    "source/images/高数第三章/拉格朗日中值定理例题4.png",
+    "source/images/高数第三章/拉格朗日中值定理例题3.png",
+    "source/images/高数第三章/拉格朗日中值定理例题2.png",
+    "source/images/高数第三章/拉格朗日中值定理例题1.png",
+    "source/images/高数第三章/万能构造法在不等式中的运用例题5.png",
+    "source/images/高数第三章/万能构造法在不等式中的运用例题4.png",
+    "source/images/高数第三章/万能构造法在不等式中的运用例题3.png",
+    "source/images/高数第三章/万能构造法在不等式中的运用例题2.png",
+    "source/images/高数第三章/万能构造法在不等式中的运用例题1.png",
+    "source/images/高数第三章/万能构造法在极限中的运用例题2.png",
+    "source/images/高数第三章",
+    "source/images/新建文件夹",
+    "source/images/线代第五章",
     "source/images/线代第四章",
     "source/images/线代第二章",
     "source/images/数据结构第四章",
@@ -261,7 +262,6 @@
     "copilot/skills/obsidian-cli/LICENSE",
     "copilot/skills/obsidian-cli",
     "copilot/skills/json-canvas/LICENSE",
-    "copilot/skills/json-canvas/references",
     "未命名.canvas"
   ]
 }
